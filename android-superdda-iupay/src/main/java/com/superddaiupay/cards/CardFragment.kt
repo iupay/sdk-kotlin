@@ -41,6 +41,7 @@ class CardFragment : Fragment() {
         Logger.getLogger(javaClass.toString()).info("Loading Card Fragment...")
         view.findViewById<TextView>(R.id.cardTitle).text = this.params?.cardTitle
         view.findViewById<TextView>(R.id.cnpj).text = this.params?.cnpj
+        view.findViewById<TextView>(R.id.cnpj).text = this.params?.cnpj
 
         val drawable = (view.background as LayerDrawable)
         // COR DA BORDA DO CARD
