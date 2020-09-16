@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.superddaiupay.CardFragment
+import com.superddaiupay.cards.CardFragment
+import com.superddaiupay.cards.CardParams
 import java.util.logging.Logger
 
 /**
@@ -32,11 +35,21 @@ class FirstFragment : Fragment() {
 
         val fragmentManager = activity!!.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        val fragment = CardFragment.newInstance("Teste Titulo", "10.9999.999.0001-99", "#D71921", "#FFFFFF")
-
-        fragment.setOnClickListener(View.OnClickListener { v ->
-            Logger.getLogger("TESTE").info("Clicou!!!" + v.contentDescription?.toString())
-        })
+        val params = CardParams()
+        params.cardTitle = "Teste Titulo"
+        params.cnpj = "99.9999.999.0001-99"
+        params.barColor = "#D71921"
+        params.cardColor = "#FFFFFF"
+        params.onClickCard = View.OnClickListener { v ->
+            Logger.getLogger("FistFragment").info("Card Click!!!")
+            Toast.makeText(
+                context,
+                "CNPJ: " + v.findViewById<TextView>(com.superddaiupay.R.id.cnpj).text,
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        val fragment = CardFragment.newInstance(params)
+//        fragment.setOnClickListener()
         fragmentTransaction.add(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
     }
