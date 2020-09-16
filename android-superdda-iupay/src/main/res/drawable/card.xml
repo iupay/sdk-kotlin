@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/card_left_border">
+        <shape
+            android:shape="rectangle">
+            <!-- Set the border color of your layout here -->
+            <solid android:color="#FF9000" />
+            <corners
+                android:bottomLeftRadius="7dp"
+                android:topLeftRadius="7dp"
+                android:bottomRightRadius="7dp"
+                android:topRightRadius="7dp" />
+        </shape>
+    </item>
+
+    <item android:id="@+id/card_center" android:left="8dp" android:right="-1dp">
+        <shape
+            android:shape="rectangle">
+            <!-- Set the background color of your layout here -->
+            <solid android:color="#FFFFFF" />
+            <corners
+                android:bottomRightRadius="7dp"
+                android:topRightRadius="7dp" />
+        </shape>
+    </item>
+</layer-list>
