@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import com.superddaiupay.cards.CardFragment
 import com.superddaiupay.cards.CardParams
+import java.util.*
 import java.util.logging.Logger
 
 /**
@@ -35,22 +38,45 @@ class FirstFragment : Fragment() {
 
         val fragmentManager = activity!!.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
+
         val params = CardParams()
-        params.cardTitle = "Teste Titulo"
-        params.cnpj = "99.9999.999.0001-99"
-        params.barColor = "#D71921"
         params.cardColor = "#FFFFFF"
-        params.onClickCard = View.OnClickListener { v ->
-            Logger.getLogger("FistFragment").info("Card Click!!!")
-            Toast.makeText(
-                context,
-                "CNPJ: " + v.findViewById<TextView>(com.superddaiupay.R.id.cnpj).text,
-                Toast.LENGTH_LONG
-            ).show()
-        }
-        val fragment = CardFragment.newInstance(params)
-//        fragment.setOnClickListener()
-        fragmentTransaction.add(R.id.frameLayout, fragment)
+        params.dueDate = Calendar.getInstance().time
+        params.barColor = "#D71921"
+        params.cnpj = "99.9999.999.0001-99"
+        params.cardTitle = "Teste Titulo"
+        params.text = "Teste Texto"
+        params.value = 1500.5
+        params.isFromMail = true
+        params.isUserAdded = false
+        params.type = CardParams.CardType.NETFLIX
+        params.isLocked = true
+
+        val testFrameFragment = CardFragment.newInstance(params)
+        params.onClickCard = onClickCard()
+        fragmentTransaction.add(R.id.frameLayout, testFrameFragment)
+
+        val defaultCard = CardParams.defaultCard()
+        defaultCard.onClickCard = onClickCard()
+        fragmentTransaction.replace(R.id.fragment1, CardFragment.newInstance(defaultCard))
+
+        val netflixCard = CardParams.netflixCard()
+        netflixCard.onClickCard = onClickCard()
+        fragmentTransaction.replace(R.id.fragment2, CardFragment.newInstance(netflixCard))
+
+        val lightBillCard = CardParams.lightBillCard()
+        lightBillCard.onClickCard = onClickCard()
+        fragmentTransaction.replace(R.id.fragment3, CardFragment.newInstance(lightBillCard))
+
         fragmentTransaction.commit()
+    }
+
+    fun onClickCard() = View.OnClickListener { v ->
+        Logger.getLogger("FistFragment").info("Card Click!!!")
+        Toast.makeText(
+            context,
+            "CNPJ: " + v.findViewById<TextView>(com.superddaiupay.R.id.cnpj).text,
+            LENGTH_SHORT
+        ).show()
     }
 }
