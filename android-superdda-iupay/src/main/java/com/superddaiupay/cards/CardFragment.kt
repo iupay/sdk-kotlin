@@ -72,6 +72,14 @@ class CardFragment : Fragment() {
             }
         }
 
+        if (CardParams.CardType.LIGHTBILL == this.params?.type) {
+            if (this.params?.logo == null) {
+                this.params?.logo = R.drawable.ic_lightbill
+            }
+            if (this.params?.barColor.isNullOrEmpty()) {
+                this.params?.barColor = "#8aa626"
+            }
+        }
 
         // COR DE FUNDO DO CARD
         if (!this.params?.cardColor.isNullOrEmpty()) {
