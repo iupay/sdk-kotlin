@@ -1,8 +1,6 @@
 package com.superddaiupay.cards
 
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import java.io.Serializable
 import java.util.*
 import java.util.logging.Logger
