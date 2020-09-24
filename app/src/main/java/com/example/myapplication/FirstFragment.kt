@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.superddaiupay.cards.CardFragment
 import com.superddaiupay.cards.CardListFragment
 import com.superddaiupay.cards.CardParams
 import java.util.*
@@ -63,7 +64,7 @@ class FirstFragment : Fragment() {
         val cards: List<CardParams> = listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard)
         val cardsListFragment = CardListFragment.newInstance(12, 12, cards)
 
-        val fragmentManager = activity!!.supportFragmentManager
+        val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.cardsListFrame, cardsListFragment)
         fragmentTransaction.commit()
