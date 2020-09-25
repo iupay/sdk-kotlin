@@ -1,7 +1,10 @@
+@file:Suppress("SpellCheckingInspection")
+
 package com.superddaiupay.cards
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
@@ -16,10 +19,11 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class CardUtils {
     @SuppressLint("SetTextI18n")
-    fun buildCard(context: Context, view: View, cardParams: CardParams?): View {
-        val cardParams = if (cardParams == null) CardParams() else cardParams!!
+    fun buildCard(context: Context, view: View, params: CardParams?): View {
+        val cardParams = params ?: CardParams()
 
         val background = view.background as LayerDrawable
         val ivLogo = view.findViewById<ImageView>(R.id.ivLogo)
@@ -37,7 +41,7 @@ class CardUtils {
         // CARD TYPES
         if (CardParams.CardType.NETFLIX == cardParams.type) {
             if (cardParams.logo == null) {
-                cardParams.logo = R.drawable.ic_netflix
+                ivLogo.setImageResource(R.drawable.ic_netflix)
             }
             if (cardParams.barColor.isNullOrEmpty()) {
                 cardParams.barColor = "#D71921"
@@ -46,11 +50,27 @@ class CardUtils {
 
         if (CardParams.CardType.LIGHTBILL == cardParams.type) {
             if (cardParams.logo == null) {
-                cardParams.logo = R.drawable.ic_lightbill
+                ivLogo.setImageResource(R.drawable.ic_lightbill)
             }
             if (cardParams.barColor.isNullOrEmpty()) {
                 cardParams.barColor = "#8aa626"
             }
+        }
+
+        if (CardParams.CardType.NUBANK == cardParams.type) {
+            if (cardParams.logo == null) {
+                ivLogo.setImageBitmap(BitmapFactory.decodeResource(context.resources, R.raw.nubank))
+                cardParams.imageWidth = 250
+                cardParams.imageHeight = 100
+            }
+            if (cardParams.barColor.isNullOrEmpty()) {
+                cardParams.barColor = "#8605b8"
+            }
+        }
+
+        if (!cardParams.creditCardText.isNullOrEmpty()) {
+            cnpj.visibility = View.GONE
+            cnpjLabel.text = cardParams.creditCardText
         }
 
         // COR DE FUNDO DO CARD
@@ -124,7 +144,7 @@ class CardUtils {
 
         // LOGO, IMAGE WIDTH AND IMAGE HEIGHT
         if (cardParams.logo != null) {
-            ivLogo.setImageResource(cardParams.logo!!)
+            ivLogo.setImageBitmap(cardParams.logo!!)
             ivLogo.visibility = View.VISIBLE
         }
         if (ivLogo.visibility == View.VISIBLE) {

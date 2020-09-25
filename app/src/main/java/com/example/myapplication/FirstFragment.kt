@@ -52,8 +52,8 @@ class FirstFragment : Fragment() {
         customCard.dueDate = Calendar.getInstance().time
         customCard.barColor = "blue"
         customCard.cnpj = "10.0000.999.0001-99"
-        customCard.cardTitle = "Teste Titulo"
-        customCard.text = "Teste Texto"
+        customCard.cardTitle = "Title Test"
+        customCard.text = "Text test"
         customCard.value = 1500.5
         customCard.isFromMail = true
         customCard.isUserAdded = false
@@ -61,7 +61,16 @@ class FirstFragment : Fragment() {
         customCard.isLocked = false
         customCard.onClickCard = onClickCard()
 
-        val cards: List<CardParams> = listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard)
+        val nubankCard = CardParams()
+        nubankCard.dueDate = Calendar.getInstance().time
+        nubankCard.creditCardText = "Cartão 5162 **** **** 9090"
+        nubankCard.value = 1376.70
+        nubankCard.isFromMail = true
+        nubankCard.isUserAdded = false
+        nubankCard.type = CardParams.CardType.NUBANK
+        nubankCard.onClickCard = onClickNubankCard()
+
+        val cards: List<CardParams> = listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard, nubankCard)
         val cardsListFragment = CardListFragment.newInstance(12, 12, cards)
 
         val fragmentManager = requireActivity().supportFragmentManager
@@ -75,6 +84,15 @@ class FirstFragment : Fragment() {
         Toast.makeText(
             context,
             "CNPJ: " + v.findViewById<TextView>(com.superddaiupay.R.id.cnpj).text,
+            LENGTH_SHORT
+        ).show()
+    }
+
+    private fun onClickNubankCard() = View.OnClickListener { v ->
+        Logger.getLogger("FistFragment").info("Card Click!!!")
+        Toast.makeText(
+            context,
+            v.findViewById<TextView>(com.superddaiupay.R.id.textBody).text,
             LENGTH_SHORT
         ).show()
     }

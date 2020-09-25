@@ -2,17 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardFrame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/card"
     tools:context=".cards.CardFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp">
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp">
 
         <TextView
             android:id="@+id/cnpjLabel"
@@ -21,7 +20,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="CNPJ:"
+            android:text="@string/card_label_cnpj"
             android:textColor="@color/card_text"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -52,7 +51,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
-            android:text="99.9999.999.0001-99"
+            android:text="@string/card_cnpj_example"
             android:textColor="@color/card_text"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -66,7 +65,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="Hello Storybook"
+            android:text="@string/card_textBody_example"
             android:textColor="@color/card_text"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +78,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
-            android:text="500,00"
+            android:text="@string/card_value_example"
             android:textColor="@color/card_text2"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -93,7 +92,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginBottom="10dp"
-            android:text="R$"
+            android:text="@string/card_label_money_symbol"
             android:textColor="@color/card_text2"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -109,7 +108,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="emailIcon"
+            android:contentDescription="@string/card_description_email_icon"
             android:src="@drawable/ic_mail"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -125,7 +124,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="userIcon"
+            android:contentDescription="@string/card_description_user_icon"
             android:src="@drawable/ic_user"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -142,7 +141,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="14 SET"
+            android:text="@string/card_due_date_example"
             android:textColor="@color/card_text2"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -168,7 +167,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_min="wrap"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            android:contentDescription="@string/card_logo_description" />
 
         <TextView
             android:id="@+id/isPaid"
@@ -177,7 +177,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="PAGO"
+            android:text="@string/PAID"
             android:textColor="@color/card_paid"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"

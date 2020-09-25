@@ -1,5 +1,8 @@
+@file:Suppress("unused", "SpellCheckingInspection")
+
 package com.superddaiupay.cards
 
+import android.graphics.Bitmap
 import android.view.View
 import java.io.Serializable
 import java.util.*
@@ -16,7 +19,7 @@ class CardParams : Serializable {
     var isFromMail: Boolean = false
     var isUserAdded: Boolean = false
     var type: CardType? = CardType.DEFAULT
-    var logo: Int? = null
+    var logo: Bitmap? = null
     var textColor: String? = null
     var isDue: Boolean = false
     var isDueText: String? = DUE_TEXT
@@ -29,6 +32,7 @@ class CardParams : Serializable {
     var isLocked: Boolean = false
     var onClickCard: View.OnClickListener? = null
 
+    var creditCardText: String ?= null
     enum class CardType {
         NETFLIX, NUBANK, LIGHTBILL, DEFAULT
     }
