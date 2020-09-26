@@ -1,4 +1,4 @@
-package com.superddaiupay.cards
+package com.superddaiupay.cards.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.superddaiupay.R
+import com.superddaiupay.cards.CardParams
+import com.superddaiupay.cards.CardUtils
 import java.util.logging.Logger
 
 class CardListAdapter(

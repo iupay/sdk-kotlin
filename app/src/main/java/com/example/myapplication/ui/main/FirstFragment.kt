@@ -1,16 +1,15 @@
-package com.example.myapplication
+package com.example.myapplication.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.superddaiupay.cards.CardListFragment
+import com.example.myapplication.R
+import com.superddaiupay.cards.list.CardListFragment
 import com.superddaiupay.cards.CardParams
 import com.superddaiupay.cards.CardType
 import java.util.*
@@ -27,10 +26,6 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
 
         val defaultCard = CardParams.defaultCard()
         defaultCard.onClickCard = onClickCard()
