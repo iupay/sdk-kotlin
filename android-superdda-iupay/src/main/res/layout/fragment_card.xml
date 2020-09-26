@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp">
 
         <TextView
-            android:id="@+id/cnpjLabel"
+            android:id="@+id/cardTvCnpjLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -25,10 +25,10 @@
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
 
         <TextView
-            android:id="@+id/cardTitle"
+            android:id="@+id/cardTvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -38,14 +38,14 @@
             android:minHeight="19dp"
             android:textStyle="bold"
             app:layout_constrainedWidth="true"
-            app:layout_constraintStart_toEndOf="@+id/ivLogo"
+            app:layout_constraintStart_toEndOf="@+id/cardIvLogo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_min="wrap"
             tools:visibility="visible" />
 
 
         <TextView
-            android:id="@+id/cnpj"
+            android:id="@+id/cardTvCnpjValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -55,11 +55,11 @@
             android:textColor="@color/card_text"
             android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/cnpjLabel"
-            app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+            app:layout_constraintStart_toEndOf="@+id/cardTvCnpjLabel"
+            app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
 
         <TextView
-            android:id="@+id/textBody"
+            android:id="@+id/cardTvTextBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -69,10 +69,10 @@
             android:textColor="@color/card_text"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cnpjLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/cardTvCnpjLabel" />
 
         <TextView
-            android:id="@+id/value"
+            android:id="@+id/cardTvValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -86,7 +86,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/moneySymbol"
+            android:id="@+id/cardTvMoneySymbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="2dp"
@@ -96,12 +96,12 @@
             android:textColor="@color/card_text2"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/value"
+            app:layout_constraintEnd_toStartOf="@+id/cardTvValue"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/ivIcon2" />
+            app:layout_constraintStart_toEndOf="@+id/cardIvIcon2" />
 
         <ImageView
-            android:id="@+id/ivIcon1"
+            android:id="@+id/cardIvIcon1"
             android:layout_width="23dp"
             android:layout_height="19dp"
             android:layout_marginStart="16dp"
@@ -113,11 +113,11 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textBody"
+            app:layout_constraintTop_toBottomOf="@+id/cardTvTextBody"
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
-            android:id="@+id/ivIcon2"
+            android:id="@+id/cardIvIcon2"
             android:layout_width="23dp"
             android:layout_height="19dp"
             android:layout_marginStart="12dp"
@@ -128,12 +128,12 @@
             android:src="@drawable/ic_user"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivIcon1"
-            app:layout_constraintTop_toBottomOf="@+id/textBody"
+            app:layout_constraintStart_toEndOf="@+id/cardIvIcon1"
+            app:layout_constraintTop_toBottomOf="@+id/cardTvTextBody"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/dueDate"
+            android:id="@+id/cardTvDueDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -146,11 +146,11 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.99"
-            app:layout_constraintStart_toEndOf="@+id/cardTitle"
+            app:layout_constraintStart_toEndOf="@+id/cardTvTitle"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivLogo"
+            android:id="@+id/cardIvLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -171,7 +171,7 @@
             android:contentDescription="@string/card_logo_description" />
 
         <TextView
-            android:id="@+id/isPaid"
+            android:id="@+id/cardTvIsPaid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -181,7 +181,7 @@
             android:textColor="@color/card_paid"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dueDate" />
+            app:layout_constraintTop_toBottomOf="@+id/cardTvDueDate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

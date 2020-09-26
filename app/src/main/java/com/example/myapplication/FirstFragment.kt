@@ -83,7 +83,7 @@ class FirstFragment : Fragment() {
         Logger.getLogger("FistFragment").info("Card Click!!!")
         Toast.makeText(
             context,
-            "CNPJ: " + v.findViewById<TextView>(com.superddaiupay.R.id.cnpj).text,
+            "CNPJ: " + v.findViewById<TextView>(com.superddaiupay.R.id.cardTvCnpjValue).text,
             LENGTH_SHORT
         ).show()
     }
@@ -92,7 +92,7 @@ class FirstFragment : Fragment() {
         Logger.getLogger("FistFragment").info("Card Click!!!")
         Toast.makeText(
             context,
-            v.findViewById<TextView>(com.superddaiupay.R.id.textBody).text,
+            v.findViewById<TextView>(com.superddaiupay.R.id.cardTvTextBody).text,
             LENGTH_SHORT
         ).show()
     }

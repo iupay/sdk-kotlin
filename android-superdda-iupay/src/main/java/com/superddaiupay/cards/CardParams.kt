@@ -8,7 +8,7 @@ import java.io.Serializable
 import java.util.*
 import java.util.logging.Logger
 
-class CardParams : Serializable {
+open class CardParams : Serializable {
     var cardColor: String? = "#FFFFFF"
     var dueDate: Date? = null
     var barColor: String? = null

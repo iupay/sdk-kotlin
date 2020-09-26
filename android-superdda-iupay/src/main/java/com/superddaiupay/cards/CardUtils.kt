@@ -26,17 +26,17 @@ class CardUtils {
         val cardParams = params ?: CardParams()
 
         val background = view.background as LayerDrawable
-        val ivLogo = view.findViewById<ImageView>(R.id.ivLogo)
-        val cardTitle = view.findViewById<TextView>(R.id.cardTitle)
-        val cnpjLabel = view.findViewById<TextView>(R.id.cnpjLabel)
-        val cnpj = view.findViewById<TextView>(R.id.cnpj)
-        val textBody = view.findViewById<TextView>(R.id.textBody)
-        val ivIcon1 = view.findViewById<ImageView>(R.id.ivIcon1)
-        val ivIcon2 = view.findViewById<ImageView>(R.id.ivIcon2)
-        val dueDate = view.findViewById<TextView>(R.id.dueDate)
-        val isPaid = view.findViewById<TextView>(R.id.isPaid)
-        val moneySymbol = view.findViewById<TextView>(R.id.moneySymbol)
-        val value = view.findViewById<TextView>(R.id.value)
+        val ivLogo = view.findViewById<ImageView>(R.id.cardIvLogo)
+        val cardTitle = view.findViewById<TextView>(R.id.cardTvTitle)
+        val cnpjLabel = view.findViewById<TextView>(R.id.cardTvCnpjLabel)
+        val cnpj = view.findViewById<TextView>(R.id.cardTvCnpjValue)
+        val textBody = view.findViewById<TextView>(R.id.cardTvTextBody)
+        val ivIcon1 = view.findViewById<ImageView>(R.id.cardIvIcon1)
+        val ivIcon2 = view.findViewById<ImageView>(R.id.cardIvIcon2)
+        val dueDate = view.findViewById<TextView>(R.id.cardTvDueDate)
+        val isPaid = view.findViewById<TextView>(R.id.cardTvIsPaid)
+        val moneySymbol = view.findViewById<TextView>(R.id.cardTvMoneySymbol)
+        val value = view.findViewById<TextView>(R.id.cardTvValue)
 
         // CARD TYPES
         if (CardParams.CardType.NETFLIX == cardParams.type) {
