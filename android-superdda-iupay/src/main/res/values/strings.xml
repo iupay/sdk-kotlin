@@ -9,4 +9,6 @@
     <string name="card_description_email_icon">Email icon</string>
     <string name="card_description_user_icon">User icon</string>
     <string name="card_due_date_example">14 SET</string>
+    <string name="bcard_inativo">Inativo</string>
+    <string name="bcard_ativo">Ativo</string>
 </resources>

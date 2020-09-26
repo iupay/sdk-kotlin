@@ -8,7 +8,8 @@ import java.io.Serializable
 import java.util.*
 import java.util.logging.Logger
 
-open class CardParams : Serializable {
+class CardParams : Serializable {
+    var type: CardType? = CardType.DEFAULT
     var cardColor: String? = "#FFFFFF"
     var dueDate: Date? = null
     var barColor: String? = null
@@ -18,12 +19,10 @@ open class CardParams : Serializable {
     var value: Number? = null
     var isFromMail: Boolean = false
     var isUserAdded: Boolean = false
-    var type: CardType? = CardType.DEFAULT
     var logo: Bitmap? = null
     var textColor: String? = null
     var isDue: Boolean = false
     var isDueText: String? = DUE_TEXT
-
     //   Nao eh possivel sobreescrer estilo var containerStyle: String? = null
     var isPaid: Boolean = false
     var lightBillFlagStatus: LightBillFlagStatus? = null
@@ -33,9 +32,6 @@ open class CardParams : Serializable {
     var onClickCard: View.OnClickListener? = null
 
     var creditCardText: String ?= null
-    enum class CardType {
-        NETFLIX, NUBANK, LIGHTBILL, DEFAULT
-    }
 
     enum class LightBillFlagStatus(val color: String) {
         GREEN("#8aa626"), YELLOW("#ebbf10"), RED("#e30613")

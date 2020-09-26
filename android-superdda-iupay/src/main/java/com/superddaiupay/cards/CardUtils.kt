@@ -39,7 +39,7 @@ class CardUtils {
         val value = view.findViewById<TextView>(R.id.cardTvValue)
 
         // CARD TYPES
-        if (CardParams.CardType.NETFLIX == cardParams.type) {
+        if (CardType.NETFLIX == cardParams.type) {
             if (cardParams.logo == null) {
                 ivLogo.setImageResource(R.drawable.ic_netflix)
             }
@@ -48,7 +48,7 @@ class CardUtils {
             }
         }
 
-        if (CardParams.CardType.LIGHTBILL == cardParams.type) {
+        if (CardType.LIGHTBILL == cardParams.type) {
             if (cardParams.logo == null) {
                 ivLogo.setImageResource(R.drawable.ic_lightbill)
             }
@@ -57,7 +57,7 @@ class CardUtils {
             }
         }
 
-        if (CardParams.CardType.NUBANK == cardParams.type) {
+        if (CardType.NUBANK == cardParams.type) {
             if (cardParams.logo == null) {
                 ivLogo.setImageBitmap(BitmapFactory.decodeResource(context.resources, R.raw.nubank))
                 cardParams.imageWidth = 250
@@ -173,7 +173,7 @@ class CardUtils {
         isPaid.visibility = if (cardParams.isPaid) View.VISIBLE else View.INVISIBLE
 
         // LIGHT BILL FLAG
-        if (CardParams.CardType.LIGHTBILL == cardParams.type
+        if (CardType.LIGHTBILL == cardParams.type
             && cardParams.lightBillFlagStatus != null
         ) {
             val color = Color.parseColor(cardParams.lightBillFlagStatus?.color)

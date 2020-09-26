@@ -12,19 +12,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.superddaiupay.cards.CardListFragment
 import com.superddaiupay.cards.CardParams
+import com.superddaiupay.cards.CardType
 import java.util.*
 import java.util.logging.Logger
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class FirstFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
@@ -57,7 +54,7 @@ class FirstFragment : Fragment() {
         customCard.value = 1500.5
         customCard.isFromMail = true
         customCard.isUserAdded = false
-        customCard.type = CardParams.CardType.DEFAULT
+        customCard.type = CardType.DEFAULT
         customCard.isLocked = false
         customCard.onClickCard = onClickCard()
 
@@ -67,7 +64,7 @@ class FirstFragment : Fragment() {
         nubankCard.value = 1376.70
         nubankCard.isFromMail = true
         nubankCard.isUserAdded = false
-        nubankCard.type = CardParams.CardType.NUBANK
+        nubankCard.type = CardType.NUBANK
         nubankCard.onClickCard = onClickNubankCard()
 
         val cards: List<CardParams> = listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard, nubankCard)
@@ -92,7 +89,7 @@ class FirstFragment : Fragment() {
         Logger.getLogger("FistFragment").info("Card Click!!!")
         Toast.makeText(
             context,
-            v.findViewById<TextView>(com.superddaiupay.R.id.cardTvTextBody).text,
+            v.findViewById<TextView>(com.superddaiupay.R.id.cardTvCnpjLabel).text,
             LENGTH_SHORT
         ).show()
     }
