@@ -11,12 +11,12 @@ import com.superddaiupay.receipt.ReceiptFragment
 private const val ARG_PARAMS = "params"
 
 class FilterSearchesFragment : Fragment() {
-    private var params: String? = null
+    private var params: FilterSearchesParams? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it.getString(ARG_PARAMS)
+            params = it.getSerializable(ARG_PARAMS) as FilterSearchesParams?
         }
     }
 
@@ -29,10 +29,10 @@ class FilterSearchesFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(params: String) =
+        fun newInstance(params: FilterSearchesParams) =
             ReceiptFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAMS, params)
+                    putSerializable(ARG_PARAMS, params)
                 }
             }
     }

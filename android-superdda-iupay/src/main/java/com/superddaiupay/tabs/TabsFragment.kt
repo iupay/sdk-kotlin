@@ -10,12 +10,12 @@ import com.superddaiupay.R
 private const val ARG_PARAMS = "params"
 
 class TabsFragment : Fragment() {
-    private var params: String? = null
+    private var params: TabsParams? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it.getString(ARG_PARAMS)
+            params = it.getSerializable(ARG_PARAMS) as TabsParams?
         }
     }
 
@@ -28,10 +28,10 @@ class TabsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(params: String) =
+        fun newInstance(params: TabsParams) =
             TabsFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAMS, params)
+                    putSerializable(ARG_PARAMS, params)
                 }
             }
     }

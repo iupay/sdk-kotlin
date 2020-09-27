@@ -10,12 +10,12 @@ import com.superddaiupay.R
 private const val ARG_PARAMS = "params"
 
 class PopupFragment : Fragment() {
-    private var params: String? = null
+    private var params: PopupParams? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it.getString(ARG_PARAMS)
+            params = it.getSerializable(ARG_PARAMS) as PopupParams?
         }
     }
 
@@ -28,10 +28,10 @@ class PopupFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(params: String) =
+        fun newInstance(params: PopupParams) =
             PopupFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAMS, params)
+                    putSerializable(ARG_PARAMS, params)
                 }
             }
     }
