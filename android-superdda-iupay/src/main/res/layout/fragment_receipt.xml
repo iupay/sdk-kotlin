@@ -463,7 +463,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="32dp"
                 android:text="@string/receipt_compartilhar_comprovante"
-                android:textColor="#F78C49"
+                android:textColor="@color/superdda_btn_secondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -15,4 +15,6 @@
     <color name="receipt_base">#F78C49</color>
     <color name="payment_details_base">#F78C49</color>
     <color name="payment_details_base_025">#40F78C49</color>
+    <color name="paid_details_base">#F78C49</color>
+    <color name="paid_details_base_025">#40F78C49</color>
 </resources>

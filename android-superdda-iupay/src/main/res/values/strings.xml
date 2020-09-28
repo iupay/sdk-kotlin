@@ -29,4 +29,9 @@
     <string name="receipt_valor_cobrado">Valor Cobrado:</string>
     <string name="receipt_codigo_de_autenticacao">Código de Autenticação:</string>
     <string name="receipt_compartilhar_comprovante">Compartilhar Comprovante</string>
+    <string name="paid_details_ver_comprovante">Ver Comprovante</string>
+    <string name="paid_details_vencimento">Vencimento</string>
+    <string name="paid_details_value">Valor</string>
+    <string name="paid_details_cerj">CERJ</string>
+    <string name="paid_details_screen_image">Screen Image</string>
 </resources>
