@@ -61,7 +61,19 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/paidIvLogo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/paidIvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
+                android:layout_marginLeft="84dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/paid_details_screen_image"
+                android:src="@drawable/ic_lightbill"
+                app:layout_constraintStart_toEndOf="@+id/paidDetailsBtnBack"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -197,18 +209,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="84dp"
-                android:layout_marginLeft="84dp"
-                android:layout_marginTop="16dp"
-                android:contentDescription="@string/paid_details_screen_image"
-                android:src="@drawable/ic_lightbill"
-                app:layout_constraintStart_toEndOf="@+id/paidDetailsBtnBack"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
