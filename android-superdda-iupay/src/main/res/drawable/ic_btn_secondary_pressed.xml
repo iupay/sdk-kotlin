@@ -4,7 +4,7 @@
         android:radius="7dp"
         />
     <solid
-        android:color="@android:color/transparent"
+        android:color="@color/superdda_btn_secondary_pressed"
         />
     <padding
         android:left="0dp"
@@ -16,9 +16,8 @@
         android:width="260dp"
         android:height="50dp"
         />
-
     <stroke
         android:width="2dp"
-        android:color="@color/receipt_base"
+        android:color="@color/superdda_btn_secondary"
         />
 </shape>

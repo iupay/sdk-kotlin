@@ -24,7 +24,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/back_button"
-                android:src="@drawable/ic_btn_back"
+                android:src="@drawable/ic_btn_back_selector"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
                 android:layout_marginRight="16dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/options_button"
-                android:src="@drawable/ic_btn_options"
+                android:src="@drawable/ic_btn_options_selector"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -453,7 +453,7 @@
 
             <Button
                 android:id="@+id/receiptBtnShare"
-                style="@style/Widget.Button.BorderButton"
+                style="@style/Widget.Button.Secondary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

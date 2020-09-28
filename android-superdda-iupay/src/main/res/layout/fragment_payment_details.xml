@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/receiptBtnShare2"
+                android:id="@+id/paymentDetailsTvBtnConfirmarPagamento"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -25,7 +25,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginBottom="32dp"
-                android:background="@color/payment_details_base"
+                android:background="@drawable/ic_btn_primary_selector"
                 android:text="Confirmar Pagamento"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
                 app:layout_constraintVertical_bias="0.518" />
 
             <ImageButton
-                android:id="@+id/payDetailsBtnBack"
+                android:id="@+id/paymentDetailsBtnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/back_button"
-                android:src="@drawable/ic_btn_back"
+                android:src="@drawable/ic_btn_back_selector"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,16 +51,14 @@
                 android:id="@+id/paymentDetailsTvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginRight="48dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
                 android:text="PAGAMENTO"
                 android:textColor="@color/superdda_text_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/payDetailsBtnBack"
+                app:layout_constraintStart_toEndOf="@+id/paymentDetailsBtnBack"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -77,7 +75,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/payDetailsBtnBack" />
+                app:layout_constraintTop_toBottomOf="@+id/paymentDetailsBtnBack" />
 
             <TextView
                 android:id="@+id/paymentDetailsTvBeneficiarioValue"
@@ -301,7 +299,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/paymentDetailsTvPagarComValue" />
 
             <TextView
-                android:id="@+id/paymentDetailsTvVencimentoValue"
+                android:id="@+id/paymentDetailsTvVencimentoLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -311,12 +309,12 @@
                 android:layout_marginRight="32dp"
                 android:text="Vencimento"
                 android:textColor="@color/superdda_text_primary"
-                app:layout_constraintEnd_toStartOf="@+id/receiptTvCedenteValue7"
+                app:layout_constraintEnd_toStartOf="@+id/paymentDetailsTvVencimentoValue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/paymentDetailsTvSaldoDisponivelLabel" />
 
             <TextView
-                android:id="@+id/receiptTvCedenteValue7"
+                android:id="@+id/paymentDetailsTvVencimentoValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -341,7 +339,7 @@
                 android:textColor="@color/superdda_text_primary"
                 app:layout_constraintEnd_toStartOf="@+id/paymentDetailsTvAgendadoParaValue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/paymentDetailsTvVencimentoValue" />
+                app:layout_constraintTop_toBottomOf="@+id/paymentDetailsTvVencimentoLabel" />
 
             <TextView
                 android:id="@+id/paymentDetailsTvAgendadoParaValue"
@@ -354,7 +352,7 @@
                 android:textColor="@color/payment_details_base"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/receiptTvCedenteValue7" />
+                app:layout_constraintTop_toBottomOf="@+id/paymentDetailsTvVencimentoValue" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
