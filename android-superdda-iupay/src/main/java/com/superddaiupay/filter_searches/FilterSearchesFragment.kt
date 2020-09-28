@@ -30,7 +30,7 @@ class FilterSearchesFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(params: FilterSearchesParams) =
-            ReceiptFragment().apply {
+            FilterSearchesFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)
                 }

@@ -30,7 +30,7 @@ class MonthSelectorFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(params: MonthSelectorParams) =
-            ReceiptFragment().apply {
+            MonthSelectorFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)
                 }

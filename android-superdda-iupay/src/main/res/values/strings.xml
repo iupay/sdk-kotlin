@@ -1,4 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="hello_blank_fragment">hello fragment</string>
+    <string name="text_view">TextView</string>
+    <string name="back_button">back button</string>
+    <string name="options_button">options button</string>
     <string name="PAID">PAGO</string>
     <string name="card_logo_description">Card logo</string>
     <string name="card_label_cnpj">CNPJ:</string>
@@ -11,6 +15,18 @@
     <string name="card_due_date_example">14 SET</string>
     <string name="bcard_inativo">Inativo</string>
     <string name="bcard_ativo">Ativo</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="receipt_comprovante">COMPROVANTE</string>
+    <string name="receipt_cedente">Cedente</string>
+    <string name="receipt_cnpj">CNPJ</string>
+    <string name="receipt_pagador">Pagador</string>
+    <string name="receipt_codigo_de_barras">Código de Barras</string>
+    <string name="receipt_data_de_vencimento">Data de Vencimento:</string>
+    <string name="receipt_data_do_pagamento">Data do Pagamento:</string>
+    <string name="receipt_valor_do_documento">Valor do Documento:</string>
+    <string name="receipt_descontos">Descontos:</string>
+    <string name="receipt_juros">Juros:</string>
+    <string name="receipt_multa">Multa:</string>
+    <string name="receipt_valor_cobrado">Valor Cobrado:</string>
+    <string name="receipt_codigo_de_autenticacao">Código de Autenticação:</string>
+    <string name="receipt_compartilhar_comprovante">Compartilhar Comprovante</string>
 </resources>

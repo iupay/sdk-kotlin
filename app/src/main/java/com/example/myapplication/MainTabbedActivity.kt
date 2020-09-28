@@ -11,12 +11,14 @@ import com.google.android.material.tabs.TabLayout
 
 class MainTabbedActivity : AppCompatActivity() {
 
+    private lateinit var viewPager: ViewPager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_tabbed)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        viewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
@@ -25,6 +27,14 @@ class MainTabbedActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+    }
+
+    override fun onBackPressed() {
+        if (viewPager.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            viewPager.currentItem = viewPager.currentItem - 1
         }
     }
 }

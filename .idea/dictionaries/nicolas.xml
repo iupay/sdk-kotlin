@@ -2,19 +2,34 @@
   <dictionary name="nicolas">
     <words>
       <w>ativo</w>
+      <w>autenticacao</w>
+      <w>autenticação</w>
       <w>automático</w>
+      <w>barras</w>
       <w>bcard</w>
       <w>cartão</w>
       <w>cedent</w>
+      <w>cedente</w>
       <w>cerj</w>
       <w>cnpj</w>
+      <w>cobrado</w>
+      <w>codigo</w>
+      <w>compartilhar</w>
+      <w>comprovante</w>
       <w>conta</w>
+      <w>código</w>
+      <w>descontos</w>
+      <w>documento</w>
       <w>inativo</w>
+      <w>juros</w>
       <w>lightbill</w>
       <w>limite</w>
+      <w>multa</w>
       <w>nubank</w>
+      <w>pagador</w>
       <w>pagamento</w>
       <w>pago</w>
+      <w>superdda</w>
       <w>superddaiupay</w>
       <w>vencimento</w>
     </words>

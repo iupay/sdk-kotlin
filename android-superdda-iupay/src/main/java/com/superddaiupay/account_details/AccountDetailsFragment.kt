@@ -30,7 +30,7 @@ class AccountDetailsFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(params: AccountDetailsParams) =
-            ReceiptFragment().apply {
+            AccountDetailsFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)
                 }

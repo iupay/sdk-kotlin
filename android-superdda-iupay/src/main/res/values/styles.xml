@@ -1,2 +1,5 @@
 <resources>
+    <style name="Widget.Button.BorderButton" parent="android:Widget">
+        <item name="android:background">@drawable/border_button</item>
+    </style>
 </resources>
