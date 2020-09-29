@@ -29,9 +29,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         return when(position) {
             0 -> FirstFragment()
             1 -> SecondFragment()
-            2 -> ReceiptFragment.newInstance(ReceiptParams())
-            3 -> PaymentDetailsFragment.newInstance(PaymentDetailsParams())
-            4 -> PaidDetailsFragment.newInstance(PaidDetailsParams())
+            2 -> ReceiptFragment.newInstance(ReceiptParams().example())
+            3 -> PaymentDetailsFragment.newInstance(PaymentDetailsParams().example())
+            4 -> PaidDetailsFragment.newInstance(PaidDetailsParams().example())
             else -> FirstFragment()
         }
     }

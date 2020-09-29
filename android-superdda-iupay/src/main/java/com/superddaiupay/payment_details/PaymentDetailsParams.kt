@@ -1,5 +1,6 @@
 package com.superddaiupay.payment_details
 
+import com.superddaiupay.paid_details.PaidDetailsParams
 import java.io.Serializable
 import java.util.*
 
@@ -28,5 +29,21 @@ class PaymentDetailsParams: Serializable {
 
     interface OnConfirmPaymentSchedule {
         fun onConfirmPaymentSchedule()
+    }
+
+    fun example(): PaymentDetailsParams {
+        val params = PaymentDetailsParams()
+
+        params.beneficiaryName = "COMPANHIA DE ELETRICIDADE DO RIO DE JANEIRO"
+        params.bankName = "ITAÚ"
+        params.payerName = "ROBERTO DE OLIVEIRA SANTOS"
+        params.barCode = "34191.09065 44830. 1285 40141.906 8 00001.83120.59475"
+        params.value = 223.24
+        params.currentBalance = 3250
+        params.payWithType = "My Bank"
+        params.dueDate = Calendar.getInstance().time
+        params.scheduledDueDate = Calendar.getInstance().time
+
+        return params
     }
 }
