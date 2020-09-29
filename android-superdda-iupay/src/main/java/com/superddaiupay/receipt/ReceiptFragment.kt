@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.superddaiupay.R
 
@@ -23,7 +24,13 @@ class ReceiptFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_receipt, container, false)
+        val view = inflater.inflate(R.layout.fragment_receipt, container, false)
+
+        val cnpj = view.findViewById<TextView>(R.id.receiptTvCnpjValue)
+
+        cnpj.text = params?.cnpj
+
+        return view
     }
 
     companion object {

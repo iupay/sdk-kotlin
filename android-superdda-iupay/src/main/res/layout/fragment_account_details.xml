@@ -41,16 +41,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/accountIvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/paid_details_screen_image"
+                android:src="@drawable/ic_lightbill"
+                app:layout_constraintStart_toEndOf="@+id/accountBtnBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/accountTvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:textColor="@color/superdda_text_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/accountBtnOptions"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/accountIvLogo"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
