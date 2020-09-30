@@ -1,6 +1,9 @@
 package com.superddaiupay.paid_details
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import com.superddaiupay.R
 import com.superddaiupay.receipt.ReceiptParams
 import java.io.Serializable
 import java.util.*
@@ -26,16 +29,22 @@ class PaidDetailsParams: Serializable {
         fun onClickViewReceipt()
     }
 
-    fun example(): PaidDetailsParams {
-        val params = PaidDetailsParams()
+    companion object {
+        fun example(context: Context): PaidDetailsParams {
+            val params = PaidDetailsParams()
 
-        params.beneficiaryName = "COMPANHIA DE ELETRICIDADE DO RIO DE JANEIRO"
-        params.paidDate = Calendar.getInstance().time
-        params.screenTitle = "CERJ"
-        params.value = 223.24
-        params.dueDate = Calendar.getInstance().time
-        params.paymentMessage = "Sua conta está paga"
+            params.beneficiaryName = "COMPANHIA DE ELETRICIDADE DO RIO DE JANEIRO"
+            params.paidDate = Calendar.getInstance().time
+            params.screenTitle = "CERJ"
+            params.value = 223.24
+            params.dueDate = Calendar.getInstance().time
+            params.paymentMessage = "Sua conta está paga"
+            params.baseColor = "#FF0000"
+            params.screenImage = BitmapFactory.decodeResource(context.resources, R.raw.nubank)
+            params.receiptAvailable = false
 
-        return params
+            return params
+        }
     }
+
 }

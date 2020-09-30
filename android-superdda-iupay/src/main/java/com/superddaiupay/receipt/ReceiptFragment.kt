@@ -1,9 +1,14 @@
 package com.superddaiupay.receipt
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.superddaiupay.R
@@ -29,7 +34,7 @@ class ReceiptFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_receipt, container, false)
 
-        val cedentName =view.findViewById<TextView>(R.id.receiptTvCedenteValue)
+        val cedentName = view.findViewById<TextView>(R.id.receiptTvCedenteValue)
         val cnpj = view.findViewById<TextView>(R.id.receiptTvCnpjValue)
         val payerName = view.findViewById<TextView>(R.id.receiptTvPagadorValue)
         val barCode = view.findViewById<TextView>(R.id.receiptTvCodigoBarrasValue)
@@ -41,7 +46,7 @@ class ReceiptFragment : Fragment() {
         val fine = view.findViewById<TextView>(R.id.receiptTvMultaValue)
         val chargedValue = view.findViewById<TextView>(R.id.receiptTvValorDocumentoValue)
         val authenticationCode = view.findViewById<TextView>(R.id.receiptTvCodigoAutenticacaoValue)
-        //val baseColor = view.findViewById<ImageView>(R.id.receipt)
+        val btnShare = view.findViewById<Button>(R.id.receiptBtnShare)
 
         cedentName.text = params?.cedentName
         cnpj.text = params?.cnpj
@@ -60,6 +65,12 @@ class ReceiptFragment : Fragment() {
         chargedValue.text = nf.format(params?.chargedValue?.toDouble() ?: 0)
         authenticationCode.text = params?.authenticationCode
 
+        if (params?.baseColor != null) {
+            btnShare.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+            btnShare.background?.colorFilter = PorterDuffColorFilter(
+                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            )
+        }
         return view
     }
 

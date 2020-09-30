@@ -34,4 +34,5 @@
     <string name="paid_details_value">Valor</string>
     <string name="paid_details_cerj">CERJ</string>
     <string name="paid_details_screen_image">Screen Image</string>
+    <string name="payment_details_confirmar_agendamento">Confirmar Agendamento</string>
 </resources>

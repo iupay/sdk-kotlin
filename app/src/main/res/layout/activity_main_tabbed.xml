@@ -36,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
+            app:tabMode="scrollable"
             app:tabTextColor="@android:color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
