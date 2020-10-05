@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.myapplication.R
 import com.superddaiupay.account_details.AccountDetailsFragment
 import com.superddaiupay.account_details.AccountDetailsParams
+import com.superddaiupay.filter_searches.FilterSearchesFragment
+import com.superddaiupay.filter_searches.FilterSearchesParams
 import com.superddaiupay.paid_details.PaidDetailsFragment
 import com.superddaiupay.paid_details.PaidDetailsParams
 import com.superddaiupay.payment_details.PaymentDetailsFragment
@@ -22,7 +24,8 @@ private val TAB_TITLES = arrayOf(
     R.string.tab_text_3,
     R.string.tab_text_4,
     R.string.tab_text_5,
-    R.string.tab_text_6
+    R.string.tab_text_6,
+    R.string.tab_text_7
 )
 
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
@@ -36,6 +39,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             3 -> PaymentDetailsFragment.newInstance(PaymentDetailsParams.example())
             4 -> PaidDetailsFragment.newInstance(PaidDetailsParams.example(context))
             5 -> AccountDetailsFragment.newInstance(AccountDetailsParams.example())
+            6 -> FilterSearchesFragment.newInstance(FilterSearchesParams.example())
             else -> FirstFragment()
         }
     }

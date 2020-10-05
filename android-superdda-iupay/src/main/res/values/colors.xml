@@ -17,4 +17,5 @@
     <color name="payment_details_base_025">#40F78C49</color>
     <color name="paid_details_base">#F78C49</color>
     <color name="paid_details_base_025">#40F78C49</color>
+    <color name="superdda_btn_pressed">#90707070</color>
 </resources>

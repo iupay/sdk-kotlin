@@ -35,4 +35,9 @@
     <string name="paid_details_cerj">CERJ</string>
     <string name="paid_details_screen_image">Screen Image</string>
     <string name="payment_details_confirmar_agendamento">Confirmar Agendamento</string>
+    <string name="filter_ordenar_por">Ordenar por:</string>
+    <string name="filter_a_z">A-Z |</string>
+    <string name="filter_z_a">Z-A |</string>
+    <string name="filter_search_button">search button</string>
+    <string name="filter_search_filter">Search Filter</string>
 </resources>

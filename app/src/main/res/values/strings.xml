@@ -96,5 +96,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="tab_text_6">Account Details</string>
+    <string name="tab_text_7">Filter Searches</string>
 
 </resources>
