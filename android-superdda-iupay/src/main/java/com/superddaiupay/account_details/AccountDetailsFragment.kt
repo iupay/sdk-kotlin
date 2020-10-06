@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -14,6 +15,10 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.superddaiupay.R
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 private const val ARG_PARAMS = "params"
@@ -43,6 +48,27 @@ class AccountDetailsFragment : Fragment() {
                 }
             },
         )
+        val companyName = view.findViewById<TextView>(R.id.accountTvCompanyName)
+        val cnpj = view.findViewById<TextView>(R.id.accountTvCnpj)
+        val cardNumber = view.findViewById<TextView>(R.id.accountTvCartao)
+        val billDate = view.findViewById<TextView>(R.id.accountTvMes)
+        val value = view.findViewById<TextView>(R.id.accountTvValor)
+        val minimumPaymentValue = view.findViewById<TextView>(R.id.accountTvPagamnetoMinimo)
+        val dueDate = view.findViewById<TextView>(R.id.accountTvVencimento)
+        val barCode = view.findViewById<TextView>(R.id.accountTvCodigoDeBarras)
+
+        companyName.text = params?.data?.companyName
+        cnpj.text = params?.data?.cnpj
+        cardNumber.text = params?.data?.cardNumber
+        billDate.text = params?.data?.billDetails?.billDate
+        val nf = NumberFormat.getInstance(Locale("pt", "BR"))
+        nf.minimumFractionDigits = 2
+        value.text = nf.format(params?.data?.billDetails?.value?.toDouble() ?: 0)
+        minimumPaymentValue.text =  nf.format(params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0)
+        /*dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            .format(params?.data?.billDetails?.dueDate as Date).toUpperCase(Locale.ROOT)*/
+        barCode.text = params?.data?.billDetails?.barCode
+
         return view
     }
 

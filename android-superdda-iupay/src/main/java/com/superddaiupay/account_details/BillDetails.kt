@@ -17,4 +17,5 @@ class BillDetails : Serializable {
     var totalLimitValue: Number? = null
     var totalWithdrawLimitValue: Number? = null
     var value: Number? = null
+
 }

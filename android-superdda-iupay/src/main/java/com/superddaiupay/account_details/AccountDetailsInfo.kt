@@ -1,6 +1,8 @@
 package com.superddaiupay.account_details
 
 import android.graphics.Bitmap
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AccountDetailsInfo {
     var authorizedLimit: Boolean = false
@@ -16,4 +18,5 @@ class AccountDetailsInfo {
     var isFromIuPay: Boolean = false
     var isUserAdded: Boolean = false
     var paymentHistory: List<PaymentHistory>? = null
+
 }
