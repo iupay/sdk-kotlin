@@ -12,12 +12,12 @@ import com.superddaiupay.receipt.ReceiptFragment
 private const val ARG_PARAMS = "params"
 
 class BeneficiaryDetailsFragment : Fragment() {
-    private var params: BeneficiaryCardParams? = null
+    private var params: BeneficiaryDetailsParams? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it.getSerializable(ARG_PARAMS) as BeneficiaryCardParams?
+            params = it.getSerializable(ARG_PARAMS) as BeneficiaryDetailsParams?
         }
     }
 
@@ -30,7 +30,7 @@ class BeneficiaryDetailsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(params: BeneficiaryCardParams) =
+        fun newInstance(params: BeneficiaryDetailsParams) =
             BeneficiaryDetailsFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)

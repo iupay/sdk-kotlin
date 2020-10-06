@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">SuperDDA | Examples</string>
     <string name="title_activity_main_tabbed">Super DDA</string>
-    <string name="tab_text_1">Cards</string>
-    <string name="tab_text_2">Beneficiaries</string>
-    <string name="tab_text_3">Receipt</string>
-    <string name="tab_text_4">Payment Details</string>
-    <string name="tab_text_5">Paid Detais</string>
+    <string name="tab_cards">Cards</string>
+    <string name="tab_beneficiaries">Beneficiaries</string>
+    <string name="tab_receipt">Receipt</string>
+    <string name="tab_payment_details">Payment Details</string>
+    <string name="tab_paid_details">Paid Detais</string>
+    <string name="tab_account_details">Account Details</string>
+    <string name="tab_filter_searches">Filter Searches</string>
+    <string name="tab_beneficiary_details">Beneficiary Details</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -95,7 +98,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="tab_text_6">Account Details</string>
-    <string name="tab_text_7">Filter Searches</string>
 
 </resources>
