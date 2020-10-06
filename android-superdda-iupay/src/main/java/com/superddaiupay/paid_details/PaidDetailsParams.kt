@@ -40,7 +40,7 @@ class PaidDetailsParams: Serializable {
             params.dueDate = Calendar.getInstance().time
             params.paymentMessage = "Sua conta está paga"
             params.baseColor = "#FF0000"
-            params.screenImage = BitmapFactory.decodeResource(context.resources, R.raw.nubank)
+            params.screenImage = BitmapFactory.decodeResource(context.resources, R.drawable.ic_lightbill)
             params.receiptAvailable = false
 
             return params
