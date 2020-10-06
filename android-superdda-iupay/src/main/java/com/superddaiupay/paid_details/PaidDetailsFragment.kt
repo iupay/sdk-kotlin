@@ -48,7 +48,7 @@ class PaidDetailsFragment : Fragment() {
         val paymentMessage= view.findViewById<TextView>(R.id.paidTvPaymentMessage)
 
         beneficiaryName.text = params?.beneficiaryName
-        paidDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        paidDate.text = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
             .format(params?.paidDate as Date).toUpperCase(Locale.ROOT)
         screenTitle.text = params?.screenTitle
         if (params?.screenImage != null) {
@@ -75,6 +75,9 @@ class PaidDetailsFragment : Fragment() {
         if (!params?.receiptAvailable!!){
             btnViewReceipt.isClickable = false
             btnViewReceipt.isEnabled = false
+            btnViewReceipt.background?.colorFilter = PorterDuffColorFilter(
+                Color.parseColor("#e8e8e8"), PorterDuff.Mode.SRC_ATOP)
+            btnViewReceipt.setTextColor(ColorStateList.valueOf(Color.parseColor("#FFFFFF")))
         }
 
         return view

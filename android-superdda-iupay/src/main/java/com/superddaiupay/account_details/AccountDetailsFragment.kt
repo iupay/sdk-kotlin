@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.TextView
+import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -56,6 +57,8 @@ class AccountDetailsFragment : Fragment() {
         val minimumPaymentValue = view.findViewById<TextView>(R.id.accountTvPagamnetoMinimo)
         val dueDate = view.findViewById<TextView>(R.id.accountTvVencimento)
         val barCode = view.findViewById<TextView>(R.id.accountTvCodigoDeBarras)
+        val accountTvDebitoAutomatico = view.findViewById<TextView>(R.id.accountTvDebitoAutomatico)
+        val accountSwDebitoAutomatico = view.findViewById<SwitchCompat>(R.id.accountSwDebitoAutomatico)
 
         companyName.text = params?.data?.companyName
         cnpj.text = params?.data?.cnpj
@@ -65,9 +68,23 @@ class AccountDetailsFragment : Fragment() {
         nf.minimumFractionDigits = 2
         value.text = nf.format(params?.data?.billDetails?.value?.toDouble() ?: 0)
         minimumPaymentValue.text =  nf.format(params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0)
-        /*dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            .format(params?.data?.billDetails?.dueDate as Date).toUpperCase(Locale.ROOT)*/
+
+        var dueDateVal = params?.data?.billDetails?.dueDate
+        if (dueDateVal != null) {
+            dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                .format(dueDateVal).toUpperCase(Locale.ROOT)
+        } else {
+            dueDate.text = ""
+        }
         barCode.text = params?.data?.billDetails?.barCode
+
+        if (params?.data?.isAutomaticDebit!!) {
+            accountSwDebitoAutomatico.visibility = View.INVISIBLE
+            accountTvDebitoAutomatico.text = "Conta em Débito automático no " + params?.data?.automaticDebitBankName
+        } else {
+            accountSwDebitoAutomatico.visibility = View.VISIBLE
+            accountTvDebitoAutomatico.text = "Pagamento automático no dia do vencimento"
+        }
 
         return view
     }
