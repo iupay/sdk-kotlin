@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_alignParentBottom="false"
     tools:context=".account_details.AccountDetailsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -69,20 +70,306 @@
                 app:layout_constraintStart_toEndOf="@+id/accountIvLogo"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart"
-                android:layout_width="0dp"
-                android:layout_height="250dp"
+            <TextView
+                android:id="@+id/accountTvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/account_company_name"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnBack" />
+
+            <ImageView
+                android:id="@+id/accountIvUser"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_user_false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnOptions" />
+
+            <ImageView
+                android:id="@+id/accountIvIuPay"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="350dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_iupay"
+                app:layout_constraintEnd_toStartOf="@+id/accountIvUser"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/accountTvCompanyName"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnOptions" />
+
+            <TextView
+                android:id="@+id/accountTvCnpjLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_cnpj"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCompanyName" />
+
+            <TextView
+                android:id="@+id/accountTvCnpj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/accountTvCnpjLabel"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCompanyName" />
+
+            <TextView
+                android:id="@+id/accountTvCartao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCnpjLabel" />
+
+            <TextView
+                android:id="@+id/accountTvMes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_mes_ano"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCartao" />
+
+            <TextView
+                android:id="@+id/accountTvValorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/account_valor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvMes" />
+
+            <TextView
+                android:id="@+id/accountTvValor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/accountTvValorLabel"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvMes" />
+
+            <TextView
+                android:id="@+id/accountTvPagamentoMinimoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/account_pagamento_minimo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvValorLabel" />
+
+            <TextView
+                android:id="@+id/accountTvPagamnetoMinimo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/accountTvPagamentoMinimoLabel"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvValor" />
+
+            <TextView
+                android:id="@+id/accountTvVencimentoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/account_vencimento"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvPagamentoMinimoLabel" />
+
+            <TextView
+                android:id="@+id/accountTvVencimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/accountTvVencimentoLabel"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvPagamnetoMinimo" />
+
+            <TextView
+                android:id="@+id/accountTvCodigoDeBarrasLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_codigo_de_barras"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvVencimentoLabel" />
+
+            <ImageView
+                android:id="@+id/accountIvCodigoCopy"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_copy_icon"
+                app:layout_constraintStart_toEndOf="@+id/accountTvCodigoDeBarrasLabel"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvVencimento" />
+
+            <TextView
+                android:id="@+id/accountTvCodigoDeBarras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/account_codigo_barras_exemplo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCodigoDeBarrasLabel" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/accountChart"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCodigoDeBarras" />
+
+            <Button
+                android:id="@+id/accountBtnPdf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/ic_btn_secondary_selector"
+                android:text="@string/account_pdf_da_conta"
+                android:textColor="@color/superdda_btn_secondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accountIvLogo" />
+                app:layout_constraintTop_toBottomOf="@+id/accountChart" />
+
+            <TextView
+                android:id="@+id/accountTvDebitoAutomatico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnPdf" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/accountSwDebitoAutomatico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:focusable="auto"
+                android:textOff="@string/bcard_inativo"
+                android:textOn="@string/bcard_ativo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/accountTvDebitoAutomatico"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnPdf" />
+
+            <Button
+                android:id="@+id/accountBtnRecusar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/ic_btn_secondary_selector"
+                android:text="@string/account_recusar_a_conta"
+                android:textColor="@color/superdda_btn_secondary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico"
+                app:layout_constraintWidth_percent="0.44" />
+
+            <Button
+                android:id="@+id/accountBtnAceitar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ic_btn_secondary_selector"
+                android:text="@string/account_aceitar_a_conta"
+                android:textColor="@color/superdda_btn_secondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/accountBtnRecusar"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico"
+                app:layout_constraintWidth_percent="0.44" />
+
+            <Button
+                android:id="@+id/accountBtnHistoricoPagamentos"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/historico_pagamentos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnRecusar"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/accountTvHistoricoPagamentos"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:text="@string/account_historico_de_pagamentos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/accountBtnHistoricoPagamentos"
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnRecusar"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

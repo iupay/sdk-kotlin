@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="hello_blank_fragment">hello fragment</string>
     <string name="text_view">TextView</string>
+    <string name="todo">TODO</string>
     <string name="back_button">back button</string>
     <string name="options_button">options button</string>
     <string name="PAID">PAGO</string>
@@ -40,4 +41,16 @@
     <string name="filter_z_a">Z-A |</string>
     <string name="filter_search_button">search button</string>
     <string name="filter_search_filter">Search Filter</string>
+    <string name="account_company_name">Company Name</string>
+    <string name="account_cnpj">CNPJ:</string>
+    <string name="account_mes_ano">Mes Ano</string>
+    <string name="account_valor">Valor:</string>
+    <string name="account_pagamento_minimo">Pagamento Mínimo:</string>
+    <string name="account_vencimento">Vencimento:</string>
+    <string name="account_codigo_de_barras">Código de Barras:</string>
+    <string name="account_codigo_barras_exemplo">000000.000000.000000.00000000</string>
+    <string name="account_pdf_da_conta">PDF da conta</string>
+    <string name="account_recusar_a_conta">Recusar a conta</string>
+    <string name="account_aceitar_a_conta">Aceitar a conta</string>
+    <string name="account_historico_de_pagamentos">HISTÓRICO DE PAGAMENTOS</string>
 </resources>

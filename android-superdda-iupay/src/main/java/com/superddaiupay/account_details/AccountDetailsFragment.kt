@@ -34,7 +34,7 @@ class AccountDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_account_details, container, false)
-        chart = view.findViewById(R.id.chart)
+        chart = view.findViewById(R.id.accountChart)
         chart.viewTreeObserver.addOnGlobalLayoutListener(
             object : OnGlobalLayoutListener {
                 override fun onGlobalLayout() {
