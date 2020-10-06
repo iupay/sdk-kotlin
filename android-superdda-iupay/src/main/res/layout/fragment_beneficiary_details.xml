@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".beneficiary_details.BeneficiaryDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/beneficiaryDetailsBtnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/ic_btn_back_selector"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/beneficiaryDetailsBtnOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/options_button"
+                android:src="@drawable/ic_btn_options_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/beneficiaryDetailsIvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/paid_details_screen_image"
+                android:src="@drawable/ic_lightbill"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsBtnBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:textColor="@color/superdda_text_primary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/beneficiaryDetailsBtnOptions"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsIvLogo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/beneficiaryDetails_company_name"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsBtnBack" />
+
+            <ImageView
+                android:id="@+id/beneficiaryDetailsIvUser"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_user_false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsBtnOptions" />
+
+            <ImageView
+                android:id="@+id/beneficiaryDetailsIvIuPay"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_iupay"
+                app:layout_constraintEnd_toStartOf="@+id/beneficiaryDetailsIvUser"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsTvCompanyName"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsBtnOptions" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvCnpjLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/beneficiaryDetails_cnpj"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCompanyName" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvCnpj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsTvCnpjLabel"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCompanyName" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvCartao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/beneficiaryDetails_cartao"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCnpjLabel" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvValorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/beneficiaryDetails_pagamento_automatico"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCartao" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvPagamentoAutomatico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsTvValorLabel"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCartao" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvPagamentoMinimoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/beneficiaryDetails_limite_de_autorizacao"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvValorLabel" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvLimiteAutorizacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_view"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsTvPagamentoMinimoLabel"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvPagamentoAutomatico" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

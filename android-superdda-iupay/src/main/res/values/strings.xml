@@ -53,4 +53,9 @@
     <string name="account_recusar_a_conta">Recusar a conta</string>
     <string name="account_aceitar_a_conta">Aceitar a conta</string>
     <string name="account_historico_de_pagamentos">HISTÓRICO DE PAGAMENTOS</string>
+    <string name="beneficiaryDetails_limite_de_autorizacao">Limite de Autorização:</string>
+    <string name="beneficiaryDetails_pagamento_automatico">Pagamento Automático:</string>
+    <string name="beneficiaryDetails_cartao">Cartão ********</string>
+    <string name="beneficiaryDetails_cnpj">CNPJ:</string>
+    <string name="beneficiaryDetails_company_name">Company Name</string>
 </resources>
