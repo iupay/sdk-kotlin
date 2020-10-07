@@ -1,6 +1,7 @@
 package com.superddaiupay.beneficiary_details
 
 import android.view.View
+import com.superddaiupay.account_details.PaymentHistory
 import com.superddaiupay.filter_searches.FilterSearchesParams
 import java.io.Serializable
 import java.util.logging.Logger
@@ -20,6 +21,13 @@ class BeneficiaryDetailsParams: Serializable {
         fun example(): BeneficiaryDetailsParams {
             val params = BeneficiaryDetailsParams()
             params.data = BeneficiaryDetailsInfo()
+            params.data!!.companyName = "Nu Pagamentos S.A."
+            params.data!!.cnpj = "18.236.120/0001-58"
+            params.data!!.cardNumber = "5162 **** **** 9090"
+            params.data!!.authorizedLimit = false
+            params.data!!.autoPayment = false
+            params.data!!.cardHolderName = "Roberto de Oliveira Santos"
+
             return params
         }
     }
