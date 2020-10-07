@@ -58,4 +58,6 @@
     <string name="beneficiaryDetails_cartao">Cartão ********</string>
     <string name="beneficiaryDetails_cnpj">CNPJ:</string>
     <string name="beneficiaryDetails_company_name">Company Name</string>
+    <string name="beneficiary_details_acessar_cartao">Acessar cartão</string>
+    <string name="beneficiary_details_ver_detalhes_do_beneficiario">Ver detalhes do beneficiário</string>
 </resources>
