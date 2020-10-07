@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_alignParentBottom="false"
     android:background="#FFFFFF"
     tools:context=".account_details.AccountDetailsFragment">
@@ -15,7 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/accountBtnBack"
@@ -113,37 +113,37 @@
 
             <TextView
                 android:id="@+id/accountTvCnpjLabel"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/account_cnpj"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvCompanyName" />
 
             <TextView
                 android:id="@+id/accountTvCnpj"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/text_view"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toEndOf="@+id/accountTvCnpjLabel"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvCompanyName" />
 
             <TextView
                 android:id="@+id/accountTvCartao"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/text_view"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvCnpjLabel" />
 
@@ -162,13 +162,13 @@
 
             <TextView
                 android:id="@+id/accountTvValorLabel"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/account_valor"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvMes" />
 
@@ -187,13 +187,13 @@
 
             <TextView
                 android:id="@+id/accountTvPagamentoMinimoLabel"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/account_pagamento_minimo"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvValorLabel" />
 
@@ -212,13 +212,13 @@
 
             <TextView
                 android:id="@+id/accountTvVencimentoLabel"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/account_vencimento"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvPagamentoMinimoLabel" />
 
@@ -237,13 +237,13 @@
 
             <TextView
                 android:id="@+id/accountTvCodigoDeBarrasLabel"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/account_codigo_de_barras"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvVencimentoLabel" />
 
@@ -261,13 +261,13 @@
 
             <TextView
                 android:id="@+id/accountTvCodigoDeBarras"
-                android:textColor="@color/superdda_text_primary"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/account_codigo_barras_exemplo"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -305,13 +305,13 @@
 
             <TextView
                 android:id="@+id/accountTvDebitoAutomatico"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/text_view"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -380,13 +380,13 @@
 
             <TextView
                 android:id="@+id/accountTvHistoricoPagamentos"
-                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
                 android:gravity="center"
                 android:text="@string/account_historico_de_pagamentos"
+                android:textColor="@color/superdda_text_primary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/accountBtnHistoricoPagamentos"
                 app:layout_constraintTop_toBottomOf="@+id/accountBtnRecusar"
@@ -453,7 +453,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:text="Resumo das Faturas Anteriores"
+                    android:text="@string/account_resumo_das_faturas_anteriores"
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

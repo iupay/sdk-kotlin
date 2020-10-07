@@ -2,9 +2,9 @@
     <string name="hello_blank_fragment">hello fragment</string>
     <string name="text_view">TextView</string>
     <string name="todo">TODO</string>
+    <string name="PAID">PAGO</string>
     <string name="back_button">back button</string>
     <string name="options_button">options button</string>
-    <string name="PAID">PAGO</string>
     <string name="card_logo_description">Card logo</string>
     <string name="card_label_cnpj">CNPJ:</string>
     <string name="card_cnpj_example" tools:ignore="TypographyDashes">99.9999.999.0001-99</string>
@@ -35,7 +35,6 @@
     <string name="paid_details_value">Valor</string>
     <string name="paid_details_cerj">CERJ</string>
     <string name="paid_details_screen_image">Screen Image</string>
-    <string name="payment_details_confirmar_agendamento">Confirmar Agendamento</string>
     <string name="filter_ordenar_por">Ordenar por:</string>
     <string name="filter_a_z">A-Z |</string>
     <string name="filter_z_a">Z-A |</string>
@@ -53,6 +52,7 @@
     <string name="account_recusar_a_conta">Recusar a conta</string>
     <string name="account_aceitar_a_conta">Aceitar a conta</string>
     <string name="account_historico_de_pagamentos">HISTÓRICO DE PAGAMENTOS</string>
+    <string name="account_resumo_das_faturas_anteriores">Resumo das Faturas Anteriores</string>
     <string name="beneficiaryDetails_limite_de_autorizacao">Limite de Autorização:</string>
     <string name="beneficiaryDetails_pagamento_automatico">Pagamento Automático:</string>
     <string name="beneficiaryDetails_cartao">Cartão ********</string>
@@ -60,4 +60,16 @@
     <string name="beneficiaryDetails_company_name">Company Name</string>
     <string name="beneficiary_details_acessar_cartao">Acessar cartão</string>
     <string name="beneficiary_details_ver_detalhes_do_beneficiario">Ver detalhes do beneficiário</string>
+    <string name="payment_details_confirmar_agendamento">Confirmar Agendamento</string>
+    <string name="payment_details_confirmar_pagamento">Confirmar Pagamento</string>
+    <string name="payment_details_banco">Banco</string>
+    <string name="payment_details_beneficiario">Beneficiário</string>
+    <string name="payment_details_pagamento">PAGAMENTO</string>
+    <string name="payment_details_pagador">Pagador</string>
+    <string name="payment_details_codigo_de_barras">Código de Barras</string>
+    <string name="payment_details_valor">Valor</string>
+    <string name="payment_details_pagar_com">Pagar com</string>
+    <string name="payment_details_saldo_disponivel_apos_pagamento">Saldo disponível após pagamento</string>
+    <string name="payment_details_vencimento">Vencimento</string>
+    <string name="payment_details_agendado_para">Agendado para</string>
 </resources>
