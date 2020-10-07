@@ -1,6 +1,9 @@
 package com.superddaiupay.account_details
 
+import android.content.Context
+import android.graphics.BitmapFactory
 import android.view.View
+import com.superddaiupay.R
 import java.io.Serializable
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,7 +28,7 @@ class AccountDetailsParams : Serializable {
 
     companion object {
         @JvmStatic
-        fun example(): AccountDetailsParams {
+        fun example(context: Context): AccountDetailsParams {
             val params = AccountDetailsParams()
             params.baseColor = "#FF5555"
             params.chartDataText = "JUNHO"
@@ -38,6 +41,7 @@ class AccountDetailsParams : Serializable {
             params.chartData!!.add(ChartData("Jun", 1300))
             params.chartData!!.add(ChartData("Jul", 1500))
             params.data = AccountDetailsInfo()
+            params.data!!.companyLogo = BitmapFactory.decodeResource(context.resources, R.raw.nubank)
             params.data!!.companyName = "Nu Pagamentos S.A."
             params.data!!.cnpj = "18.236.120/0001-58"
             params.data!!.cardNumber = "5162 **** **** 9090"

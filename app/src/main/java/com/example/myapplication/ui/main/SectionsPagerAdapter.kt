@@ -34,7 +34,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment {
         return when(position) {
-            0 -> AccountDetailsFragment.newInstance(AccountDetailsParams.example())
+            0 -> AccountDetailsFragment.newInstance(AccountDetailsParams.example(context))
             1 -> BeneficiaryDetailsFragment.newInstance(BeneficiaryDetailsParams.example())
             2 -> FirstFragment()
             3 -> SecondFragment()
