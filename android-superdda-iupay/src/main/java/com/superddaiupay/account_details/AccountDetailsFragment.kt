@@ -1,6 +1,8 @@
 package com.superddaiupay.account_details
 
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -20,6 +23,7 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.roundToInt
 
 
 private const val ARG_PARAMS = "params"
@@ -59,7 +63,12 @@ class AccountDetailsFragment : Fragment() {
         val barCode = view.findViewById<TextView>(R.id.accountTvCodigoDeBarras)
         val accountTvDebitoAutomatico = view.findViewById<TextView>(R.id.accountTvDebitoAutomatico)
         val accountSwDebitoAutomatico = view.findViewById<SwitchCompat>(R.id.accountSwDebitoAutomatico)
+        val accountClChartBottom = view.findViewById<ConstraintLayout>(R.id.accountClChartBottom)
+        val accountChartDataText = view.findViewById<TextView>(R.id.accountChartDataText)
+        val accountChartDataValue = view.findViewById<TextView>(R.id.accountChartDataValue)
+        val accountClTitle = view.findViewById<ConstraintLayout>(R.id.accountClTitle)
 
+        val baseColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
         companyName.text = params?.data?.companyName
         cnpj.text = params?.data?.cnpj
         cardNumber.text = params?.data?.cardNumber
@@ -67,7 +76,9 @@ class AccountDetailsFragment : Fragment() {
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
         value.text = nf.format(params?.data?.billDetails?.value?.toDouble() ?: 0)
-        minimumPaymentValue.text =  nf.format(params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0)
+        minimumPaymentValue.text =  nf.format(
+            params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0
+        )
 
         var dueDateVal = params?.data?.billDetails?.dueDate
         if (dueDateVal != null) {
@@ -86,12 +97,31 @@ class AccountDetailsFragment : Fragment() {
             accountTvDebitoAutomatico.text = "Pagamento automático no dia do vencimento"
         }
 
+        accountClChartBottom.background?.colorFilter = PorterDuffColorFilter(
+            this.getColorWithAlpha(baseColor, 0.3f), PorterDuff.Mode.SRC_ATOP)
+        accountChartDataText.setTextColor(baseColor)
+        accountChartDataValue.setTextColor(baseColor)
+        companyName.setTextColor(baseColor)
+        accountClTitle.background?.colorFilter = PorterDuffColorFilter(baseColor, PorterDuff.Mode.SRC_ATOP)
+        accountChartDataText.text = params?.chartDataText ?: ""
+        accountChartDataValue.text = params?.chartDataValue ?: ""
+
         return view
+    }
+
+    private fun getColorWithAlpha(color: Int, ratio: Float): Int {
+        var newColor = 0
+        val alpha = (Color.alpha(color) * ratio).roundToInt()
+        val r = Color.red(color)
+        val g = Color.green(color)
+        val b = Color.blue(color)
+        newColor = Color.argb(alpha, r, g, b)
+        return newColor
     }
 
     fun initLineChart() {
         if (params?.chartData != null) {
-            val nubankColor = Color.parseColor("#8e05c2")
+            val chartColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
             val colorWhite =  Color.parseColor("#FFFFFF")
             val labels = params!!.chartData!!.map(ChartData::label)
             val entries = ArrayList<Entry>()
@@ -101,7 +131,7 @@ class AccountDetailsFragment : Fragment() {
             val dataSet = LineDataSet(entries, "Resumo das Faturas Anteriores")
             dataSet.color = colorWhite
             dataSet.setCircleColor(colorWhite)
-            dataSet.circleHoleColor = nubankColor
+            dataSet.circleHoleColor = chartColor
             dataSet.circleHoleRadius = 2f
             dataSet.lineWidth = 1f
             dataSet.circleRadius = 4f
@@ -115,9 +145,9 @@ class AccountDetailsFragment : Fragment() {
             xAxis.valueFormatter = IndexAxisValueFormatter(labels)
             xAxis.textColor = colorWhite
 
-            chart.setBackgroundColor(nubankColor)
+            chart.setBackgroundColor(chartColor)
             chart.description.text = ""
-            chart.setGridBackgroundColor(nubankColor)
+            chart.setGridBackgroundColor(chartColor)
             chart.data = LineData(dataSet)
             chart.invalidate()
         }

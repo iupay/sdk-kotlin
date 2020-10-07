@@ -27,6 +27,9 @@ class AccountDetailsParams : Serializable {
         @JvmStatic
         fun example(): AccountDetailsParams {
             val params = AccountDetailsParams()
+            params.baseColor = "#8E05C2"
+            params.chartDataText = "JUNHO"
+            params.chartDataValue = "R$ 1.983,36"
             params.chartData = ArrayList()
             params.chartData!!.add(ChartData("Fev", 950))
             params.chartData!!.add(ChartData("Mar", 1050))

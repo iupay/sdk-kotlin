@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentBottom="false"
+    android:background="#FFFFFF"
     tools:context=".account_details.AccountDetailsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -79,6 +80,7 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/account_company_name"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountBtnBack" />
 
@@ -110,6 +112,7 @@
 
             <TextView
                 android:id="@+id/accountTvCnpjLabel"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -121,6 +124,7 @@
 
             <TextView
                 android:id="@+id/accountTvCnpj"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -132,6 +136,7 @@
 
             <TextView
                 android:id="@+id/accountTvCartao"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -149,11 +154,14 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/account_mes_ano"
+                android:textColor="@color/superdda_text_primary"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvCartao" />
 
             <TextView
                 android:id="@+id/accountTvValorLabel"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -171,11 +179,14 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/text_view"
+                android:textColor="@color/superdda_text_primary"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/accountTvValorLabel"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvMes" />
 
             <TextView
                 android:id="@+id/accountTvPagamentoMinimoLabel"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -193,11 +204,14 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/text_view"
+                android:textColor="@color/superdda_text_primary"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/accountTvPagamentoMinimoLabel"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvValor" />
 
             <TextView
                 android:id="@+id/accountTvVencimentoLabel"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -215,11 +229,14 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/text_view"
+                android:textColor="@color/superdda_text_primary"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/accountTvVencimentoLabel"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvPagamnetoMinimo" />
 
             <TextView
                 android:id="@+id/accountTvCodigoDeBarrasLabel"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -243,6 +260,7 @@
 
             <TextView
                 android:id="@+id/accountTvCodigoDeBarras"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -260,13 +278,12 @@
                 android:layout_height="200dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accountTvCodigoDeBarras" />
+                app:layout_constraintTop_toBottomOf="@+id/accountClTitle" />
 
             <Button
                 android:id="@+id/accountBtnPdf"
@@ -281,11 +298,13 @@
                 android:text="@string/account_pdf_da_conta"
                 android:textColor="@color/superdda_btn_secondary"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accountChart" />
+                app:layout_constraintTop_toBottomOf="@+id/accountClChartBottom" />
 
             <TextView
                 android:id="@+id/accountTvDebitoAutomatico"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -360,6 +379,7 @@
 
             <TextView
                 android:id="@+id/accountTvHistoricoPagamentos"
+                android:textColor="@color/superdda_text_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginTop="32dp"
@@ -370,6 +390,77 @@
                 app:layout_constraintStart_toEndOf="@+id/accountBtnHistoricoPagamentos"
                 app:layout_constraintTop_toBottomOf="@+id/accountBtnRecusar"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountClChartBottom"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#308E05C2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountChart">
+
+                <TextView
+                    android:id="@+id/accountChartDataText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/text_view"
+                    android:textColor="@color/superdda_text_primary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/accountChartDataValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/text_view"
+                    android:textColor="@color/superdda_text_primary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/accountChartDataText"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountClTitle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#8E05C2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvCodigoDeBarras">
+
+                <TextView
+                    android:id="@+id/accountTvChartTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Resumo das Faturas Anteriores"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.7" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
