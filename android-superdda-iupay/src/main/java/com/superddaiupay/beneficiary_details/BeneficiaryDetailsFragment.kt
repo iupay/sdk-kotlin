@@ -28,6 +28,10 @@ class BeneficiaryDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_beneficiary_details, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(params: BeneficiaryDetailsParams) =
