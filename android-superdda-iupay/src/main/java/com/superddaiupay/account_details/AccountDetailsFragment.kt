@@ -128,7 +128,7 @@ class AccountDetailsFragment : Fragment() {
             for (i in 0 until params!!.chartData!!.size) {
                 entries.add(Entry(i.toFloat(), params!!.chartData!![i].value.toFloat()))
             }
-            val dataSet = LineDataSet(entries, "Resumo das Faturas Anteriores")
+            val dataSet = LineDataSet(entries, null)
             dataSet.color = colorWhite
             dataSet.setCircleColor(colorWhite)
             dataSet.circleHoleColor = chartColor
@@ -149,6 +149,8 @@ class AccountDetailsFragment : Fragment() {
             chart.description.text = ""
             chart.setGridBackgroundColor(chartColor)
             chart.data = LineData(dataSet)
+            chart.legend.isEnabled = false // remove lineDataSet label
+            chart.legend.yEntrySpace = 4f
             chart.invalidate()
         }
     }
