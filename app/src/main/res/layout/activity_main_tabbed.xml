@@ -35,9 +35,13 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
+            android:background="#FFFFFF"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorColor="#FDDCC8"
+            app:tabIndicatorGravity="stretch"
             app:tabMode="scrollable"
-            app:tabTextColor="@android:color/white" />
+            app:tabSelectedTextColor="#F78C49"
+            app:tabTextColor="#999999" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
