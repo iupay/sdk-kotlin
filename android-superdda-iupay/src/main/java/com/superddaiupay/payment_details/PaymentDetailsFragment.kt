@@ -74,6 +74,7 @@ class PaymentDetailsFragment : Fragment() {
             btnConfirm.background?.colorFilter = PorterDuffColorFilter(
                 Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
             )
+
             clValor.background?.colorFilter = PorterDuffColorFilter(
                 Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
         }

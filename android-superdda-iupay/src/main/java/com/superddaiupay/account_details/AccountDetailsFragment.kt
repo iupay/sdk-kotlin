@@ -1,5 +1,6 @@
 package com.superddaiupay.account_details
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
@@ -8,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -67,6 +70,9 @@ class AccountDetailsFragment : Fragment() {
         val accountChartDataText = view.findViewById<TextView>(R.id.accountChartDataText)
         val accountChartDataValue = view.findViewById<TextView>(R.id.accountChartDataValue)
         val accountClTitle = view.findViewById<ConstraintLayout>(R.id.accountClTitle)
+        val accountBtnPdf = view.findViewById<Button>(R.id.accountBtnPdf)
+        val accountBtnRecusar = view.findViewById<Button>(R.id.accountBtnRecusar)
+        val accountBtnAceitar = view.findViewById<Button>(R.id.accountBtnAceitar)
 
         val baseColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
         companyName.text = params?.data?.companyName
@@ -105,6 +111,15 @@ class AccountDetailsFragment : Fragment() {
         accountClTitle.background?.colorFilter = PorterDuffColorFilter(baseColor, PorterDuff.Mode.SRC_ATOP)
         accountChartDataText.text = params?.chartDataText ?: ""
         accountChartDataValue.text = params?.chartDataValue ?: ""
+        accountBtnPdf.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountBtnPdf.background?.colorFilter = PorterDuffColorFilter(
+            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+        accountBtnAceitar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountBtnAceitar.background?.colorFilter = PorterDuffColorFilter(
+            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+        accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountBtnRecusar.background?.colorFilter = PorterDuffColorFilter(
+            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
 
         return view
     }

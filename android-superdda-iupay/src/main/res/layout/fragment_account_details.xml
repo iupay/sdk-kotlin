@@ -94,7 +94,8 @@
                 android:contentDescription="@string/todo"
                 android:src="@drawable/ic_user_false"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accountBtnOptions" />
+                app:layout_constraintTop_toBottomOf="@+id/accountBtnOptions"
+                app:tint="#FF0000" />
 
             <ImageView
                 android:id="@+id/accountIvIuPay"
