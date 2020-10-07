@@ -1,5 +1,6 @@
 package com.superddaiupay.account_details
 
+import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -10,13 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.LimitLine
 import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -42,6 +44,7 @@ class AccountDetailsFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -86,7 +89,7 @@ class AccountDetailsFragment : Fragment() {
             params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0
         )
 
-        var dueDateVal = params?.data?.billDetails?.dueDate
+        val dueDateVal = params?.data?.billDetails?.dueDate
         if (dueDateVal != null) {
             dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 .format(dueDateVal).toUpperCase(Locale.ROOT)
@@ -104,34 +107,39 @@ class AccountDetailsFragment : Fragment() {
         }
 
         accountClChartBottom.background?.colorFilter = PorterDuffColorFilter(
-            this.getColorWithAlpha(baseColor, 0.3f), PorterDuff.Mode.SRC_ATOP)
+            this.getColorWithAlpha(baseColor, 0.3f), PorterDuff.Mode.SRC_ATOP
+        )
         accountChartDataText.setTextColor(baseColor)
         accountChartDataValue.setTextColor(baseColor)
         companyName.setTextColor(baseColor)
-        accountClTitle.background?.colorFilter = PorterDuffColorFilter(baseColor, PorterDuff.Mode.SRC_ATOP)
+        accountClTitle.background?.colorFilter = PorterDuffColorFilter(
+            baseColor,
+            PorterDuff.Mode.SRC_ATOP
+        )
         accountChartDataText.text = params?.chartDataText ?: ""
         accountChartDataValue.text = params?.chartDataValue ?: ""
         accountBtnPdf.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
         accountBtnPdf.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+        )
         accountBtnAceitar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
         accountBtnAceitar.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+        )
         accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
         accountBtnRecusar.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+        )
 
         return view
     }
 
     private fun getColorWithAlpha(color: Int, ratio: Float): Int {
-        var newColor = 0
         val alpha = (Color.alpha(color) * ratio).roundToInt()
         val r = Color.red(color)
         val g = Color.green(color)
         val b = Color.blue(color)
-        newColor = Color.argb(alpha, r, g, b)
-        return newColor
+        return Color.argb(alpha, r, g, b)
     }
 
     fun initLineChart() {
@@ -159,6 +167,25 @@ class AccountDetailsFragment : Fragment() {
             xAxis.isGranularityEnabled = true
             xAxis.valueFormatter = IndexAxisValueFormatter(labels)
             xAxis.textColor = colorWhite
+            xAxis.setDrawGridLines(false)
+            xAxis.setDrawAxisLine(false)
+            xAxis.textSize = 14f
+            xAxis.spaceMin = 0.2f
+            xAxis.spaceMax = 0.2f
+            xAxis.setDrawLabels(true)
+            xAxis.yOffset = -5f
+
+            val axisRight: YAxis = chart.axisRight
+            axisRight.isEnabled = false
+
+            val axisLeft: YAxis = chart.axisLeft
+            axisLeft.isEnabled = false
+            axisLeft.setDrawGridLines(false)
+
+            chart.setDrawGridBackground(false)
+            chart.setTouchEnabled(true)
+            chart.isClickable = false
+            chart.isDoubleTapToZoomEnabled = false
 
             chart.setBackgroundColor(chartColor)
             chart.description.text = ""
