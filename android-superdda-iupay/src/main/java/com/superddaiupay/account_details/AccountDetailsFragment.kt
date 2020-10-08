@@ -16,7 +16,6 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.LimitLine
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
@@ -24,6 +23,8 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.superddaiupay.R
+import com.superddaiupay.popup.PopupFragment
+import com.superddaiupay.popup.PopupParams
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -75,7 +76,7 @@ class AccountDetailsFragment : Fragment() {
         val accountClTitle = view.findViewById<ConstraintLayout>(R.id.accountClTitle)
         val accountBtnPdf = view.findViewById<Button>(R.id.accountBtnPdf)
         val accountBtnRecusar = view.findViewById<Button>(R.id.accountBtnRecusar)
-        val accountBtnAceitar = view.findViewById<Button>(R.id.accountBtnAceitar)
+        val accountBtnVerDetalhes = view.findViewById<Button>(R.id.accountBtnVerDetalhes)
 
         val baseColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
         companyName.text = params?.data?.companyName
@@ -122,14 +123,21 @@ class AccountDetailsFragment : Fragment() {
         accountBtnPdf.background?.colorFilter = PorterDuffColorFilter(
             Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
         )
-        accountBtnAceitar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
-        accountBtnAceitar.background?.colorFilter = PorterDuffColorFilter(
+        accountBtnVerDetalhes.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountBtnVerDetalhes.background?.colorFilter = PorterDuffColorFilter(
             Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
         )
         accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
         accountBtnRecusar.background?.colorFilter = PorterDuffColorFilter(
             Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
         )
+
+        accountBtnVerDetalhes.setOnClickListener { v ->
+            val popupParams = PopupParams()
+            popupParams.title = "Detalhes da conta"
+            val popupFragment = PopupFragment.newInstance(popupParams, params!!)
+            popupFragment.show(requireFragmentManager(), "missiles")
+        }
 
         return view
     }

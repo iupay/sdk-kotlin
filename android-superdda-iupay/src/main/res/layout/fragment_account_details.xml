@@ -415,10 +415,10 @@
                 android:textColor="@color/superdda_btn_secondary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico"
-                app:layout_constraintWidth_percent="0.44" />
+                app:layout_constraintWidth_percent="0.42" />
 
             <Button
-                android:id="@+id/accountBtnAceitar"
+                android:id="@+id/accountBtnVerDetalhes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -427,13 +427,13 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/ic_btn_secondary_selector"
-                android:text="@string/account_aceitar_a_conta"
+                android:text="@string/account_ver_detalhes_da_conta"
                 android:textColor="@color/superdda_btn_secondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/accountBtnRecusar"
                 app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico"
-                app:layout_constraintWidth_percent="0.44" />
+                app:layout_constraintWidth_percent="0.46" />
 
             <Button
                 android:id="@+id/accountBtnHistoricoPagamentos"
