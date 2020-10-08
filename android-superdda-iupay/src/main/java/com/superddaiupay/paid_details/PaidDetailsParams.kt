@@ -42,7 +42,6 @@ class PaidDetailsParams : Serializable {
             params.screenImage =
                 BitmapFactory.decodeResource(context.resources, R.drawable.ic_lightbill)
             params.receiptAvailable = false
-
             return params
         }
     }

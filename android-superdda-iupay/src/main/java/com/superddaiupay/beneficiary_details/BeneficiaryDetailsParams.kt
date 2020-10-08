@@ -1,7 +1,9 @@
 package com.superddaiupay.beneficiary_details
 
 import android.view.View
+import com.superddaiupay.account_details.PaymentHistory
 import java.io.Serializable
+import java.util.*
 
 class BeneficiaryDetailsParams : Serializable {
 
@@ -25,6 +27,14 @@ class BeneficiaryDetailsParams : Serializable {
             params.data!!.autoPayment = false
             params.data!!.cardHolderName = "Roberto de Oliveira Santos"
 
+            params.data!!.paymentHistory = listOf(
+                PaymentHistory("01/06/2020", 1286.55, true),
+                PaymentHistory("01/05/2020", 1174.13),
+                PaymentHistory("01/04/2020", 1660.89),
+                PaymentHistory("01/03/2020", 998.22),
+                PaymentHistory("01/02/2020", 1330.45),
+                PaymentHistory("01/01/2020", 2589.99)
+            )
             return params
         }
     }

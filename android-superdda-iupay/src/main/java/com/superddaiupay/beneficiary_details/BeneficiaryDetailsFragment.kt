@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.superddaiupay.R
+import com.superddaiupay.payment_history.PaymentHistoryAdapter
 import com.superddaiupay.popups.BeneficiaryPopupFragment
 import com.superddaiupay.popups.PopupParams
 import java.util.logging.Logger
@@ -42,7 +44,7 @@ class BeneficiaryDetailsFragment : Fragment() {
             view.findViewById<TextView>(R.id.beneficiaryDetailsTvLimiteAutorizacao)
         val cardHolderName = view.findViewById<TextView>(R.id.beneficiaryDetailsNome)
         val btnDetails = view.findViewById<Button>(R.id.beneficiaryDetailsBtnDetails)
-        val beneficiaryHistory = view.findViewById<RecyclerView>(R.id.beneficiaryDetailsRvHistory)
+        val paymentHistory = view.findViewById<RecyclerView>(R.id.beneficiaryDetailsRvHistory)
 
         companyName.text = params?.data?.companyName
         cnpj.text = params?.data?.cnpj
@@ -70,6 +72,13 @@ class BeneficiaryDetailsFragment : Fragment() {
             val popupFragment = BeneficiaryPopupFragment.newInstance(popupParams, params!!)
             popupFragment.show(requireFragmentManager(), "missiles")
         }
+        paymentHistory.layoutManager = LinearLayoutManager(requireContext());
+        paymentHistory.adapter = PaymentHistoryAdapter(
+            requireContext(), params?.data?.paymentHistory ?: ArrayList(),
+            5,
+            5
+        )
+        paymentHistory.adapter?.notifyDataSetChanged()
     }
 
     companion object {
