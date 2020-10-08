@@ -1,6 +1,7 @@
 package com.superddaiupay.popups
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -10,6 +11,9 @@ import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.superddaiupay.R
 import com.superddaiupay.account_details.AccountDetailsParams
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val ARG_PARAMS = "params"
 private const val ARG_PARAMS2 = "accountDetailsParams"
@@ -83,6 +87,27 @@ class AccountPopupFragment : DialogFragment() {
             dismiss()
             params.onClickClose?.onClickClose()
         }
+
+        beneficiary.text = accountDetailsParams.data?.companyName
+        cnpj.text = accountDetailsParams.data?.cnpj
+        name.text = accountDetailsParams.data?.cardHolderName
+        card.text = accountDetailsParams.data?.cardNumber
+        month.text = accountDetailsParams?.data?.billDetails?.billDate
+        val nf = NumberFormat.getInstance(Locale("pt", "BR"))
+        nf.minimumFractionDigits = 2
+        totalLimit.text = nf.format(accountDetailsParams?.data?.billDetails?.totalLimitValue?.toDouble() ?: 0)
+        totalWithdraw.text = nf.format(accountDetailsParams?.data?.billDetails?.totalWithdrawLimitValue?.toDouble() ?: 0)
+        value.text = nf.format(accountDetailsParams?.data?.billDetails?.value?.toDouble() ?: 0)
+        dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            .format(accountDetailsParams?.data?.billDetails?.dueDate).toUpperCase(Locale.ROOT)
+        rate1.text = nf.format(accountDetailsParams.data?.billDetails?.interestRate?.toDouble() ?: 0) + "% am CET: " +
+                nf.format(accountDetailsParams.data?.billDetails?.interestRateCET?.toDouble() ?: 0) + "% aa"
+        rate2.text = "consulte o app na contratação juros e mora em caso de atraso: " +
+                nf.format(accountDetailsParams.data?.billDetails?.interestInstallmentRate?.toDouble() ?: 0) + "% am +" +
+                nf.format(accountDetailsParams.data?.billDetails?.interestInstallmentFine?.toDouble() ?: 0) + "% multa CET:" +
+                nf.format(accountDetailsParams.data?.billDetails?.interestInstallmentRateCET?.toDouble() ?: 0) + "% aa"
+
+
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.superddaiupay.R
 import com.superddaiupay.beneficiary_details.BeneficiaryDetailsParams
+import java.text.NumberFormat
+import java.util.*
 
 private const val ARG_PARAMS = "params"
 private const val ARG_PARAMS2 = "beneficiaryDetailsParams"
@@ -73,6 +75,19 @@ class BeneficiaryPopupFragment : DialogFragment() {
             dismiss()
             params.onClickClose?.onClickClose()
         }
+        beneficiary.text = beneficiaryDetailsParams.data?.companyName
+        cnpj.text = beneficiaryDetailsParams.data?.cnpj
+        name.text = beneficiaryDetailsParams.data?.cardHolderName
+        card.text = beneficiaryDetailsParams.data?.cardNumber
+        address.text = beneficiaryDetailsParams.data?.cardHolderAddress
+        val nf = NumberFormat.getInstance(Locale("pt", "BR"))
+        nf.minimumFractionDigits = 2
+        rate1.text = nf.format(beneficiaryDetailsParams.data?.billDetails?.interestRate?.toDouble() ?: 0) + "% am CET: " +
+                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestRateCET?.toDouble() ?: 0) + "% aa"
+        rate2.text = "consulte o app na contratação juros e mora em caso de atraso: " +
+                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRate?.toDouble() ?: 0) + "% am +" +
+                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestInstallmentFine?.toDouble() ?: 0) + "% multa CET:" +
+                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRateCET?.toDouble() ?: 0) + "% aa"
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -87,7 +102,7 @@ class BeneficiaryPopupFragment : DialogFragment() {
             BeneficiaryPopupFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)
-                    putSerializable(ARG_PARAMS2, beneficiaryDetailsParams)
+                    putSerializable(ARG_PARAMS2, BeneficiaryDetailsParams.example())
                 }
             }
     }

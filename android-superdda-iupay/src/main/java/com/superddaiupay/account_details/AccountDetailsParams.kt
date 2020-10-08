@@ -53,6 +53,13 @@ class AccountDetailsParams : Serializable {
             params.data!!.billDetails!!.dueDate = Calendar.getInstance().time
             params.data!!.billDetails!!.barCode =
                 "34191.09065 44830. 1285 40141.906 8 00001.83120.59475"
+            params.data!!.billDetails?.totalLimitValue = 1.200
+            params.data!!.billDetails?.totalWithdrawLimitValue = 600
+            params.data!!.billDetails?.interestRate = 14
+            params.data!!.billDetails?.interestRateCET = 385.17
+            params.data!!.billDetails?.interestInstallmentFine = 22
+            params.data!!.billDetails?.interestInstallmentRate = 12
+            params.data!!.billDetails?.interestInstallmentRateCET = 15
             return params
         }
     }
