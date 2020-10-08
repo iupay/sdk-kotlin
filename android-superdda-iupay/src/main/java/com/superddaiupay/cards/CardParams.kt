@@ -23,6 +23,7 @@ class CardParams : Serializable {
     var textColor: String? = null
     var isDue: Boolean = false
     var isDueText: String? = DUE_TEXT
+
     //   Nao eh possivel sobreescrer estilo var containerStyle: String? = null
     var isPaid: Boolean = false
     var lightBillFlagStatus: LightBillFlagStatus? = null
@@ -31,7 +32,7 @@ class CardParams : Serializable {
     var isLocked: Boolean = false
     var onClickCard: View.OnClickListener? = null
 
-    var creditCardText: String ?= null
+    var creditCardText: String? = null
 
     enum class LightBillFlagStatus(val color: String) {
         GREEN("#8aa626"), YELLOW("#ebbf10"), RED("#e30613")

@@ -5,7 +5,7 @@ import com.superddaiupay.account_details.BillDetails
 import com.superddaiupay.account_details.PaymentHistory
 import java.io.Serializable
 
-class BeneficiaryDetailsInfo: Serializable {
+class BeneficiaryDetailsInfo : Serializable {
     var authorizedLimit: Boolean = false
     var autoPayment: Boolean = false
     var billDetails: BillDetails? = null

@@ -14,7 +14,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.superddaiupay.R
-import com.superddaiupay.receipt.ReceiptFragment
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -45,7 +44,7 @@ class PaidDetailsFragment : Fragment() {
         val dueDate = view.findViewById<TextView>(R.id.paidTvDueDate)
         val clMessage = view.findViewById<ConstraintLayout>(R.id.paidCLMessage)
         val btnViewReceipt = view.findViewById<Button>(R.id.paidBtnViewReceipt)
-        val paymentMessage= view.findViewById<TextView>(R.id.paidTvPaymentMessage)
+        val paymentMessage = view.findViewById<TextView>(R.id.paidTvPaymentMessage)
 
         beneficiaryName.text = params?.beneficiaryName
         paidDate.text = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
@@ -60,23 +59,26 @@ class PaidDetailsFragment : Fragment() {
         nf.minimumFractionDigits = 2
         value.text = nf.format(params?.value?.toDouble() ?: 0)
         dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                .format(params?.dueDate as Date).toUpperCase(Locale.ROOT)
+            .format(params?.dueDate as Date).toUpperCase(Locale.ROOT)
         paymentMessage.text = params?.paymentMessage
 
-        if (params?.baseColor != null){
+        if (params?.baseColor != null) {
             clMessage.background?.colorFilter = PorterDuffColorFilter(
-                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            )
             paymentMessage.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
             btnViewReceipt.background?.colorFilter = PorterDuffColorFilter(
-                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            )
             btnViewReceipt.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
         }
 
-        if (!params?.receiptAvailable!!){
+        if (!params?.receiptAvailable!!) {
             btnViewReceipt.isClickable = false
             btnViewReceipt.isEnabled = false
             btnViewReceipt.background?.colorFilter = PorterDuffColorFilter(
-                Color.parseColor("#e8e8e8"), PorterDuff.Mode.SRC_ATOP)
+                Color.parseColor("#e8e8e8"), PorterDuff.Mode.SRC_ATOP
+            )
             btnViewReceipt.setTextColor(ColorStateList.valueOf(Color.parseColor("#FFFFFF")))
         }
 

@@ -4,11 +4,10 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.superddaiupay.R
-import com.superddaiupay.receipt.ReceiptParams
 import java.io.Serializable
 import java.util.*
 
-class PaidDetailsParams: Serializable {
+class PaidDetailsParams : Serializable {
     var beneficiaryName: String? = null
     var paidDate: Date? = null
     var screenTitle: String? = null
@@ -40,7 +39,8 @@ class PaidDetailsParams: Serializable {
             params.dueDate = Calendar.getInstance().time
             params.paymentMessage = "Sua conta está paga"
             params.baseColor = "#FF0000"
-            params.screenImage = BitmapFactory.decodeResource(context.resources, R.drawable.ic_lightbill)
+            params.screenImage =
+                BitmapFactory.decodeResource(context.resources, R.drawable.ic_lightbill)
             params.receiptAvailable = false
 
             return params

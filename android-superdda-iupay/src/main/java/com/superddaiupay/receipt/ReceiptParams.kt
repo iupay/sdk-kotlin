@@ -3,7 +3,7 @@ package com.superddaiupay.receipt
 import java.io.Serializable
 import java.util.*
 
-class ReceiptParams: Serializable {
+class ReceiptParams : Serializable {
     var cedentName: String? = null
     var cnpj: String? = null
     var payerName: String? = null
@@ -35,7 +35,7 @@ class ReceiptParams: Serializable {
 
     companion object {
 
-        fun example():ReceiptParams{
+        fun example(): ReceiptParams {
             val params = ReceiptParams()
             params.cedentName = "COMPANHIA DE ELETRICIDADE DO RIO DE JANEIRO"
             params.cnpj = "15.139.629/0001-99"

@@ -41,7 +41,8 @@ class AccountDetailsParams : Serializable {
             params.chartData!!.add(ChartData("Jun", 1300))
             params.chartData!!.add(ChartData("Jul", 1500))
             params.data = AccountDetailsInfo()
-            params.data!!.companyLogo = BitmapFactory.decodeResource(context.resources, R.raw.nubank)
+            params.data!!.companyLogo =
+                BitmapFactory.decodeResource(context.resources, R.raw.nubank)
             params.data!!.companyName = "Nu Pagamentos S.A."
             params.data!!.cnpj = "18.236.120/0001-58"
             params.data!!.cardNumber = "5162 **** **** 9090"
@@ -50,7 +51,8 @@ class AccountDetailsParams : Serializable {
             params.data!!.billDetails!!.value = 1230.89
             params.data!!.billDetails!!.minimumPaymentValue = 400
             params.data!!.billDetails!!.dueDate = Calendar.getInstance().time
-            params.data!!.billDetails!!.barCode = "34191.09065 44830. 1285 40141.906 8 00001.83120.59475"
+            params.data!!.billDetails!!.barCode =
+                "34191.09065 44830. 1285 40141.906 8 00001.83120.59475"
             return params
         }
     }

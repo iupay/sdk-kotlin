@@ -1,10 +1,7 @@
 package com.superddaiupay.filter_searches
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher

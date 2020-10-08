@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.superddaiupay.R
-import com.superddaiupay.receipt.ReceiptFragment
 
 private const val ARG_PARAMS = "params"
 

@@ -12,12 +12,12 @@ import com.superddaiupay.cards.CardType
 import java.io.Serializable
 import java.util.logging.Logger
 
-class BeneficiaryCardParams : Serializable  {
+class BeneficiaryCardParams : Serializable {
     var type: CardType? = CardType.DEFAULT
     var cardColor: String? = "#FFFFFF"
     var barColor: String? = null
     var cnpj: String? = null
-    var creditCardText: String ?= null
+    var creditCardText: String? = null
     var cardTitle: String? = null
     var limitValueText: String? = null
     var limitValue: Number? = null
@@ -49,16 +49,18 @@ class BeneficiaryCardParams : Serializable  {
             params.onClickCard = View.OnClickListener {
                 Logger.getLogger("BeneficiaryCardParams").info("Beneficiary Card Click!!!")
             }
-            params.onActiveChange = CompoundButton.OnCheckedChangeListener {  buttonView, isChecked ->
-                val v = buttonView.parent as View
-                val cnpj  = v.findViewById<TextView>(R.id.beneficiaryCardTvCnpjValue)
-                Logger.getLogger("BeneficiaryCardParams").info("Beneficiary Card SWITCH Change!!! CNPJ: " + cnpj?.text)
-                Toast.makeText(
-                    context,
-                    "SWITCH TO $isChecked | CNPJ: ${cnpj?.text}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            params.onActiveChange =
+                CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+                    val v = buttonView.parent as View
+                    val cnpj = v.findViewById<TextView>(R.id.beneficiaryCardTvCnpjValue)
+                    Logger.getLogger("BeneficiaryCardParams")
+                        .info("Beneficiary Card SWITCH Change!!! CNPJ: " + cnpj?.text)
+                    Toast.makeText(
+                        context,
+                        "SWITCH TO $isChecked | CNPJ: ${cnpj?.text}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             return params
         }
     }

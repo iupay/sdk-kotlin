@@ -1,12 +1,9 @@
 package com.superddaiupay.beneficiary_details
 
 import android.view.View
-import com.superddaiupay.account_details.PaymentHistory
-import com.superddaiupay.filter_searches.FilterSearchesParams
 import java.io.Serializable
-import java.util.logging.Logger
 
-class BeneficiaryDetailsParams: Serializable {
+class BeneficiaryDetailsParams : Serializable {
 
     var historyReverse: Boolean = false
     var data: BeneficiaryDetailsInfo? = null

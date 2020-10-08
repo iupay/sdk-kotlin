@@ -30,7 +30,7 @@ class BeneficiaryCardFragment : Fragment() {
         Logger.getLogger(javaClass.toString()).info("Building Beneficiary Card Fragment...")
         val view = inflater.inflate(R.layout.fragment_beneficiary_card, container, false)
         BeneficiaryCardUtils.buildCard(requireContext(), view, this.params)
-        return  view
+        return view
     }
 
     companion object {

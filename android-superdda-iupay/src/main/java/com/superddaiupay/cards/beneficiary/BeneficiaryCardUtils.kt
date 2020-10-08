@@ -33,7 +33,7 @@ class BeneficiaryCardUtils {
         val moneySymbol = view.findViewById<TextView>(R.id.beneficiaryCardTvMoneySymbol)
         val tvType = view.findViewById<TextView>(R.id.beneficiaryCardTvType)
         val ivLogo = view.findViewById<ImageView>(R.id.beneficiaryCardIvLogo)
-        val tvText =  view.findViewById<TextView>(R.id.beneficiaryCardTvText)
+        val tvText = view.findViewById<TextView>(R.id.beneficiaryCardTvText)
         val swCardActive = view.findViewById<SwitchCompat>(R.id.beneficiaryCardActive)
 
         // CARD TYPES
@@ -148,7 +148,12 @@ class BeneficiaryCardUtils {
         swCardActive.isChecked = cardParams.isActive
 
         // ACTIVE SWITCH CHANGES
-        swCardActive.setOnCheckedChangeListener { buttonView, isChecked ->  cardParams.onActiveChange?.onCheckedChanged(buttonView, isChecked)}
+        swCardActive.setOnCheckedChangeListener { buttonView, isChecked ->
+            cardParams.onActiveChange?.onCheckedChanged(
+                buttonView,
+                isChecked
+            )
+        }
 
         // FUNCAO DE CALLBACK AO CLICAR NO CARD
         view.setOnClickListener { v -> cardParams.onClickCard?.onClick(v) }

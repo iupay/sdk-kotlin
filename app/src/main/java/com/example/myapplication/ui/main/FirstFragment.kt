@@ -9,9 +9,9 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
-import com.superddaiupay.cards.list.CardListFragment
 import com.superddaiupay.cards.CardParams
 import com.superddaiupay.cards.CardType
+import com.superddaiupay.cards.list.CardListFragment
 import java.util.*
 import java.util.logging.Logger
 
@@ -62,7 +62,8 @@ class FirstFragment : Fragment() {
         nubankCard.type = CardType.NUBANK
         nubankCard.onClickCard = onClickNubankCard()
 
-        val cards: List<CardParams> = listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard, nubankCard)
+        val cards: List<CardParams> =
+            listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard, nubankCard)
         val cardsListFragment = CardListFragment.newInstance(12, 12, cards)
 
         val fragmentManager = requireActivity().supportFragmentManager

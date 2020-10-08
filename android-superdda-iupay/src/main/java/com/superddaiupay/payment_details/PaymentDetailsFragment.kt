@@ -13,7 +13,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.superddaiupay.R
-import com.superddaiupay.receipt.ReceiptFragment
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -62,10 +61,11 @@ class PaymentDetailsFragment : Fragment() {
             .format(params?.dueDate as Date).toUpperCase(Locale.ROOT)
         scheduledDueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             .format(params?.scheduledDueDate as Date).toUpperCase(Locale.ROOT)
-        if (params?.type == PaymentDetailsParams.PaymentDetailsType.SCHEDULE){
-            btnConfirm.text = requireContext().getString(R.string.payment_details_confirmar_agendamento)
+        if (params?.type == PaymentDetailsParams.PaymentDetailsType.SCHEDULE) {
+            btnConfirm.text =
+                requireContext().getString(R.string.payment_details_confirmar_agendamento)
         }
-        if (params?.baseColor != null){
+        if (params?.baseColor != null) {
             val color = ColorStateList.valueOf(Color.parseColor(params?.baseColor))
             labelValue.setTextColor(color)
             value.setTextColor(color)
@@ -76,7 +76,8 @@ class PaymentDetailsFragment : Fragment() {
             )
 
             clValor.background?.colorFilter = PorterDuffColorFilter(
-                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP)
+                Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            )
         }
 
         return view

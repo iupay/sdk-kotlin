@@ -22,7 +22,8 @@ class BeneficiaryCardListFragment : Fragment() {
 
         arguments?.let {
             @Suppress("UNCHECKED_CAST")
-            this.beneficiaryCardParamsList = it.getSerializable(ARG_CARD_PARAMS_LIST) as List<BeneficiaryCardParams>
+            this.beneficiaryCardParamsList =
+                it.getSerializable(ARG_CARD_PARAMS_LIST) as List<BeneficiaryCardParams>
             this.itemTopMargin = it.getInt(ARG_ITEM_TOP_MARGIN)
             this.itemBottomMargin = it.getInt(ARE_ITEM_BOTTOM_MARGIN)
         }
@@ -34,12 +35,13 @@ class BeneficiaryCardListFragment : Fragment() {
     ): View? {
         Logger.getLogger(javaClass.toString()).info("Building Beneficiary Card List Fragment...")
         val view = inflater.inflate(R.layout.fragment_beneficiary_card_list, container, false)
-        view.findViewById<RecyclerView>(R.id.beneficiaryCardList).adapter = BeneficiaryCardListAdapter(
-            requireContext(),
-            beneficiaryCardParamsList,
-            itemTopMargin,
-            itemBottomMargin
-        )
+        view.findViewById<RecyclerView>(R.id.beneficiaryCardList).adapter =
+            BeneficiaryCardListAdapter(
+                requireContext(),
+                beneficiaryCardParamsList,
+                itemTopMargin,
+                itemBottomMargin
+            )
         return view
     }
 
@@ -50,7 +52,9 @@ class BeneficiaryCardListFragment : Fragment() {
 
         @JvmStatic
         fun newInstance(
-            itemTopMargin: Int, itemBottomMargin: Int, beneficiaryCardParamsList: List<BeneficiaryCardParams>
+            itemTopMargin: Int,
+            itemBottomMargin: Int,
+            beneficiaryCardParamsList: List<BeneficiaryCardParams>
         ) =
             BeneficiaryCardListFragment().apply {
                 arguments = Bundle().apply {

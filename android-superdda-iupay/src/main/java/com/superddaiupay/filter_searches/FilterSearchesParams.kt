@@ -1,12 +1,10 @@
 package com.superddaiupay.filter_searches
 
 import android.view.View
-import com.superddaiupay.account_details.AccountDetailsParams
-import com.superddaiupay.account_details.ChartData
 import java.io.Serializable
 import java.util.logging.Logger
 
-class FilterSearchesParams: Serializable {
+class FilterSearchesParams : Serializable {
 
     var orderText: String? = null
     var disabled: Boolean = false
@@ -32,9 +30,15 @@ class FilterSearchesParams: Serializable {
             params.orderText = "Ordernar por: "
             params.disabled = false
             params.searchValue = ""
-            params.onClickAsc = View.OnClickListener { Logger.getLogger("FilterSearchesParams").info("On Click Asc!!!") }
-            params.onClickDesc = View.OnClickListener { Logger.getLogger("FilterSearchesParams").info("On Click Desc!!!") }
-            params.onSearchIconClick = View.OnClickListener { Logger.getLogger("FilterSearchesParams").info("On Search Icon Click!!!") }
+            params.onClickAsc = View.OnClickListener {
+                Logger.getLogger("FilterSearchesParams").info("On Click Asc!!!")
+            }
+            params.onClickDesc = View.OnClickListener {
+                Logger.getLogger("FilterSearchesParams").info("On Click Desc!!!")
+            }
+            params.onSearchIconClick = View.OnClickListener {
+                Logger.getLogger("FilterSearchesParams").info("On Search Icon Click!!!")
+            }
             params.onSearch = object : SearchClickListener {
                 override fun onSearch(text: String) {
                     Logger.getLogger("FilterSearchesParams").info("On Search: $text")

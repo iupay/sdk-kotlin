@@ -70,7 +70,8 @@ class AccountDetailsFragment : Fragment() {
         val dueDate = view.findViewById<TextView>(R.id.accountTvVencimento)
         val barCode = view.findViewById<TextView>(R.id.accountTvCodigoDeBarras)
         val accountTvDebitoAutomatico = view.findViewById<TextView>(R.id.accountTvDebitoAutomatico)
-        val accountSwDebitoAutomatico = view.findViewById<SwitchCompat>(R.id.accountSwDebitoAutomatico)
+        val accountSwDebitoAutomatico =
+            view.findViewById<SwitchCompat>(R.id.accountSwDebitoAutomatico)
         val accountClChartBottom = view.findViewById<ConstraintLayout>(R.id.accountClChartBottom)
         val accountChartDataText = view.findViewById<TextView>(R.id.accountChartDataText)
         val accountChartDataValue = view.findViewById<TextView>(R.id.accountChartDataValue)
@@ -87,7 +88,7 @@ class AccountDetailsFragment : Fragment() {
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
         value.text = nf.format(params?.data?.billDetails?.value?.toDouble() ?: 0)
-        minimumPaymentValue.text =  nf.format(
+        minimumPaymentValue.text = nf.format(
             params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0
         )
 
@@ -102,7 +103,8 @@ class AccountDetailsFragment : Fragment() {
 
         if (params?.data?.isAutomaticDebit!!) {
             accountSwDebitoAutomatico.visibility = View.INVISIBLE
-            accountTvDebitoAutomatico.text = "Conta em Débito automático no " + params?.data?.automaticDebitBankName
+            accountTvDebitoAutomatico.text =
+                "Conta em Débito automático no " + params?.data?.automaticDebitBankName
         } else {
             accountSwDebitoAutomatico.visibility = View.VISIBLE
             accountTvDebitoAutomatico.text = "Pagamento automático no dia do vencimento"
@@ -159,7 +161,7 @@ class AccountDetailsFragment : Fragment() {
     fun initLineChart() {
         if (params?.chartData != null) {
             val chartColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
-            val colorWhite =  Color.parseColor("#FFFFFF")
+            val colorWhite = Color.parseColor("#FFFFFF")
             val labels = params!!.chartData!!.map(ChartData::label)
             val entries = ArrayList<Entry>()
             for (i in 0 until params!!.chartData!!.size) {
