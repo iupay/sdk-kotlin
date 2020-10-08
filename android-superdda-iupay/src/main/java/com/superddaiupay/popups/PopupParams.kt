@@ -1,4 +1,4 @@
-package com.superddaiupay.popup
+package com.superddaiupay.popups
 
 import java.io.Serializable
 

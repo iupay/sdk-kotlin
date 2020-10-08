@@ -1,10 +1,9 @@
 package com.superddaiupay.payment_details
 
-import com.superddaiupay.paid_details.PaidDetailsParams
 import java.io.Serializable
 import java.util.*
 
-class PaymentDetailsParams: Serializable {
+class PaymentDetailsParams : Serializable {
     var beneficiaryName: String? = null
     var bankName: String? = null
     var payerName: String? = null
@@ -31,7 +30,7 @@ class PaymentDetailsParams: Serializable {
         fun onConfirmPaymentSchedule()
     }
 
-    companion object{
+    companion object {
         fun example(): PaymentDetailsParams {
             val params = PaymentDetailsParams()
 

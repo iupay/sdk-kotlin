@@ -1,4 +1,4 @@
-package com.superddaiupay.popup
+package com.superddaiupay.popups
 
 import android.app.Dialog
 import android.graphics.Color
@@ -14,16 +14,15 @@ import com.superddaiupay.account_details.AccountDetailsParams
 private const val ARG_PARAMS = "params"
 private const val ARG_PARAMS2 = "accountDetailsParams"
 
-
-class PopupFragment : DialogFragment() {
+class AccountPopupFragment : DialogFragment() {
     private lateinit var params: PopupParams
     private lateinit var accountDetailsParams: AccountDetailsParams
     private lateinit var title: TextView
     private lateinit var close: ImageButton
     private lateinit var beneficiary: TextView
     private lateinit var cnpj: TextView
-    private lateinit var name: TextView
     private lateinit var card: TextView
+    private lateinit var name: TextView
     private lateinit var month: TextView
     private lateinit var value: TextView
     private lateinit var dueDate: TextView
@@ -95,7 +94,7 @@ class PopupFragment : DialogFragment() {
     companion object {
         @JvmStatic
         fun newInstance(params: PopupParams, accountDetailsParams: AccountDetailsParams) =
-            PopupFragment().apply {
+            AccountPopupFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)
                     putSerializable(ARG_PARAMS2, accountDetailsParams)

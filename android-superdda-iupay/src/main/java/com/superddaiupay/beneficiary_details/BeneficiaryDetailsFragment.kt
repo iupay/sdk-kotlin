@@ -9,8 +9,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.superddaiupay.R
-import com.superddaiupay.cards.beneficiary.BeneficiaryCardParams
-import com.superddaiupay.receipt.ReceiptFragment
+import com.superddaiupay.popups.BeneficiaryPopupFragment
+import com.superddaiupay.popups.PopupParams
+import java.util.logging.Logger
 
 private const val ARG_PARAMS = "params"
 
@@ -37,7 +38,8 @@ class BeneficiaryDetailsFragment : Fragment() {
         val cnpj = view.findViewById<TextView>(R.id.beneficiaryDetailsTvCnpj)
         val cardNumber = view.findViewById<TextView>(R.id.beneficiaryDetailsTvCartao)
         val autoPayment = view.findViewById<TextView>(R.id.beneficiaryDetailsTvPagamentoAutomatico)
-        val authorizedLimit = view.findViewById<TextView>(R.id.beneficiaryDetailsTvLimiteAutorizacao)
+        val authorizedLimit =
+            view.findViewById<TextView>(R.id.beneficiaryDetailsTvLimiteAutorizacao)
         val cardHolderName = view.findViewById<TextView>(R.id.beneficiaryDetailsNome)
         val btnDetails = view.findViewById<Button>(R.id.beneficiaryDetailsBtnDetails)
         val beneficiaryHistory = view.findViewById<RecyclerView>(R.id.beneficiaryDetailsRvHistory)
@@ -47,16 +49,27 @@ class BeneficiaryDetailsFragment : Fragment() {
         cardNumber.text = params?.data?.cardNumber
         if (params?.data?.autoPayment!!) {
             autoPayment.text = "Ativado"
-        }else{
+        } else {
             autoPayment.text = "Desativado"
         }
         if (params?.data?.authorizedLimit!!) {
             authorizedLimit.text = "Ativado"
-        }else{
+        } else {
             authorizedLimit.text = "Desativado"
         }
         cardHolderName.text = params?.data?.cardHolderName
 
+        btnDetails.setOnClickListener {
+            val popupParams = PopupParams()
+            popupParams.title = "Detalhes do Beneficiário"
+            popupParams.onClickClose = object : PopupParams.OnClickClose {
+                override fun onClickClose() {
+                    Logger.getLogger("BeneficiaryPopupFragment").info("Closed Click")
+                }
+            }
+            val popupFragment = BeneficiaryPopupFragment.newInstance(popupParams, params!!)
+            popupFragment.show(requireFragmentManager(), "missiles")
+        }
     }
 
     companion object {

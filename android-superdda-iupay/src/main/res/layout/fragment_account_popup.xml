@@ -5,9 +5,7 @@
     android:id="@+id/accountPopupFrameLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".popup.PopupFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".popups.AccountPopupFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -355,7 +353,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginBottom="50dp"
                     android:text="consulte o app na contratação juros e mora em caso de atraso: 12% am + 22% multa CET: 15% aa"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

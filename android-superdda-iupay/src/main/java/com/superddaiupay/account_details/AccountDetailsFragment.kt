@@ -23,11 +23,12 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.superddaiupay.R
-import com.superddaiupay.popup.PopupFragment
-import com.superddaiupay.popup.PopupParams
+import com.superddaiupay.popups.AccountPopupFragment
+import com.superddaiupay.popups.PopupParams
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.logging.Logger
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
@@ -135,7 +136,12 @@ class AccountDetailsFragment : Fragment() {
         accountBtnVerDetalhes.setOnClickListener { v ->
             val popupParams = PopupParams()
             popupParams.title = "Detalhes da conta"
-            val popupFragment = PopupFragment.newInstance(popupParams, params!!)
+            popupParams.onClickClose = object : PopupParams.OnClickClose {
+                override fun onClickClose() {
+                    Logger.getLogger("AccountPopupFragment").info("Closed Click")
+                }
+            }
+            val popupFragment = AccountPopupFragment.newInstance(popupParams, params!!)
             popupFragment.show(requireFragmentManager(), "missiles")
         }
 
