@@ -59,7 +59,7 @@ class AccountDetailsFragment : Fragment() {
                     chart.viewTreeObserver.removeOnGlobalLayoutListener(this)
                     initLineChart()
                 }
-            },
+            }
         )
         val companyName = view.findViewById<TextView>(R.id.accountTvCompanyName)
         val cnpj = view.findViewById<TextView>(R.id.accountTvCnpj)

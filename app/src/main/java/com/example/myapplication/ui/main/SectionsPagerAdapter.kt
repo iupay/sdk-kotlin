@@ -26,7 +26,7 @@ private val TAB_TITLES = arrayOf(
     R.string.tab_filter_searches,
     R.string.tab_paid_details,
     R.string.tab_payment_details,
-    R.string.tab_receipt,
+    R.string.tab_receipt
 )
 
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
