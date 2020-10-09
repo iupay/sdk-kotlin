@@ -9,6 +9,7 @@ import java.util.*
 import java.util.logging.Logger
 
 class CardParams : Serializable {
+    var featured: Boolean = false
     var type: CardType? = CardType.DEFAULT
     var cardColor: String? = "#FFFFFF"
     var dueDate: Date? = null
@@ -41,6 +42,23 @@ class CardParams : Serializable {
     companion object {
         const val DUE_TEXT = "Vencendo hoje"
         const val LOCKED_TEXT: String = "Boleto protegido por senha"
+
+        fun featuredCard(): CardParams {
+            val params = CardParams()
+            params.featured = true
+            params.barColor = "#1dd15d"
+            params.cardTitle = "CERJ"
+            params.cnpj = "99.9999.999.0001-99"
+            params.dueDate = Calendar.getInstance().time
+            params.isFromMail = true
+            params.isUserAdded = true
+            params.text = "Hello Storybook"
+            params.value = 500.0
+            params.onClickCard = View.OnClickListener {
+                Logger.getLogger("CardParams").info("Default Card Click!!!")
+            }
+            return params
+        }
 
         fun defaultCard(): CardParams {
             val params = CardParams()

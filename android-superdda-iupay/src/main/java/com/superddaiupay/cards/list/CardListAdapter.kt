@@ -10,6 +10,7 @@ import com.superddaiupay.cards.CardParams
 import com.superddaiupay.cards.CardUtils
 import java.util.logging.Logger
 
+
 class CardListAdapter(
     private val context: Context,
     private val cardParamsList: List<CardParams>,
@@ -19,8 +20,12 @@ class CardListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_card, parent, false)
+            .inflate(viewType, parent, false)
         return ViewHolder(view)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return R.layout.fragment_card
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

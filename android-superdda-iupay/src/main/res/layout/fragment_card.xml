@@ -2,186 +2,195 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardFrame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/card"
-    tools:context=".cards.CardFragment">
+    android:background="@android:color/transparent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardCL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp">
+        android:background="@drawable/card"
+        tools:context=".cards.CardFragment">
 
-        <TextView
-            android:id="@+id/cardTvCnpjLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/card_label_cnpj"
-            android:textColor="@color/card_text"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
 
-        <TextView
-            android:id="@+id/cardTvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:minWidth="10dp"
-            android:minHeight="19dp"
-            android:textStyle="bold"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintStart_toEndOf="@+id/cardIvLogo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_min="wrap"
-            tools:visibility="visible" />
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:id="@+id/cardTvCnpjLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/card_label_cnpj"
+                android:textColor="@color/card_text"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
+
+            <TextView
+                android:id="@+id/cardTvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:minWidth="10dp"
+                android:minHeight="19dp"
+                android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintStart_toEndOf="@+id/cardIvLogo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_min="wrap"
+                tools:visibility="visible" />
 
 
-        <TextView
-            android:id="@+id/cardTvCnpjValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/card_cnpj_example"
-            android:textColor="@color/card_text"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/cardTvCnpjLabel"
-            app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
+            <TextView
+                android:id="@+id/cardTvCnpjValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/card_cnpj_example"
+                android:textColor="@color/card_text"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/cardTvCnpjLabel"
+                app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
 
-        <TextView
-            android:id="@+id/cardTvTextBody"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/card_textBody_example"
-            android:textColor="@color/card_text"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardTvCnpjLabel" />
+            <TextView
+                android:id="@+id/cardTvTextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/card_textBody_example"
+                android:textColor="@color/card_text"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardTvCnpjLabel" />
 
-        <TextView
-            android:id="@+id/cardTvValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/card_value_example"
-            android:textColor="@color/card_text2"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/cardTvValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/card_value_example"
+                android:textColor="@color/card_text2"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/cardTvMoneySymbol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/card_label_money_symbol"
-            android:textColor="@color/card_text2"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardTvValue"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/cardIvIcon2" />
+            <TextView
+                android:id="@+id/cardTvMoneySymbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/card_label_money_symbol"
+                android:textColor="@color/card_text2"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardTvValue"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/cardIvIcon2" />
 
-        <ImageView
-            android:id="@+id/cardIvIcon1"
-            android:layout_width="23dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@string/card_description_email_icon"
-            android:src="@drawable/ic_mail"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardTvTextBody"
-            app:layout_constraintVertical_bias="1.0" />
+            <ImageView
+                android:id="@+id/cardIvIcon1"
+                android:layout_width="23dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/card_description_email_icon"
+                android:src="@drawable/ic_mail"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardTvTextBody"
+                app:layout_constraintVertical_bias="1.0" />
 
-        <ImageView
-            android:id="@+id/cardIvIcon2"
-            android:layout_width="23dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@string/card_description_user_icon"
-            android:src="@drawable/ic_user"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardIvIcon1"
-            app:layout_constraintTop_toBottomOf="@+id/cardTvTextBody"
-            app:layout_constraintVertical_bias="1.0" />
+            <ImageView
+                android:id="@+id/cardIvIcon2"
+                android:layout_width="23dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/card_description_user_icon"
+                android:src="@drawable/ic_user"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardIvIcon1"
+                app:layout_constraintTop_toBottomOf="@+id/cardTvTextBody"
+                app:layout_constraintVertical_bias="1.0" />
 
-        <TextView
-            android:id="@+id/cardTvDueDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="@string/card_due_date_example"
-            android:textColor="@color/card_text2"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.99"
-            app:layout_constraintStart_toEndOf="@+id/cardTvTitle"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/cardTvDueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/card_due_date_example"
+                android:textColor="@color/card_text2"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.99"
+                app:layout_constraintStart_toEndOf="@+id/cardTvTitle"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/cardIvLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:adjustViewBounds="true"
-            android:filterTouchesWhenObscured="false"
-            android:foregroundGravity="fill"
-            android:minWidth="10dp"
-            android:minHeight="19dp"
-            android:overScrollMode="never"
-            android:scaleType="fitStart"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_min="wrap"
-            tools:visibility="visible"
-            android:contentDescription="@string/card_logo_description" />
+            <ImageView
+                android:id="@+id/cardIvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/card_logo_description"
+                android:filterTouchesWhenObscured="false"
+                android:foregroundGravity="fill"
+                android:minWidth="10dp"
+                android:minHeight="19dp"
+                android:overScrollMode="never"
+                android:scaleType="fitStart"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_min="wrap"
+                tools:visibility="visible" />
 
-        <TextView
-            android:id="@+id/cardTvIsPaid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="@string/PAID"
-            android:textColor="@color/card_paid"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardTvDueDate" />
+            <TextView
+                android:id="@+id/cardTvIsPaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/PAID"
+                android:textColor="@color/card_paid"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardTvDueDate" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

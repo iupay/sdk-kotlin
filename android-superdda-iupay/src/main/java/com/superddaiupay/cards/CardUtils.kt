@@ -10,6 +10,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.graphics.drawable.LayerDrawable
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +26,9 @@ class CardUtils {
     fun buildCard(context: Context, view: View, params: CardParams?): View {
         val cardParams = params ?: CardParams()
 
-        val background = view.background as LayerDrawable
+        val cardFrame: FrameLayout = view.findViewById(R.id.cardFrame)
+        val cardCL: ConstraintLayout = view.findViewById(R.id.cardCL)
+        val background = cardCL.background as LayerDrawable
         val ivLogo = view.findViewById<ImageView>(R.id.cardIvLogo)
         val cardTitle = view.findViewById<TextView>(R.id.cardTvTitle)
         val cnpjLabel = view.findViewById<TextView>(R.id.cardTvCnpjLabel)
@@ -233,6 +236,18 @@ class CardUtils {
 
         // FUNCAO DE CALLBACK AO CLICAR NO CARD
         view.setOnClickListener { v -> cardParams.onClickCard?.onClick(v) }
+
+        val margin = 24
+        val newLayoutParams = cardCL.layoutParams as FrameLayout.LayoutParams
+        newLayoutParams.topMargin = margin
+        newLayoutParams.leftMargin = margin
+        newLayoutParams.rightMargin = margin
+        newLayoutParams.bottomMargin = margin
+        cardCL.layoutParams = newLayoutParams
+
+        if (params?.featured!!) {
+            cardFrame.setBackgroundColor(Color.parseColor("#f78c49"))
+        }
         return view
     }
 

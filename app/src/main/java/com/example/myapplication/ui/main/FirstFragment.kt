@@ -27,6 +27,9 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val featuredCard = CardParams.featuredCard()
+        featuredCard.onClickCard = onClickCard()
+
         val defaultCard = CardParams.defaultCard()
         defaultCard.onClickCard = onClickCard()
 
@@ -63,8 +66,8 @@ class FirstFragment : Fragment() {
         nubankCard.onClickCard = onClickNubankCard()
 
         val cards: List<CardParams> =
-            listOf(customCard, defaultCard, netflixCard, lightBillCard, lockedCard, nubankCard)
-        val cardsListFragment = CardListFragment.newInstance(12, 12, cards)
+            listOf(featuredCard, customCard, defaultCard, netflixCard, lightBillCard, lockedCard, nubankCard)
+        val cardsListFragment = CardListFragment.newInstance(0, 0, cards)
 
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
