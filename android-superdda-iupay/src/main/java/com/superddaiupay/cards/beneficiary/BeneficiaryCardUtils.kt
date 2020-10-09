@@ -4,6 +4,7 @@ package com.superddaiupay.cards.beneficiary
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -13,6 +14,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.superddaiupay.R
 import com.superddaiupay.cards.CardType
 import java.text.NumberFormat
@@ -154,6 +156,28 @@ class BeneficiaryCardUtils {
                 isChecked
             )
         }
+
+        // ACTIVE SWITCH COLORS
+        val circleActiveColor = params?.circleActiveColor ?: "#f78733"
+        val circleInActiveColor = params?.circleInActiveColor ?: "#717171"
+        val backgroundActive = params?.backgroundActive ?: "#f9a06d"
+        val backgroundInactive = params?.backgroundInactive ?: "#b3b3b3"
+        DrawableCompat.setTintList(
+            swCardActive.trackDrawable, ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
+                    Color.parseColor(backgroundActive),
+                    Color.parseColor(backgroundInactive) // 30% transparency (4D)
+                )
+            )
+        )
+        DrawableCompat.setTintList(
+            swCardActive.thumbDrawable, ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
+                    Color.parseColor(circleActiveColor),
+                    Color.parseColor(circleInActiveColor)
+                )
+            )
+        )
 
         // FUNCAO DE CALLBACK AO CLICAR NO CARD
         view.setOnClickListener { v -> cardParams.onClickCard?.onClick(v) }

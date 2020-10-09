@@ -30,6 +30,10 @@ class BeneficiaryCardParams : Serializable {
     var isActive: Boolean = false
     var onClickCard: View.OnClickListener? = null
     var onActiveChange: CompoundButton.OnCheckedChangeListener? = null
+    var circleActiveColor: String? = null
+    var circleInActiveColor: String? = null
+    var backgroundActive: String? = null
+    var backgroundInactive: String? = null
 
     companion object {
         fun example(context: Context): BeneficiaryCardParams {
