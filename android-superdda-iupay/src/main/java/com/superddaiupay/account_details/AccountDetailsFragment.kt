@@ -176,6 +176,7 @@ class AccountDetailsFragment : Fragment() {
             dataSet.circleRadius = 4f
             dataSet.setDrawCircleHole(true)
             dataSet.setDrawValues(false)
+            dataSet.mode = LineDataSet.Mode.CUBIC_BEZIER // smooth curves for lines
 
             val xAxis: XAxis = chart.xAxis
             xAxis.position = XAxis.XAxisPosition.BOTTOM
