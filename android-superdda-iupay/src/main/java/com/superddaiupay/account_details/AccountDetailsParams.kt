@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.view.View
 import com.superddaiupay.R
 import java.io.Serializable
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -44,20 +45,22 @@ class AccountDetailsParams : Serializable {
             params.data!!.companyLogo =
                 BitmapFactory.decodeResource(context.resources, R.raw.nubank)
             params.data!!.companyName = "Nu Pagamentos S.A."
+            params.data!!.cardHolderName = "Roberto de Oliveira Santos"
             params.data!!.cnpj = "18.236.120/0001-58"
             params.data!!.cardNumber = "5162 **** **** 9090"
             params.data!!.billDetails = BillDetails()
-            params.data!!.billDetails!!.billDate = "JUN 2020"
-            params.data!!.billDetails!!.value = 1230.89
-            params.data!!.billDetails!!.minimumPaymentValue = 400
-            params.data!!.billDetails!!.dueDate = Calendar.getInstance().time
+            params.data!!.billDetails!!.billDate = "JUL 2020"
+            params.data!!.billDetails!!.value = 1326.70
+            params.data!!.billDetails!!.minimumPaymentValue = 305.68
+            params.data!!.billDetails!!.dueDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse("26/07/2020")
+            params.data!!.billDetails!!.emissionDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse("19/07/2020")
             params.data!!.billDetails!!.barCode =
                 "34191.09065 44830. 1285 40141.906 8 00001.83120.59475"
-            params.data!!.billDetails?.totalLimitValue = 1.200
-            params.data!!.billDetails?.totalWithdrawLimitValue = 600
+            params.data!!.billDetails?.totalLimitValue = 4000
+            params.data!!.billDetails?.totalWithdrawLimitValue = 200
             params.data!!.billDetails?.interestRate = 14
-            params.data!!.billDetails?.interestRateCET = 385.17
-            params.data!!.billDetails?.interestInstallmentFine = 22
+            params.data!!.billDetails?.interestRateCET = 440.41
+            params.data!!.billDetails?.interestInstallmentFine = 2
             params.data!!.billDetails?.interestInstallmentRate = 12
             params.data!!.billDetails?.interestInstallmentRateCET = 15
             return params
