@@ -172,25 +172,26 @@ class AccountDetailsFragment : Fragment() {
             dataSet.setCircleColor(colorWhite)
             dataSet.circleHoleColor = chartColor
             dataSet.circleHoleRadius = 2f
-            dataSet.lineWidth = 1f
+            dataSet.lineWidth = 1.5f
             dataSet.circleRadius = 4f
             dataSet.setDrawCircleHole(true)
             dataSet.setDrawValues(false)
             dataSet.mode = LineDataSet.Mode.CUBIC_BEZIER // smooth curves for lines
+            dataSet.isHighlightEnabled = false
 
             val xAxis: XAxis = chart.xAxis
-            xAxis.position = XAxis.XAxisPosition.BOTTOM
-            xAxis.granularity = 1f
-            xAxis.isGranularityEnabled = true
             xAxis.valueFormatter = IndexAxisValueFormatter(labels)
             xAxis.textColor = colorWhite
-            xAxis.setDrawGridLines(false)
-            xAxis.setDrawAxisLine(false)
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
+            xAxis.isGranularityEnabled = true
+            xAxis.granularity = 1f
             xAxis.textSize = 14f
             xAxis.spaceMin = 0.2f
             xAxis.spaceMax = 0.2f
-            xAxis.setDrawLabels(true)
             xAxis.yOffset = -5f
+            xAxis.setDrawGridLines(false)
+            xAxis.setDrawAxisLine(false)
+            xAxis.setDrawLabels(true)
 
             val axisRight: YAxis = chart.axisRight
             axisRight.isEnabled = false
@@ -205,15 +206,14 @@ class AccountDetailsFragment : Fragment() {
             chart.isDoubleTapToZoomEnabled = false
 
             chart.setBackgroundColor(chartColor)
-            chart.description.text = ""
             chart.setGridBackgroundColor(chartColor)
-            chart.data = LineData(dataSet)
+            chart.description.text = ""
             chart.legend.isEnabled = false // remove lineDataSet label
             chart.legend.yEntrySpace = 4f
+            chart.data = LineData(dataSet)
             chart.invalidate()
         }
     }
-
 
     companion object {
         @JvmStatic
