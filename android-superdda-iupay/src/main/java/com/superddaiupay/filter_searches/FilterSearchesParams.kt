@@ -9,11 +9,11 @@ class FilterSearchesParams : Serializable {
     var orderText: String? = null
     var disabled: Boolean = false
     var searchValue: String? = null
-    var onClickAsc: View.OnClickListener? = null
-    var onClickDesc: View.OnClickListener? = null
-    var onSearchIconClick: View.OnClickListener? = null
-    var onSearch: SearchClickListener? = null
-    var onChangeSearchValue: ChangeSearchValue? = null
+    @Transient var onClickAsc: View.OnClickListener? = null
+    @Transient var onClickDesc: View.OnClickListener? = null
+    @Transient var onSearchIconClick: View.OnClickListener? = null
+    @Transient var onSearch: SearchClickListener? = null
+    @Transient var onChangeSearchValue: ChangeSearchValue? = null
 
     interface SearchClickListener {
         fun onSearch(text: String)

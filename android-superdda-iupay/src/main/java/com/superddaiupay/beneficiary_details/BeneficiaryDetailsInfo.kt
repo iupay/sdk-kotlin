@@ -13,7 +13,7 @@ class BeneficiaryDetailsInfo : Serializable {
     var cardHolderName: String? = null
     var cardNumber: String? = null
     var cnpj: String? = null
-    var companyLogo: Bitmap? = null
+    @Transient var companyLogo: Bitmap? = null
     var companyName: String? = null
     var isFromIuPay: Boolean = false
     var isUserAdded: Boolean = false

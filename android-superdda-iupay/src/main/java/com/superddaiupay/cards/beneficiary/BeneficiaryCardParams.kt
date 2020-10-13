@@ -22,20 +22,21 @@ class BeneficiaryCardParams : Serializable {
     var limitValueText: String? = null
     var limitValue: Number? = null
     var beneficiaryType: String? = null
-    var logo: Bitmap? = null
+    @Transient var logo: Bitmap? = null
     var imageWidth: Int? = null
     var imageHeight: Int? = null
     var text: String? = null
     var textColor: String? = null
     var isActive: Boolean = false
-    var onClickCard: View.OnClickListener? = null
-    var onActiveChange: CompoundButton.OnCheckedChangeListener? = null
+    @Transient var onClickCard: View.OnClickListener? = null
+    @Transient var onActiveChange: CompoundButton.OnCheckedChangeListener? = null
     var circleActiveColor: String? = null
     var circleInActiveColor: String? = null
     var backgroundActive: String? = null
     var backgroundInactive: String? = null
 
     companion object {
+        @JvmStatic
         fun example(context: Context): BeneficiaryCardParams {
             val params = BeneficiaryCardParams()
             params.barColor = "#999999"

@@ -11,7 +11,7 @@ class PaidDetailsParams : Serializable {
     var beneficiaryName: String? = null
     var paidDate: Date? = null
     var screenTitle: String? = null
-    var screenImage: Bitmap? = null
+    @Transient var screenImage: Bitmap? = null
     var value: Number? = null
     var dueDate: Date? = null
     var baseColor: String? = null

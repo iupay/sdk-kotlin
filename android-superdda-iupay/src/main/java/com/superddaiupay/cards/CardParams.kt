@@ -24,7 +24,7 @@ class CardParams : Serializable {
     var value: Number? = null
     var isFromMail: Boolean = false
     var isUserAdded: Boolean = false
-    var logo: Bitmap? = null
+    @Transient var logo: Bitmap? = null
     var textColor: String? = null
     var isDue: Boolean = false
     var isDueText: String? = DUE_TEXT
@@ -35,7 +35,7 @@ class CardParams : Serializable {
     var imageWidth: Int? = null
     var imageHeight: Int? = null
     var isLocked: Boolean = false
-    var onClickCard: View.OnClickListener? = null
+    @Transient var onClickCard: View.OnClickListener? = null
 
     var creditCardText: String? = null
 

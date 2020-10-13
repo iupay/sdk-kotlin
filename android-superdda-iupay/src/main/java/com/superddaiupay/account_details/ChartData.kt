@@ -1,6 +1,8 @@
 package com.superddaiupay.account_details
 
-class ChartData {
+import java.io.Serializable
+
+class ChartData : Serializable {
     var label: String = ""
     var value: Number = 0
 

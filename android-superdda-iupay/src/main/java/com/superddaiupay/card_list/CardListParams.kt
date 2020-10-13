@@ -9,7 +9,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class CardListParams : Serializable {
-    var cards: ArrayList<CardParams> = ArrayList()
+    var cards: List<CardParams> = ArrayList()
     var featured: Boolean = false
     var featuredBackgroundColor: String = "#f78c49"
     var showTotal: Boolean = true
