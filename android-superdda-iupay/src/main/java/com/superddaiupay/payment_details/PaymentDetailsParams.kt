@@ -43,8 +43,8 @@ class PaymentDetailsParams : Serializable {
             params.payWithType = "My Bank"
             params.dueDate = Calendar.getInstance().time
             params.scheduledDueDate = Calendar.getInstance().time
-            params.type = PaymentDetailsType.SCHEDULE
-            params.baseColor = "#FF0000"
+            params.type = PaymentDetailsType.PAYMENT
+            params.baseColor = "#f78c49"
 
             return params
         }
