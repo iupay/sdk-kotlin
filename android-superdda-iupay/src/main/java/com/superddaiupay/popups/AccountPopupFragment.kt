@@ -46,6 +46,7 @@ class AccountPopupFragment : DialogFragment() {
             this.params = it.getSerializable(ARG_PARAMS) as PopupParams
             this.accountDetailsParams = it.getSerializable(ARG_PARAMS2) as AccountDetailsParams
         }
+        setStyle(STYLE_NO_TITLE, R.style.my_dialog)
     }
 
     override fun onCreateView(
@@ -58,13 +59,12 @@ class AccountPopupFragment : DialogFragment() {
     override fun onResume() {
         super.onResume()
         if (showsDialog) {
-            val width = ViewGroup.LayoutParams.MATCH_PARENT
-            val height = ViewGroup.LayoutParams.WRAP_CONTENT
+//            val width = 600
+//            val height = ViewGroup.LayoutParams.WRAP_CONTENT
             dialog?.window?.apply {
                 setBackgroundDrawable(ColorDrawable(Color.WHITE))
                 attributes.gravity = Gravity.CENTER
-                setLayout(width, height)
-
+//                setLayout(width, height)
             }
         }
     }
