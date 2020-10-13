@@ -1,5 +1,6 @@
 package com.superddaiupay.popups
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -32,9 +33,10 @@ class BeneficiaryPopupFragment : DialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it?.getSerializable(ARG_PARAMS) as PopupParams
-            beneficiaryDetailsParams = it?.getSerializable(ARG_PARAMS2) as BeneficiaryDetailsParams
+            params = it.getSerializable(ARG_PARAMS) as PopupParams
+            beneficiaryDetailsParams = it.getSerializable(ARG_PARAMS2) as BeneficiaryDetailsParams
         }
+        setStyle(STYLE_NO_TITLE, R.style.my_dialog)
     }
 
     override fun onCreateView(
@@ -47,17 +49,14 @@ class BeneficiaryPopupFragment : DialogFragment() {
     override fun onResume() {
         super.onResume()
         if (showsDialog) {
-            val width = ViewGroup.LayoutParams.MATCH_PARENT
-            val height = ViewGroup.LayoutParams.WRAP_CONTENT
             dialog?.window?.apply {
                 setBackgroundDrawable(ColorDrawable(Color.WHITE))
                 attributes.gravity = Gravity.CENTER
-                setLayout(width, height)
-
             }
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         title = view.findViewById(R.id.beneficiaryPopupTvTitle)
@@ -76,18 +75,32 @@ class BeneficiaryPopupFragment : DialogFragment() {
             params.onClickClose?.onClickClose()
         }
         beneficiary.text = beneficiaryDetailsParams.data?.companyName
+        beneficiary.setTextColor(Color.parseColor(beneficiaryDetailsParams.baseColor ?: "#727272"))
         cnpj.text = beneficiaryDetailsParams.data?.cnpj
         name.text = beneficiaryDetailsParams.data?.cardHolderName
         card.text = beneficiaryDetailsParams.data?.cardNumber
         address.text = beneficiaryDetailsParams.data?.cardHolderAddress
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
-        rate1.text = nf.format(beneficiaryDetailsParams.data?.billDetails?.interestRate?.toDouble() ?: 0) + "% am CET: " +
-                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestRateCET?.toDouble() ?: 0) + "% aa"
+        rate1.text = nf.format(
+            beneficiaryDetailsParams.data?.billDetails?.interestRate?.toDouble() ?: 0
+        ) + "% am CET: " +
+                nf.format(
+                    beneficiaryDetailsParams.data?.billDetails?.interestRateCET?.toDouble() ?: 0
+                ) + "% aa"
         rate2.text = "consulte o app na contratação juros e mora em caso de atraso: " +
-                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRate?.toDouble() ?: 0) + "% am +" +
-                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestInstallmentFine?.toDouble() ?: 0) + "% multa CET:" +
-                     nf.format(beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRateCET?.toDouble() ?: 0) + "% aa"
+                nf.format(
+                    beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRate?.toDouble()
+                        ?: 0
+                ) + "% am +" +
+                nf.format(
+                    beneficiaryDetailsParams.data?.billDetails?.interestInstallmentFine?.toDouble()
+                        ?: 0
+                ) + "% multa CET:" +
+                nf.format(
+                    beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRateCET?.toDouble()
+                        ?: 0
+                ) + "% aa"
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -102,7 +115,7 @@ class BeneficiaryPopupFragment : DialogFragment() {
             BeneficiaryPopupFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAMS, params)
-                    putSerializable(ARG_PARAMS2, BeneficiaryDetailsParams.example())
+                    putSerializable(ARG_PARAMS2, beneficiaryDetailsParams)
                 }
             }
     }

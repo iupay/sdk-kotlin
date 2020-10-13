@@ -59,12 +59,9 @@ class AccountPopupFragment : DialogFragment() {
     override fun onResume() {
         super.onResume()
         if (showsDialog) {
-//            val width = 600
-//            val height = ViewGroup.LayoutParams.WRAP_CONTENT
             dialog?.window?.apply {
                 setBackgroundDrawable(ColorDrawable(Color.WHITE))
                 attributes.gravity = Gravity.CENTER
-//                setLayout(width, height)
             }
         }
     }

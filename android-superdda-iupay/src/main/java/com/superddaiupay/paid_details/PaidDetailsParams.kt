@@ -38,10 +38,10 @@ class PaidDetailsParams : Serializable {
             params.value = 223.24
             params.dueDate = Calendar.getInstance().time
             params.paymentMessage = "Sua conta está paga"
-            params.baseColor = "#FF0000"
+            params.baseColor = "#F78C49"
             params.screenImage =
                 BitmapFactory.decodeResource(context.resources, R.drawable.ic_lightbill)
-            params.receiptAvailable = false
+            params.receiptAvailable = true
             return params
         }
     }

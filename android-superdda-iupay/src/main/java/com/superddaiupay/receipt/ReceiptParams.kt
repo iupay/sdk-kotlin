@@ -49,7 +49,7 @@ class ReceiptParams : Serializable {
             params.fine = 0.0
             params.chargedValue = 223.24
             params.authenticationCode = "A.6DE.DF4.75E.DBB,128"
-            params.baseColor = "#FF0000"
+            params.baseColor = "#F78C49"
 
             return params
         }

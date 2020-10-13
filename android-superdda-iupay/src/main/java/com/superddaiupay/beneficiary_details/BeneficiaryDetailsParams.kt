@@ -2,10 +2,8 @@ package com.superddaiupay.beneficiary_details
 
 import android.view.View
 import com.superddaiupay.account_details.BillDetails
-import kotlinx.android.synthetic.main.fragment_account_popup.view.*
 import com.superddaiupay.account_details.PaymentHistory
 import java.io.Serializable
-import java.util.*
 
 class BeneficiaryDetailsParams : Serializable {
 
@@ -21,6 +19,7 @@ class BeneficiaryDetailsParams : Serializable {
         @JvmStatic
         fun example(): BeneficiaryDetailsParams {
             val params = BeneficiaryDetailsParams()
+            params.baseColor = "#8e05c2"
             params.data = BeneficiaryDetailsInfo()
             params.data!!.companyName = "Nu Pagamentos S.A."
             params.data!!.cnpj = "18.236.120/0001-58"
@@ -28,7 +27,8 @@ class BeneficiaryDetailsParams : Serializable {
             params.data!!.authorizedLimit = false
             params.data!!.autoPayment = false
             params.data!!.cardHolderName = "Roberto de Oliveira Santos"
-            params.data!!.cardHolderAddress = "Avenida Sete de Setembro 32/1101 Icaraí - Niterói - RJ"
+            params.data!!.cardHolderAddress =
+                "Avenida Sete de Setembro 32/1101 Icaraí - Niterói - RJ"
             params.data!!.billDetails = BillDetails()
             params.data!!.billDetails?.interestRate = 14
             params.data!!.billDetails?.interestRateCET = 385.17

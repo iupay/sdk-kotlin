@@ -52,7 +52,7 @@ class PaymentHistoryAdapter(
         } else {
             phDate.text = ""
         }
-        phIsOpen.visibility = if (item.isOpen) View.VISIBLE else View.INVISIBLE
+        phIsOpen.visibility = if (item.isOpen) View.VISIBLE else View.GONE
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
         phValue.text = nf.format(item.value ?: 0)
