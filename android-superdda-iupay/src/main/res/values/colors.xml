@@ -10,8 +10,10 @@
     <color name="card_text">#727272</color>
     <color name="card_text2">#7a7a7b</color>
     <color name="card_paid">#8AA626</color>
+    <color name="card_not_paid">#e50401</color>
     <color name="card_lock_text">#e50401</color>
     <color name="card_locked_fields">#7a7a7b</color>
+    <color name="card_list_featured">#f68b49</color>
     <color name="receipt_base">#F78C49</color>
     <color name="payment_details_base">#F78C49</color>
     <color name="payment_details_base_025">#40F78C49</color>

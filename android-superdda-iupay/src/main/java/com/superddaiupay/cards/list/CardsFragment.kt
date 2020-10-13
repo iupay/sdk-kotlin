@@ -12,7 +12,7 @@ import java.io.Serializable
 import java.util.*
 import java.util.logging.Logger
 
-class CardListFragment : Fragment() {
+class CardsFragment : Fragment() {
     private var cardParamsList: List<CardParams> = ArrayList()
     private var itemTopMargin: Int = 0
     private var itemBottomMargin: Int = 0
@@ -33,8 +33,8 @@ class CardListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Logger.getLogger(javaClass.toString()).info("Building Card List Fragment...")
-        val view = inflater.inflate(R.layout.fragment_card_list, container, false)
-        view.findViewById<RecyclerView>(R.id.cardList).adapter = CardListAdapter(
+        val view = inflater.inflate(R.layout.fragment_cards, container, false)
+        view.findViewById<RecyclerView>(R.id.cardList).adapter = CardsAdapter(
             requireContext(),
             cardParamsList,
             itemTopMargin,
@@ -52,7 +52,7 @@ class CardListFragment : Fragment() {
         fun newInstance(
             itemTopMargin: Int, itemBottomMargin: Int, cardParamsList: List<CardParams>
         ) =
-            CardListFragment().apply {
+            CardsFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_CARD_PARAMS_LIST, cardParamsList as Serializable)
                     putInt(ARG_ITEM_TOP_MARGIN, itemTopMargin)

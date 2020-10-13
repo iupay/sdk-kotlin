@@ -2,9 +2,13 @@
 
 package com.superddaiupay.cards
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.View
+import com.superddaiupay.R
 import java.io.Serializable
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.logging.Logger
 
@@ -108,9 +112,59 @@ class CardParams : Serializable {
         fun lockedCard(): CardParams {
             val params = CardParams()
             params.isLocked = true
+            params.barColor = "#e30613"
             params.onClickCard = View.OnClickListener {
                 Logger.getLogger("CardParams").info("LockedCard Click!!!")
             }
+            return params
+        }
+
+        fun embasaCard(context: Context): CardParams {
+            val params = CardParams()
+            params.barColor = "#00529a"
+            params.logo =  BitmapFactory.decodeResource(context.resources, R.raw.embasa)
+            params.cardTitle = ""
+            params.dueDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse("15/08/2020")
+            params.isPaid = false
+            params.value = 90.12
+            params.isLocked = false
+            return params
+        }
+
+        fun bmwCard(context: Context): CardParams {
+            val params = CardParams()
+            params.barColor = "#0d56f3"
+            params.logo =  BitmapFactory.decodeResource(context.resources, R.raw.bmw)
+            params.cardTitle = ""
+            params.dueDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse("28/07/2020")
+            params.isPaid = true
+            params.value = 2550
+            params.isLocked = false
+            return params
+        }
+
+        fun rennerCard(context: Context): CardParams {
+            val params = CardParams()
+            params.barColor = "#e30613"
+            params.logo =  BitmapFactory.decodeResource(context.resources, R.raw.renner)
+            params.cardTitle = ""
+            params.dueDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse("04/08/2020")
+            params.isPaid = true
+            params.value = 812.99
+            params.isLocked = false
+            return params
+        }
+
+        fun customCard(context: Context): CardParams {
+            val params = CardParams()
+            params.barColor = "#999999"
+            params.logo =  BitmapFactory.decodeResource(context.resources, R.raw.profile_icon)
+            params.cardTitle = "ARNALDO PESSOA LEAL"
+            params.dueDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse("04/08/2020")
+            params.isPaid = false
+            params.value = 11000
+            params.isLocked = false
+            params.imageWidth = 150
             return params
         }
     }

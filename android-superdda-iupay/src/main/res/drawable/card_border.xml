@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/card_left_border"
+        android:right="3dp">
+        <shape android:shape="rectangle">
+            <!-- Set the border color of your layout here -->
+            <solid android:color="#FF9000" />
+            <corners
+                android:bottomLeftRadius="7dp"
+                android:bottomRightRadius="7dp"
+                android:topLeftRadius="7dp"
+                android:topRightRadius="7dp" />
+        </shape>
+    </item>
+
+    <item
+        android:left="7dp"
+        android:right="0dp">
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+                android:color="#dddddd" />
+            <corners
+                android:bottomRightRadius="8dp"
+                android:topRightRadius="7dp" />
+        </shape>
+    </item>
+
+    <item
+        android:id="@+id/card_center"
+        android:bottom="2dp"
+        android:left="8dp"
+        android:right="1dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <!-- Set the background color of your layout here -->
+            <solid android:color="#FFFFFF" />
+            <corners
+                android:bottomRightRadius="7dp"
+                android:topRightRadius="7dp" />
+        </shape>
+    </item>
+</layer-list>

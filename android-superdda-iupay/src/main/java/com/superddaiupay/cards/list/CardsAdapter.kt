@@ -11,12 +11,12 @@ import com.superddaiupay.cards.CardUtils
 import java.util.logging.Logger
 
 
-class CardListAdapter(
+class CardsAdapter(
     private val context: Context,
     private val cardParamsList: List<CardParams>,
     private val itemTopMargin: Int,
     private val itemBottomMargin: Int
-) : RecyclerView.Adapter<CardListAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<CardsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)

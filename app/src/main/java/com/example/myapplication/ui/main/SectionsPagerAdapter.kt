@@ -9,6 +9,8 @@ import com.superddaiupay.account_details.AccountDetailsFragment
 import com.superddaiupay.account_details.AccountDetailsParams
 import com.superddaiupay.beneficiary_details.BeneficiaryDetailsFragment
 import com.superddaiupay.beneficiary_details.BeneficiaryDetailsParams
+import com.superddaiupay.card_list.CardListFragment
+import com.superddaiupay.card_list.CardListParams
 import com.superddaiupay.filter_searches.FilterSearchesFragment
 import com.superddaiupay.filter_searches.FilterSearchesParams
 import com.superddaiupay.paid_details.PaidDetailsFragment
@@ -21,6 +23,7 @@ import com.superddaiupay.receipt.ReceiptParams
 private val TAB_TITLES = arrayOf(
     R.string.tab_account_details,
     R.string.tab_beneficiary_details,
+    R.string.tab_card_list,
     R.string.tab_cards,
     R.string.tab_beneficiaries,
     R.string.tab_filter_searches,
@@ -36,12 +39,13 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         return when (position) {
             0 -> AccountDetailsFragment.newInstance(AccountDetailsParams.example(context))
             1 -> BeneficiaryDetailsFragment.newInstance(BeneficiaryDetailsParams.example())
-            2 -> FirstFragment()
-            3 -> SecondFragment()
-            4 -> FilterSearchesFragment.newInstance(FilterSearchesParams.example())
-            5 -> PaidDetailsFragment.newInstance(PaidDetailsParams.example(context))
-            6 -> PaymentDetailsFragment.newInstance(PaymentDetailsParams.example())
-            7 -> ReceiptFragment.newInstance(ReceiptParams.example())
+            2 -> CardListFragment.newInstance(CardListParams.example(context))
+            3 -> FirstFragment()
+            4 -> SecondFragment()
+            5 -> FilterSearchesFragment.newInstance(FilterSearchesParams.example())
+            6 -> PaidDetailsFragment.newInstance(PaidDetailsParams.example(context))
+            7 -> PaymentDetailsFragment.newInstance(PaymentDetailsParams.example())
+            8 -> ReceiptFragment.newInstance(ReceiptParams.example())
             else -> FirstFragment()
         }
     }

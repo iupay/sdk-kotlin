@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SuperDDA | Examples</string>
     <string name="title_activity_main_tabbed">Super DDA</string>
+    <string name="tab_card_list">Card List</string>
     <string name="tab_cards">Cards</string>
     <string name="tab_beneficiaries">Beneficiaries</string>
     <string name="tab_receipt">Receipt</string>
