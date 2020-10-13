@@ -17,7 +17,7 @@ class AccountDetailsParams : Serializable {
     var chartData: ArrayList<ChartData>? = null
     var data: AccountDetailsInfo? = null
     var baseColor: String? = null
-    var pdfAvailable: String? = null
+    var pdfAvailable: Boolean = false
     var onClickBack: View.OnClickListener? = null
     var onClickOptions: View.OnClickListener? = null
     var onClickViewAccountDetails: View.OnClickListener? = null
@@ -32,6 +32,7 @@ class AccountDetailsParams : Serializable {
         fun example(context: Context): AccountDetailsParams {
             val params = AccountDetailsParams()
             params.baseColor = "#8f06c3" // "#FF5555"
+            params.pdfAvailable = false
             params.chartDataText = "JUNHO"
             params.chartDataValue = "R$ 1.983,36"
             params.chartData = ArrayList()

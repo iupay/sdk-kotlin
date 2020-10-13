@@ -3,6 +3,7 @@ package com.superddaiupay.account_details
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -23,6 +25,7 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.superddaiupay.R
+import com.superddaiupay.Utils
 import com.superddaiupay.popups.AccountPopupFragment
 import com.superddaiupay.popups.PopupParams
 import java.text.NumberFormat
@@ -30,19 +33,18 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.logging.Logger
 import kotlin.collections.ArrayList
-import kotlin.math.roundToInt
 
 
 private const val ARG_PARAMS = "params"
 
 class AccountDetailsFragment : Fragment() {
-    private var params: AccountDetailsParams? = null
+    private lateinit var params: AccountDetailsParams
     private lateinit var chart: LineChart
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it.getSerializable(ARG_PARAMS) as AccountDetailsParams?
+            params = it.getSerializable(ARG_PARAMS) as AccountDetailsParams
         }
     }
 
@@ -79,39 +81,41 @@ class AccountDetailsFragment : Fragment() {
         val accountBtnPdf = view.findViewById<Button>(R.id.accountBtnPdf)
         val accountBtnRecusar = view.findViewById<Button>(R.id.accountBtnRecusar)
         val accountBtnVerDetalhes = view.findViewById<Button>(R.id.accountBtnVerDetalhes)
+        val accountTvHistoricoPagamentos = view.findViewById<TextView>(R.id.accountTvHistoricoPagamentos)
 
-        val baseColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
-        companyName.text = params?.data?.companyName
-        cnpj.text = params?.data?.cnpj
-        cardNumber.text = params?.data?.cardNumber
-        billDate.text = params?.data?.billDetails?.billDate
+        accountTvHistoricoPagamentos.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        val baseColor = Color.parseColor(params.baseColor ?: "#8f06c3")
+        companyName.text = params.data?.companyName
+        cnpj.text = params.data?.cnpj
+        cardNumber.text = params.data?.cardNumber
+        billDate.text = params.data?.billDetails?.billDate
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
-        value.text = nf.format(params?.data?.billDetails?.value?.toDouble() ?: 0)
+        value.text = nf.format(params.data?.billDetails?.value?.toDouble() ?: 0)
         minimumPaymentValue.text = nf.format(
-            params?.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0
+            params.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0
         )
 
-        val dueDateVal = params?.data?.billDetails?.dueDate
+        val dueDateVal = params.data?.billDetails?.dueDate
         if (dueDateVal != null) {
             dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 .format(dueDateVal).toUpperCase(Locale.ROOT)
         } else {
             dueDate.text = ""
         }
-        barCode.text = params?.data?.billDetails?.barCode
+        barCode.text = params.data?.billDetails?.barCode
 
-        if (params?.data?.isAutomaticDebit!!) {
+        if (params.data?.isAutomaticDebit!!) {
             accountSwDebitoAutomatico.visibility = View.INVISIBLE
             accountTvDebitoAutomatico.text =
-                "Conta em Débito automático no " + params?.data?.automaticDebitBankName
+                "Conta em Débito automático no " + params.data?.automaticDebitBankName
         } else {
             accountSwDebitoAutomatico.visibility = View.VISIBLE
             accountTvDebitoAutomatico.text = "Pagamento automático no dia do vencimento"
         }
 
         accountClChartBottom.background?.colorFilter = PorterDuffColorFilter(
-            this.getColorWithAlpha(baseColor, 0.3f), PorterDuff.Mode.SRC_ATOP
+            Utils.getColorWithAlpha(baseColor, 0.3f), PorterDuff.Mode.SRC_ATOP
         )
         accountChartDataText.setTextColor(baseColor)
         accountChartDataValue.setTextColor(baseColor)
@@ -120,22 +124,52 @@ class AccountDetailsFragment : Fragment() {
             baseColor,
             PorterDuff.Mode.SRC_ATOP
         )
-        accountChartDataText.text = params?.chartDataText ?: ""
-        accountChartDataValue.text = params?.chartDataValue ?: ""
-        accountBtnPdf.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountChartDataText.text = params.chartDataText ?: ""
+        accountChartDataValue.text = params.chartDataValue ?: ""
+        accountBtnPdf.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
         accountBtnPdf.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            Color.parseColor(params.baseColor), PorterDuff.Mode.SRC_ATOP
         )
-        accountBtnVerDetalhes.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountBtnVerDetalhes.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
         accountBtnVerDetalhes.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            Color.parseColor(params.baseColor), PorterDuff.Mode.SRC_ATOP
         )
-        accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params?.baseColor)))
+        accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
         accountBtnRecusar.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params!!.baseColor), PorterDuff.Mode.SRC_ATOP
+            Color.parseColor(params.baseColor), PorterDuff.Mode.SRC_ATOP
         )
 
-        accountBtnVerDetalhes.setOnClickListener { v ->
+        if (!params.pdfAvailable) {
+            accountBtnPdf.isEnabled = false
+            accountBtnPdf.text = "PDF da conta não disponível"
+            accountBtnPdf.background?.colorFilter = Utils.parseColorFilter("#e8e8e8")
+            accountBtnPdf.setTextColor(Color.WHITE)
+        }
+
+        // ACTIVE SWITCH COLORS
+        val circleActiveColor = params.baseColor ?: "#f78733"
+        val circleInActiveColor = "#717171"
+        val backgroundActive =
+            Utils.getColorWithAlpha(Color.parseColor(params.baseColor ?: "#f78733"), 90f)
+        val backgroundInactive = "#b3b3b3"
+        DrawableCompat.setTintList(
+            accountSwDebitoAutomatico.trackDrawable, ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
+                    backgroundActive,
+                    Color.parseColor(backgroundInactive) // 30% transparency (4D)
+                )
+            )
+        )
+        DrawableCompat.setTintList(
+            accountSwDebitoAutomatico.thumbDrawable, ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
+                    Color.parseColor(circleActiveColor),
+                    Color.parseColor(circleInActiveColor)
+                )
+            )
+        )
+
+        accountBtnVerDetalhes.setOnClickListener {
             val popupParams = PopupParams()
             popupParams.title = "Detalhes da conta"
             popupParams.onClickClose = object : PopupParams.OnClickClose {
@@ -143,29 +177,21 @@ class AccountDetailsFragment : Fragment() {
                     Logger.getLogger("AccountPopupFragment").info("Closed Click")
                 }
             }
-            val popupFragment = AccountPopupFragment.newInstance(popupParams, params!!)
+            val popupFragment = AccountPopupFragment.newInstance(popupParams, params)
             popupFragment.show(requireFragmentManager(), "missiles")
         }
 
         return view
     }
 
-    private fun getColorWithAlpha(color: Int, ratio: Float): Int {
-        val alpha = (Color.alpha(color) * ratio).roundToInt()
-        val r = Color.red(color)
-        val g = Color.green(color)
-        val b = Color.blue(color)
-        return Color.argb(alpha, r, g, b)
-    }
-
     fun initLineChart() {
-        if (params?.chartData != null) {
-            val chartColor = Color.parseColor(params?.baseColor ?: "#8f06c3")
+        if (params.chartData != null) {
+            val chartColor = Color.parseColor(params.baseColor ?: "#8f06c3")
             val colorWhite = Color.parseColor("#FFFFFF")
-            val labels = params!!.chartData!!.map(ChartData::label)
+            val labels = params.chartData!!.map(ChartData::label)
             val entries = ArrayList<Entry>()
-            for (i in 0 until params!!.chartData!!.size) {
-                entries.add(Entry(i.toFloat(), params!!.chartData!![i].value.toFloat()))
+            for (i in 0 until params.chartData!!.size) {
+                entries.add(Entry(i.toFloat(), params.chartData!![i].value.toFloat()))
             }
             val dataSet = LineDataSet(entries, null)
             dataSet.color = colorWhite

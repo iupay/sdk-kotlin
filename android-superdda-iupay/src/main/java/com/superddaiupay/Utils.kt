@@ -7,6 +7,7 @@ import android.graphics.PorterDuffColorFilter
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.roundToInt
 
 object Utils {
 
@@ -48,5 +49,14 @@ object Utils {
             Color.parseColor(color),
             PorterDuff.Mode.SRC_ATOP
         )
+    }
+
+    @JvmStatic
+    fun getColorWithAlpha(color: Int, ratio: Float): Int {
+        val alpha = (Color.alpha(color) * ratio).roundToInt()
+        val r = Color.red(color)
+        val g = Color.green(color)
+        val b = Color.blue(color)
+        return Color.argb(alpha, r, g, b)
     }
 }
