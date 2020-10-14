@@ -2,7 +2,6 @@ package com.superddaiupay.payment_history
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
@@ -48,7 +47,7 @@ class PaymentHistoryAdapter(
         phCl.background?.colorFilter =  PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
         if (item.date != null) {
             phDate.text = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
-                .format(item.date).toUpperCase(Locale.ROOT)
+                .format(item.date!!).toUpperCase(Locale.ROOT)
         } else {
             phDate.text = ""
         }

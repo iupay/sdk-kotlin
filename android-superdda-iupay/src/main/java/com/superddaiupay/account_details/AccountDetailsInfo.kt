@@ -11,7 +11,8 @@ class AccountDetailsInfo : Serializable {
     var cardHolderName: String? = null
     var cardNumber: String? = null
     var cnpj: String? = null
-    @Transient var companyLogo: Bitmap? = null
+    @Transient
+    var companyLogo: Bitmap? = null
     var companyName: String? = null
     var isAutomaticDebit: Boolean = false
     var isFromIuPay: Boolean = false

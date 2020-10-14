@@ -28,6 +28,7 @@ import com.superddaiupay.R
 import com.superddaiupay.Utils
 import com.superddaiupay.popups.AccountPopupFragment
 import com.superddaiupay.popups.PopupParams
+import kotlinx.android.synthetic.main.fragment_account_details.*
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -81,9 +82,10 @@ class AccountDetailsFragment : Fragment() {
         val accountBtnPdf = view.findViewById<Button>(R.id.accountBtnPdf)
         val accountBtnRecusar = view.findViewById<Button>(R.id.accountBtnRecusar)
         val accountBtnVerDetalhes = view.findViewById<Button>(R.id.accountBtnVerDetalhes)
-        val accountTvHistoricoPagamentos = view.findViewById<TextView>(R.id.accountTvHistoricoPagamentos)
+        val accountTvHistoricoPagamentos =
+            view.findViewById<TextView>(R.id.accountTvHistoricoPagamentos)
 
-        accountTvHistoricoPagamentos.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+
         val baseColor = Color.parseColor(params.baseColor ?: "#8f06c3")
         companyName.text = params.data?.companyName
         cnpj.text = params.data?.cnpj
@@ -150,7 +152,7 @@ class AccountDetailsFragment : Fragment() {
         val circleActiveColor = params.baseColor ?: "#f78733"
         val circleInActiveColor = "#717171"
         val backgroundActive =
-            Utils.getColorWithAlpha(Color.parseColor(params.baseColor ?: "#f78733"), 90f)
+            Utils.getColorWithAlpha(Color.parseColor(circleActiveColor), 90f)
         val backgroundInactive = "#b3b3b3"
         DrawableCompat.setTintList(
             accountSwDebitoAutomatico.trackDrawable, ColorStateList(
@@ -179,9 +181,40 @@ class AccountDetailsFragment : Fragment() {
             }
             val popupFragment = AccountPopupFragment.newInstance(popupParams, params)
             popupFragment.show(requireFragmentManager(), "missiles")
+            params.onClickViewAccountDetails?.onClick(it)
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val baseColor = Color.parseColor(params.baseColor ?: "#F78C49")
+
+        accountBtnBack.setOnClickListener(params.onClickBack)
+        accountBtnOptions.setOnClickListener(params.onClickOptions)
+        accountIvCodigoCopy.setOnClickListener(params.onClickCopyBarcode)
+        accountBtnPdf.setOnClickListener(params.onClickViewPDF)
+        accountSwDebitoAutomatico.setOnCheckedChangeListener(params.onSwitchAutoPaymentChange)
+        accountPaymentScheduleButton.setOnClickListener(params.onClickPaymentScheduleButton)
+        accountPaymentScheduleButton.setTextColor(Color.WHITE)
+        accountPaymentScheduleButton.background?.colorFilter = Utils.parseColorFilter(baseColor)
+        if (params.data?.isAutomaticDebit!!) {
+            accountPaymentScheduleButton.visibility = View.GONE
+        }
+        accountBtnRecusar.setOnClickListener(params.onClickRejectAccount)
+        accountTvChartTitle.text = params.chartLegend ?: "Resumo das Faturas Anteriores"
+        accountChart.layoutParams.width = params.chartWidth ?: 0
+        accountSwDebitoAutomatico.isChecked = params.data?.autoPayment!!
+        if (params.data?.isFromIuPay == false) {
+            accountIvIuPay.visibility = View.GONE
+        }
+        if (params.data?.isUserAdded!!) {
+            accountIvUser.setImageResource(R.drawable.ic_user)
+        } else {
+            accountIvUser.setImageResource(R.drawable.ic_user_false)
+        }
+        accountTvHistoricoPagamentos.paintFlags = Paint.UNDERLINE_TEXT_FLAG
     }
 
     fun initLineChart() {

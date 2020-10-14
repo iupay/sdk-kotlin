@@ -44,6 +44,14 @@ object Utils {
     }
 
     @JvmStatic
+    fun parseColorFilter(color: Int): ColorFilter {
+        return PorterDuffColorFilter(
+            color,
+            PorterDuff.Mode.SRC_ATOP
+        )
+    }
+
+    @JvmStatic
     fun parseColorFilter(color: String): ColorFilter {
         return PorterDuffColorFilter(
             Color.parseColor(color),

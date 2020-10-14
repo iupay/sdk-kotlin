@@ -375,9 +375,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
                 android:focusable="auto"
                 android:textOff="@string/bcard_inativo"
                 android:textOn="@string/bcard_ativo"
+                app:layout_constraintBottom_toTopOf="@+id/accountPaymentScheduleButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/accountTvDebitoAutomatico"
@@ -389,13 +391,13 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/ic_btn_secondary_selector"
                 android:text="@string/account_recusar_a_conta"
                 android:textAllCaps="false"
                 android:textColor="@color/superdda_btn_secondary"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico"
+                app:layout_constraintTop_toBottomOf="@+id/accountPaymentScheduleButton"
                 app:layout_constraintWidth_percent="0.42" />
 
             <Button
@@ -404,7 +406,7 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/ic_btn_secondary_selector"
@@ -414,7 +416,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/accountBtnRecusar"
-                app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico"
+                app:layout_constraintTop_toBottomOf="@+id/accountPaymentScheduleButton"
                 app:layout_constraintWidth_percent="0.46" />
 
             <Button
@@ -444,6 +446,23 @@
                 app:layout_constraintStart_toEndOf="@+id/accountBtnHistoricoPagamentos"
                 app:layout_constraintTop_toBottomOf="@+id/accountBtnRecusar"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/accountPaymentScheduleButton"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ic_btn_primary_selector"
+                android:text="Pagar / Agendar"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTvDebitoAutomatico" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
