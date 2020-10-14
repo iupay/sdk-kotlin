@@ -11,10 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.widget.SwitchCompat
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
@@ -29,7 +25,6 @@ import com.superddaiupay.Utils
 import com.superddaiupay.popups.AccountPopupFragment
 import com.superddaiupay.popups.PopupParams
 import kotlinx.android.synthetic.main.fragment_account_details.*
-import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.logging.Logger
@@ -64,48 +59,28 @@ class AccountDetailsFragment : Fragment() {
                 }
             }
         )
-        val companyName = view.findViewById<TextView>(R.id.accountTvCompanyName)
-        val cnpj = view.findViewById<TextView>(R.id.accountTvCnpj)
-        val cardNumber = view.findViewById<TextView>(R.id.accountTvCartao)
-        val billDate = view.findViewById<TextView>(R.id.accountTvMes)
-        val value = view.findViewById<TextView>(R.id.accountTvValor)
-        val minimumPaymentValue = view.findViewById<TextView>(R.id.accountTvPagamnetoMinimo)
-        val dueDate = view.findViewById<TextView>(R.id.accountTvVencimento)
-        val barCode = view.findViewById<TextView>(R.id.accountTvCodigoDeBarras)
-        val accountTvDebitoAutomatico = view.findViewById<TextView>(R.id.accountTvDebitoAutomatico)
-        val accountSwDebitoAutomatico =
-            view.findViewById<SwitchCompat>(R.id.accountSwDebitoAutomatico)
-        val accountClChartBottom = view.findViewById<ConstraintLayout>(R.id.accountClChartBottom)
-        val accountChartDataText = view.findViewById<TextView>(R.id.accountChartDataText)
-        val accountChartDataValue = view.findViewById<TextView>(R.id.accountChartDataValue)
-        val accountClTitle = view.findViewById<ConstraintLayout>(R.id.accountClTitle)
-        val accountBtnPdf = view.findViewById<Button>(R.id.accountBtnPdf)
-        val accountBtnRecusar = view.findViewById<Button>(R.id.accountBtnRecusar)
-        val accountBtnVerDetalhes = view.findViewById<Button>(R.id.accountBtnVerDetalhes)
-        val accountTvHistoricoPagamentos =
-            view.findViewById<TextView>(R.id.accountTvHistoricoPagamentos)
+        return view
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val baseColor = Color.parseColor(params.baseColor ?: "#F78C49")
 
-        val baseColor = Color.parseColor(params.baseColor ?: "#8f06c3")
-        companyName.text = params.data?.companyName
-        cnpj.text = params.data?.cnpj
-        cardNumber.text = params.data?.cardNumber
-        billDate.text = params.data?.billDetails?.billDate
-        val nf = NumberFormat.getInstance(Locale("pt", "BR"))
-        nf.minimumFractionDigits = 2
-        value.text = nf.format(params.data?.billDetails?.value?.toDouble() ?: 0)
-        minimumPaymentValue.text = nf.format(
-            params.data?.billDetails?.minimumPaymentValue?.toDouble() ?: 0
-        )
-
+        accountTvCompanyName.text = params.data?.companyName
+        accountTvCnpj.text = params.data?.cnpj
+        accountTvCartao.text = params.data?.cardNumber
+        accountTvMes.text = params.data?.billDetails?.billDate
+        accountTvValor.text = Utils.formatMoney(params.data?.billDetails?.value)
+        accountTvPagamnetoMinimo.text =
+            Utils.formatMoney(params.data?.billDetails?.minimumPaymentValue)
         val dueDateVal = params.data?.billDetails?.dueDate
         if (dueDateVal != null) {
-            dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            accountTvVencimento.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 .format(dueDateVal).toUpperCase(Locale.ROOT)
         } else {
-            dueDate.text = ""
+            accountTvVencimento.text = ""
         }
-        barCode.text = params.data?.billDetails?.barCode
+        accountTvCodigoDeBarras.text = params.data?.billDetails?.barCode
 
         if (params.data?.isAutomaticDebit!!) {
             accountSwDebitoAutomatico.visibility = View.INVISIBLE
@@ -121,7 +96,7 @@ class AccountDetailsFragment : Fragment() {
         )
         accountChartDataText.setTextColor(baseColor)
         accountChartDataValue.setTextColor(baseColor)
-        companyName.setTextColor(baseColor)
+        accountTvCompanyName.setTextColor(baseColor)
         accountClTitle.background?.colorFilter = PorterDuffColorFilter(
             baseColor,
             PorterDuff.Mode.SRC_ATOP
@@ -171,26 +146,6 @@ class AccountDetailsFragment : Fragment() {
             )
         )
 
-        accountBtnVerDetalhes.setOnClickListener {
-            val popupParams = PopupParams()
-            popupParams.title = "Detalhes da conta"
-            popupParams.onClickClose = object : PopupParams.OnClickClose {
-                override fun onClickClose() {
-                    Logger.getLogger("AccountPopupFragment").info("Closed Click")
-                }
-            }
-            val popupFragment = AccountPopupFragment.newInstance(popupParams, params)
-            popupFragment.show(requireFragmentManager(), "missiles")
-            params.onClickViewAccountDetails?.onClick(it)
-        }
-
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val baseColor = Color.parseColor(params.baseColor ?: "#F78C49")
-
         accountBtnBack.setOnClickListener(params.onClickBack)
         accountBtnOptions.setOnClickListener(params.onClickOptions)
         accountIvCodigoCopy.setOnClickListener(params.onClickCopyBarcode)
@@ -213,6 +168,18 @@ class AccountDetailsFragment : Fragment() {
             accountIvUser.setImageResource(R.drawable.ic_user)
         } else {
             accountIvUser.setImageResource(R.drawable.ic_user_false)
+        }
+        accountBtnVerDetalhes.setOnClickListener {
+            val popupParams = PopupParams()
+            popupParams.title = "Detalhes da conta"
+            popupParams.onClickClose = object : PopupParams.OnClickClose {
+                override fun onClickClose() {
+                    Logger.getLogger("AccountPopupFragment").info("Closed Click")
+                }
+            }
+            val popupFragment = AccountPopupFragment.newInstance(popupParams, params)
+            popupFragment.show(requireFragmentManager(), "missiles")
+            params.onClickViewAccountDetails?.onClick(it)
         }
         accountTvHistoricoPagamentos.paintFlags = Paint.UNDERLINE_TEXT_FLAG
     }
