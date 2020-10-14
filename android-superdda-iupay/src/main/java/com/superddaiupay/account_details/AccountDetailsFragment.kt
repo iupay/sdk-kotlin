@@ -4,14 +4,11 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import androidx.core.graphics.drawable.DrawableCompat
+import android.view.ViewTreeObserver
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -25,10 +22,7 @@ import com.superddaiupay.Utils
 import com.superddaiupay.popups.AccountPopupFragment
 import com.superddaiupay.popups.PopupParams
 import kotlinx.android.synthetic.main.fragment_account_details.*
-import java.text.SimpleDateFormat
-import java.util.*
 import java.util.logging.Logger
-import kotlin.collections.ArrayList
 
 
 private const val ARG_PARAMS = "params"
@@ -44,7 +38,6 @@ class AccountDetailsFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,7 +45,7 @@ class AccountDetailsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_account_details, container, false)
         chart = view.findViewById(R.id.accountChart)
         chart.viewTreeObserver.addOnGlobalLayoutListener(
-            object : OnGlobalLayoutListener {
+            object : ViewTreeObserver.OnGlobalLayoutListener {
                 override fun onGlobalLayout() {
                     chart.viewTreeObserver.removeOnGlobalLayoutListener(this)
                     initLineChart()
@@ -62,10 +55,11 @@ class AccountDetailsFragment : Fragment() {
         return view
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val baseColor = Color.parseColor(params.baseColor ?: "#F78C49")
-
+        val baseColorFilter = Utils.parseColorFilter(baseColor)
         accountTvCompanyName.text = params.data?.companyName
         accountTvCnpj.text = params.data?.cnpj
         accountTvCartao.text = params.data?.cardNumber
@@ -73,13 +67,7 @@ class AccountDetailsFragment : Fragment() {
         accountTvValor.text = Utils.formatMoney(params.data?.billDetails?.value)
         accountTvPagamnetoMinimo.text =
             Utils.formatMoney(params.data?.billDetails?.minimumPaymentValue)
-        val dueDateVal = params.data?.billDetails?.dueDate
-        if (dueDateVal != null) {
-            accountTvVencimento.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                .format(dueDateVal).toUpperCase(Locale.ROOT)
-        } else {
-            accountTvVencimento.text = ""
-        }
+        accountTvVencimento.text = Utils.formatDate(params.data?.billDetails?.dueDate, "dd/MM/yyyy")
         accountTvCodigoDeBarras.text = params.data?.billDetails?.barCode
 
         if (params.data?.isAutomaticDebit!!) {
@@ -91,30 +79,20 @@ class AccountDetailsFragment : Fragment() {
             accountTvDebitoAutomatico.text = "Pagamento automático no dia do vencimento"
         }
 
-        accountClChartBottom.background?.colorFilter = PorterDuffColorFilter(
-            Utils.getColorWithAlpha(baseColor, 0.3f), PorterDuff.Mode.SRC_ATOP
-        )
+        accountClChartBottom.background?.colorFilter =
+            Utils.parseColorFilter(Utils.getColorWithAlpha(baseColor, 0.3f))
         accountChartDataText.setTextColor(baseColor)
         accountChartDataValue.setTextColor(baseColor)
         accountTvCompanyName.setTextColor(baseColor)
-        accountClTitle.background?.colorFilter = PorterDuffColorFilter(
-            baseColor,
-            PorterDuff.Mode.SRC_ATOP
-        )
+        accountClTitle.background?.colorFilter = baseColorFilter
         accountChartDataText.text = params.chartDataText ?: ""
         accountChartDataValue.text = params.chartDataValue ?: ""
         accountBtnPdf.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
-        accountBtnPdf.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params.baseColor), PorterDuff.Mode.SRC_ATOP
-        )
+        accountBtnPdf.background?.colorFilter = baseColorFilter
         accountBtnVerDetalhes.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
-        accountBtnVerDetalhes.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params.baseColor), PorterDuff.Mode.SRC_ATOP
-        )
+        accountBtnVerDetalhes.background?.colorFilter = baseColorFilter
         accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
-        accountBtnRecusar.background?.colorFilter = PorterDuffColorFilter(
-            Color.parseColor(params.baseColor), PorterDuff.Mode.SRC_ATOP
-        )
+        accountBtnRecusar.background?.colorFilter = baseColorFilter
 
         if (!params.pdfAvailable) {
             accountBtnPdf.isEnabled = false
@@ -124,27 +102,7 @@ class AccountDetailsFragment : Fragment() {
         }
 
         // ACTIVE SWITCH COLORS
-        val circleActiveColor = params.baseColor ?: "#f78733"
-        val circleInActiveColor = "#717171"
-        val backgroundActive =
-            Utils.getColorWithAlpha(Color.parseColor(circleActiveColor), 90f)
-        val backgroundInactive = "#b3b3b3"
-        DrawableCompat.setTintList(
-            accountSwDebitoAutomatico.trackDrawable, ColorStateList(
-                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
-                    backgroundActive,
-                    Color.parseColor(backgroundInactive) // 30% transparency (4D)
-                )
-            )
-        )
-        DrawableCompat.setTintList(
-            accountSwDebitoAutomatico.thumbDrawable, ColorStateList(
-                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
-                    Color.parseColor(circleActiveColor),
-                    Color.parseColor(circleInActiveColor)
-                )
-            )
-        )
+        Utils.setSwitchColor(accountSwDebitoAutomatico, baseColor)
 
         accountBtnBack.setOnClickListener(params.onClickBack)
         accountBtnOptions.setOnClickListener(params.onClickOptions)
@@ -153,7 +111,7 @@ class AccountDetailsFragment : Fragment() {
         accountSwDebitoAutomatico.setOnCheckedChangeListener(params.onSwitchAutoPaymentChange)
         accountPaymentScheduleButton.setOnClickListener(params.onClickPaymentScheduleButton)
         accountPaymentScheduleButton.setTextColor(Color.WHITE)
-        accountPaymentScheduleButton.background?.colorFilter = Utils.parseColorFilter(baseColor)
+        accountPaymentScheduleButton.background?.colorFilter = baseColorFilter
         if (params.data?.isAutomaticDebit!!) {
             accountPaymentScheduleButton.visibility = View.GONE
         }

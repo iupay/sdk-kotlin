@@ -1,9 +1,12 @@
 package com.superddaiupay
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import androidx.appcompat.widget.SwitchCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -66,5 +69,31 @@ object Utils {
         val g = Color.green(color)
         val b = Color.blue(color)
         return Color.argb(alpha, r, g, b)
+    }
+
+    @JvmStatic
+    fun setSwitchColor(
+        switch: SwitchCompat,
+        circleActiveColor: Int = Color.parseColor("#f78733"),
+        circleInactiveColor: Int = Color.parseColor("#717171")
+    ) {
+        val backgroundActive = getColorWithAlpha(circleActiveColor, 90f)
+        val backgroundInactive = getColorWithAlpha(circleInactiveColor, 90f)
+        DrawableCompat.setTintList(
+            switch.trackDrawable, ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
+                    backgroundActive,
+                    backgroundInactive // 30% transparency (4D)
+                )
+            )
+        )
+        DrawableCompat.setTintList(
+            switch.thumbDrawable, ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
+                    circleActiveColor,
+                    circleInactiveColor
+                )
+            )
+        )
     }
 }

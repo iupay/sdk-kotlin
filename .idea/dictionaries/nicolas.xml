@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="nicolas">
     <words>
+      <w>anteriores</w>
       <w>ativo</w>
       <w>autenticacao</w>
       <w>autenticação</w>
@@ -21,7 +22,11 @@
       <w>código</w>
       <w>debito</w>
       <w>descontos</w>
+      <w>detalhes</w>
+      <w>disponível</w>
       <w>documento</w>
+      <w>débito</w>
+      <w>faturas</w>
       <w>inativo</w>
       <w>juros</w>
       <w>lightbill</w>
@@ -32,6 +37,7 @@
       <w>pagador</w>
       <w>pagamento</w>
       <w>pago</w>
+      <w>resumo</w>
       <w>superdda</w>
       <w>superddaiupay</w>
       <w>vencimento</w>

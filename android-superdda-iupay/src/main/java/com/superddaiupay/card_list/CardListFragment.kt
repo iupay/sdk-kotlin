@@ -1,16 +1,16 @@
 package com.superddaiupay.card_list
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.superddaiupay.R
 import com.superddaiupay.Utils
+import kotlinx.android.synthetic.main.fragment_card_list.*
 import java.io.Serializable
 import java.util.logging.Logger
 
@@ -32,14 +32,14 @@ class CardListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_card_list, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Logger.getLogger(javaClass.toString()).info("Building Card List Fragment...")
 
-        val cardList: RecyclerView = view.findViewById(R.id.cardList)
-        val cardListCL: ConstraintLayout = view.findViewById(R.id.cardListCL)
-        val cardListTotalVal: TextView = view.findViewById(R.id.cardListTotalVal)
-        val cardListTotalPaymentText: TextView = view.findViewById(R.id.cardListTotalPaymentText)
+//        val cardList: RecyclerView = view.findViewById(R.id.cardList)
+//        val cardListCL: ConstraintLayout = view.findViewById(R.id.cardListCL)
+//        val cardListTotalPaymentText: TextView = view.findViewById(R.id.cardListTotalPaymentText)
         val layoutParams = cardList.layoutParams as ConstraintLayout.LayoutParams
 
         layoutParams.topMargin = 10
@@ -57,13 +57,12 @@ class CardListFragment : Fragment() {
                 )
             )
         }
-        cardListTotalPaymentText.text = cardListParams.totalPaymentText + ": R$ "
 
-        if (cardListParams.totalDueOnly) {
-            cardListTotalVal.text = Utils.formatMoney(cardListParams.getTotalDueOnlyValue())
-        } else {
-            cardListTotalVal.text = Utils.formatMoney(cardListParams.getTotalValue())
-        }
+        val value =
+            if (cardListParams.totalDueOnly) Utils.formatMoney(cardListParams.getTotalDueOnlyValue())
+            else Utils.formatMoney(cardListParams.getTotalValue())
+        cardListTotalPaymentText.text = cardListParams.totalPaymentText + ": R$ " + value
+
     }
 
     companion object {
