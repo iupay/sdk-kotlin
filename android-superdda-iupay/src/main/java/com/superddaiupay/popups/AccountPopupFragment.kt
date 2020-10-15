@@ -125,7 +125,7 @@ class AccountPopupFragment : DialogFragment() {
                     accountDetailsParams.data?.billDetails?.interestRateCET,
                     2
                 ) + "% aa"
-        rate2.text = "consulte o app na contratação \nJuros e mora em caso de atraso: " +
+        rate2.text = "consulte o app na contratação \njuros e mora em caso de atraso: \n" +
                 maxDecimalFormat(
                     accountDetailsParams.data?.billDetails?.interestInstallmentRate,
                     2

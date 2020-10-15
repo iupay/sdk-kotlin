@@ -54,7 +54,7 @@ class PaymentDetailsFragment : Fragment() {
         barCode.text = params?.barCode
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
-        value.text = nf.format(params?.value?.toDouble() ?: 0)
+        value.text = "R$ " + nf.format(params?.value?.toDouble() ?: 0)
         currentBalance.text = nf.format(params?.currentBalance?.toDouble() ?: 0)
         payWithType.text = params?.payWithType
         dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())

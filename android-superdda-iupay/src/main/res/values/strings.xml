@@ -73,4 +73,5 @@
     <string name="payment_details_vencimento">Vencimento</string>
     <string name="payment_details_agendado_para">Agendado para</string>
     <string name="account_ver_detalhes_da_conta">Ver detalhes da conta</string>
+    <string name="beneficiaryDetails_cartaoLabel">Cartão</string>
 </resources>

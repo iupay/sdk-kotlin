@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -60,14 +61,23 @@ class AccountDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val baseColor = Color.parseColor(params.baseColor ?: "#F78C49")
         val baseColorFilter = Utils.parseColorFilter(baseColor)
+        accountIvLogo.visibility = View.INVISIBLE
+        params.data?.companyLogo.let {
+            accountIvLogo.setImageBitmap(it)
+            accountIvLogo.visibility = View.VISIBLE
+            var logoLayout = accountIvLogo.layoutParams as ConstraintLayout.LayoutParams
+            logoLayout.matchConstraintMaxWidth = 200
+            logoLayout.matchConstraintMaxHeight = 150
+        }
         accountTvCompanyName.text = params.data?.companyName
-        accountTvCnpj.text = params.data?.cnpj
-        accountTvCartao.text = params.data?.cardNumber
+        accountTvCnpj.text = "CNPJ: " + params.data?.cnpj
+        accountTvCartao.text = "Cartão " + params.data?.cardNumber
         accountTvMes.text = params.data?.billDetails?.billDate
-        accountTvValor.text = Utils.formatMoney(params.data?.billDetails?.value)
+        accountTvValor.text = "R$ " + Utils.formatMoney(params.data?.billDetails?.value)
         accountTvPagamnetoMinimo.text =
-            Utils.formatMoney(params.data?.billDetails?.minimumPaymentValue)
-        accountTvVencimento.text = Utils.formatDate(params.data?.billDetails?.dueDate, "dd/MM/yyyy")
+            "R$ " + Utils.formatMoney(params.data?.billDetails?.minimumPaymentValue)
+        accountTvVencimento.text =
+            Utils.formatDate(params.data?.billDetails?.dueDate, "dd MMM yyyy")
         accountTvCodigoDeBarras.text = params.data?.billDetails?.barCode
 
         if (params.data?.isAutomaticDebit!!) {

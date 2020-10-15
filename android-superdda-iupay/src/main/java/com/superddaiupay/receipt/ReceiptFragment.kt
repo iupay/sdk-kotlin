@@ -58,11 +58,11 @@ class ReceiptFragment : Fragment() {
             .format(params?.paidDate as Date).toUpperCase(Locale.ROOT)
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
-        value.text = nf.format(params?.value?.toDouble() ?: 0)
+        value.text = "R$ " + nf.format(params?.value?.toDouble() ?: 0)
         discount.text = nf.format(params?.discount?.toDouble() ?: 0)
         interest.text = nf.format(params?.interest?.toDouble() ?: 0)
         fine.text = nf.format(params?.fine?.toDouble() ?: 0)
-        chargedValue.text = nf.format(params?.chargedValue?.toDouble() ?: 0)
+        chargedValue.text = "R$ " + nf.format(params?.chargedValue?.toDouble() ?: 0)
         authenticationCode.text = params?.authenticationCode
 
         if (params?.baseColor != null) {

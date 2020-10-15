@@ -57,7 +57,7 @@ class PaidDetailsFragment : Fragment() {
         }
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
-        value.text = nf.format(params?.value?.toDouble() ?: 0)
+        value.text = "R$ " + nf.format(params?.value?.toDouble() ?: 0)
         dueDate.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             .format(params?.dueDate as Date).toUpperCase(Locale.ROOT)
         paymentMessage.text = params?.paymentMessage

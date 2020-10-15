@@ -18,6 +18,7 @@ import com.superddaiupay.Utils
 import com.superddaiupay.payment_history.PaymentHistoryAdapter
 import com.superddaiupay.popups.BeneficiaryPopupFragment
 import com.superddaiupay.popups.PopupParams
+import kotlinx.android.synthetic.main.fragment_beneficiary_details.*
 import java.util.logging.Logger
 
 private const val ARG_PARAMS = "params"
@@ -61,6 +62,15 @@ class BeneficiaryDetailsFragment : Fragment() {
         val bColor = Color.parseColor(
             params?.baseColor ?: "#F78C49"
         )
+
+        beneficiaryDetailsIvLogo.visibility = View.INVISIBLE
+        params?.data?.companyLogo.let {
+            beneficiaryDetailsIvLogo.setImageBitmap(it)
+            beneficiaryDetailsIvLogo.visibility = View.VISIBLE
+            var logoLayout = beneficiaryDetailsIvLogo.layoutParams as ConstraintLayout.LayoutParams
+            logoLayout.matchConstraintMaxWidth = 200
+            logoLayout.matchConstraintMaxHeight = 150
+        }
 
         beneficiaryDetailsClFrame.setBackgroundColor(
             Color.parseColor(

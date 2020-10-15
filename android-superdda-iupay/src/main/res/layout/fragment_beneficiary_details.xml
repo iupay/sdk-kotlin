@@ -45,11 +45,14 @@
                 android:id="@+id/beneficiaryDetailsIvLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="12dp"
                 android:contentDescription="@string/paid_details_screen_image"
                 android:src="@drawable/ic_lightbill"
+                app:layout_constraintEnd_toStartOf="@+id/beneficiaryDetailsTvTitle"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsBtnBack"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,15 +60,15 @@
                 android:id="@+id/beneficiaryDetailsTvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:textColor="@color/superdda_text_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/beneficiaryDetailsBtnOptions"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsIvLogo"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,8 +128,8 @@
                 android:id="@+id/beneficiaryDetailsTvCnpj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/text_view"
                 android:textColor="@color/superdda_text_primary"
@@ -135,14 +138,24 @@
                 app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCompanyName" />
 
             <TextView
-                android:id="@+id/beneficiaryDetailsTvCartao"
+                android:id="@+id/beneficiaryDetailsTvCartaoLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:text="@string/beneficiaryDetails_cartaoLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCnpjLabel" />
+
+            <TextView
+                android:id="@+id/beneficiaryDetailsTvCartao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:text="@string/beneficiaryDetails_cartao"
                 android:textColor="@color/superdda_text_primary"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/beneficiaryDetailsTvCartaoLabel"
                 app:layout_constraintTop_toBottomOf="@+id/beneficiaryDetailsTvCnpjLabel" />
 
             <TextView

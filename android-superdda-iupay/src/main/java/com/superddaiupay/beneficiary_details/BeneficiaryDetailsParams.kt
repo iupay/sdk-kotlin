@@ -1,6 +1,9 @@
 package com.superddaiupay.beneficiary_details
 
+import android.content.Context
+import android.graphics.BitmapFactory
 import android.view.View
+import com.superddaiupay.R
 import com.superddaiupay.account_details.BillDetails
 import com.superddaiupay.account_details.PaymentHistory
 import java.io.Serializable
@@ -17,10 +20,12 @@ class BeneficiaryDetailsParams : Serializable {
 
     companion object {
         @JvmStatic
-        fun example(): BeneficiaryDetailsParams {
+        fun example(context: Context): BeneficiaryDetailsParams {
             val params = BeneficiaryDetailsParams()
             params.baseColor = "#8e05c2"
             params.data = BeneficiaryDetailsInfo()
+            params.data!!.companyLogo =
+                BitmapFactory.decodeResource(context.resources, R.raw.nubank)
             params.data!!.companyName = "Nu Pagamentos S.A."
             params.data!!.cnpj = "18.236.120/0001-58"
             params.data!!.cardNumber = "5162 **** **** 9090"

@@ -76,9 +76,9 @@ class BeneficiaryPopupFragment : DialogFragment() {
         }
         beneficiary.text = beneficiaryDetailsParams.data?.companyName
         beneficiary.setTextColor(Color.parseColor(beneficiaryDetailsParams.baseColor ?: "#727272"))
-        cnpj.text = beneficiaryDetailsParams.data?.cnpj
+        cnpj.text = "CNPJ " + beneficiaryDetailsParams.data?.cnpj
         name.text = beneficiaryDetailsParams.data?.cardHolderName
-        card.text = beneficiaryDetailsParams.data?.cardNumber
+        card.text = "Cartão " + beneficiaryDetailsParams.data?.cardNumber
         address.text = beneficiaryDetailsParams.data?.cardHolderAddress
         val nf = NumberFormat.getInstance(Locale("pt", "BR"))
         nf.minimumFractionDigits = 2
@@ -88,7 +88,7 @@ class BeneficiaryPopupFragment : DialogFragment() {
                 nf.format(
                     beneficiaryDetailsParams.data?.billDetails?.interestRateCET?.toDouble() ?: 0
                 ) + "% aa"
-        rate2.text = "consulte o app na contratação juros e mora em caso de atraso: " +
+        rate2.text = "consulte o app na contratação \njuros e mora em caso de atraso: \n" +
                 nf.format(
                     beneficiaryDetailsParams.data?.billDetails?.interestInstallmentRate?.toDouble()
                         ?: 0
