@@ -27,7 +27,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val featuredCard = CardParams.featuredCard()
+        val featuredCard = CardParams.featuredCard(requireContext())
         featuredCard.onClickCard = onClickCard()
 
         val defaultCard = CardParams.defaultCard()

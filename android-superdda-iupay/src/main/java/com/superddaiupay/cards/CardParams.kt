@@ -47,11 +47,13 @@ class CardParams : Serializable {
         const val DUE_TEXT = "Vencendo hoje"
         const val LOCKED_TEXT: String = "Boleto protegido por senha"
 
-        fun featuredCard(): CardParams {
+        fun featuredCard(context: Context): CardParams {
             val params = CardParams()
             params.featured = true
+            params.logo =  BitmapFactory.decodeResource(context.resources, R.raw.spotify)
+            params.imageWidth = 200
             params.barColor = "#1dd15d"
-            params.cardTitle = "CERJ"
+            params.cardTitle = "Spotify"
             params.cnpj = "99.9999.999.0001-99"
             params.dueDate = Calendar.getInstance().time
             params.isFromMail = true

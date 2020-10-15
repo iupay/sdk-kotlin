@@ -19,7 +19,49 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp">
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/cardIvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/card_logo_description"
+                android:filterTouchesWhenObscured="false"
+                android:foregroundGravity="fill"
+                android:minWidth="10dp"
+                android:minHeight="19dp"
+                android:overScrollMode="never"
+                android:scaleType="fitStart"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_min="wrap"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/cardTvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:minWidth="10dp"
+                android:minHeight="19dp"
+                android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@+id/cardIvLogo"
+                app:layout_constraintStart_toEndOf="@+id/cardIvLogo"
+                app:layout_constraintTop_toTopOf="@+id/cardIvLogo"
+                app:layout_constraintWidth_min="wrap"
+                tools:visibility="visible" />
+
 
             <TextView
                 android:id="@+id/cardTvCnpjLabel"
@@ -34,23 +76,6 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardIvLogo" />
-
-            <TextView
-                android:id="@+id/cardTvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:minWidth="10dp"
-                android:minHeight="19dp"
-                android:textStyle="bold"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintStart_toEndOf="@+id/cardIvLogo"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_min="wrap"
-                tools:visibility="visible" />
-
 
             <TextView
                 android:id="@+id/cardTvCnpjValue"
@@ -156,27 +181,6 @@
                 app:layout_constraintHorizontal_bias="0.99"
                 app:layout_constraintStart_toEndOf="@+id/cardTvTitle"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/cardIvLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/card_logo_description"
-                android:filterTouchesWhenObscured="false"
-                android:foregroundGravity="fill"
-                android:minWidth="10dp"
-                android:minHeight="19dp"
-                android:overScrollMode="never"
-                android:scaleType="fitStart"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_min="wrap"
-                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/cardTvIsPaid"

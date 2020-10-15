@@ -198,7 +198,6 @@ class CardUtils {
             cardTitle.text = CardParams.LOCKED_TEXT
             cardTitle.setTextColor(ContextCompat.getColor(context, R.color.card_lock_text))
             val cardTitleParams = (cardTitle.layoutParams as ConstraintLayout.LayoutParams)
-            cardTitleParams.topMargin = 80
             cardTitleParams.leftMargin = 30
 
             cnpjLabel.visibility = View.VISIBLE
