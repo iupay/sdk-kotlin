@@ -13,9 +13,17 @@ class BeneficiaryDetailsParams : Serializable {
     var historyReverse: Boolean = false
     var data: BeneficiaryDetailsInfo? = null
     var baseColor: String? = null
+
+    @Transient
     var onClickBack: View.OnClickListener? = null
+
+    @Transient
     var onClickOptions: View.OnClickListener? = null
+
+    @Transient
     var onClickViewCard: View.OnClickListener? = null
+
+    @Transient
     var onClickViewBeneficiaryDetails: View.OnClickListener? = null
 
     companion object {
@@ -34,6 +42,7 @@ class BeneficiaryDetailsParams : Serializable {
             params.data!!.cardHolderName = "Roberto de Oliveira Santos"
             params.data!!.cardHolderAddress =
                 "Avenida Sete de Setembro 32/1101 Icaraí - Niterói - RJ"
+            params.data!!.isFromIuPay = true
             params.data!!.billDetails = BillDetails()
             params.data!!.billDetails?.interestRate = 14
             params.data!!.billDetails?.interestRateCET = 385.17

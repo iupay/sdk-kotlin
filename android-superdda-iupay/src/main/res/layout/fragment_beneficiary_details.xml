@@ -254,6 +254,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="16dp"
+                        android:gravity="fill_vertical"
                         android:text="@string/beneficiary_details_acessar_cartao"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"

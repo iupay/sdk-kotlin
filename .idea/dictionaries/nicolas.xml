@@ -2,6 +2,7 @@
   <dictionary name="nicolas">
     <words>
       <w>anteriores</w>
+      <w>ativado</w>
       <w>ativo</w>
       <w>autenticacao</w>
       <w>autenticação</w>
@@ -9,6 +10,7 @@
       <w>automático</w>
       <w>barras</w>
       <w>bcard</w>
+      <w>beneficiário</w>
       <w>cartão</w>
       <w>cedent</w>
       <w>cedente</w>
@@ -21,6 +23,7 @@
       <w>conta</w>
       <w>código</w>
       <w>debito</w>
+      <w>desativado</w>
       <w>descontos</w>
       <w>detalhes</w>
       <w>disponível</w>

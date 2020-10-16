@@ -1,18 +1,16 @@
 package com.superddaiupay.beneficiary_details
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.superddaiupay.R
 import com.superddaiupay.Utils
 import com.superddaiupay.payment_history.PaymentHistoryAdapter
@@ -24,12 +22,12 @@ import java.util.logging.Logger
 private const val ARG_PARAMS = "params"
 
 class BeneficiaryDetailsFragment : Fragment() {
-    private var params: BeneficiaryDetailsParams? = null
+    private lateinit var params: BeneficiaryDetailsParams
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            params = it.getSerializable(ARG_PARAMS) as BeneficiaryDetailsParams?
+            params = it.getSerializable(ARG_PARAMS) as BeneficiaryDetailsParams
         }
     }
 
@@ -43,71 +41,58 @@ class BeneficiaryDetailsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val beneficiaryDetailsClFrame =
-            view.findViewById<ConstraintLayout>(R.id.beneficiaryDetailsClFrame)
-        val beneficiaryDetailsBtnDetails =
-            view.findViewById<Button>(R.id.beneficiaryDetailsBtnDetails)
-        val companyName = view.findViewById<TextView>(R.id.beneficiaryDetailsTvCompanyName)
-        val cnpj = view.findViewById<TextView>(R.id.beneficiaryDetailsTvCnpj)
-        val cardNumber = view.findViewById<TextView>(R.id.beneficiaryDetailsTvCartao)
-        val autoPayment = view.findViewById<TextView>(R.id.beneficiaryDetailsTvPagamentoAutomatico)
-        val authorizedLimit =
-            view.findViewById<TextView>(R.id.beneficiaryDetailsTvLimiteAutorizacao)
-        val cardHolderName = view.findViewById<TextView>(R.id.beneficiaryDetailsNome)
-        val btnDetails = view.findViewById<Button>(R.id.beneficiaryDetailsBtnDetails)
-        val paymentHistory = view.findViewById<RecyclerView>(R.id.beneficiaryDetailsRvHistory)
-        val beneficiaryDetailsAccessCard =
-            view.findViewById<TextView>(R.id.beneficiaryDetailsAccessCard)
-
-        val bColor = Color.parseColor(
-            params?.baseColor ?: "#F78C49"
+        val baseColor = Color.parseColor(params.baseColor ?: "#F78C49")
+        val baseColorFilter = Utils.parseColorFilter(baseColor)
+        beneficiaryDetailsBtnBack.setOnClickListener(params.onClickBack)
+        beneficiaryDetailsBtnOptions.setOnClickListener(params.onClickOptions)
+        beneficiaryDetailsAccessCard.setOnClickListener(params.onClickViewCard)
+        val states = arrayOf(
+            intArrayOf(android.R.attr.state_pressed),
+            intArrayOf(android.R.attr.state_enabled)
         )
-
+        val colors = intArrayOf(Utils.getColorWithAlpha(baseColor, 0.4f), baseColor)
+        beneficiaryDetailsAccessCard.setTextColor(ColorStateList(states, colors))
         beneficiaryDetailsIvLogo.visibility = View.INVISIBLE
-        params?.data?.companyLogo.let {
+        params.data?.companyLogo.let {
             beneficiaryDetailsIvLogo.setImageBitmap(it)
             beneficiaryDetailsIvLogo.visibility = View.VISIBLE
-            var logoLayout = beneficiaryDetailsIvLogo.layoutParams as ConstraintLayout.LayoutParams
+            val logoLayout =
+                beneficiaryDetailsIvLogo.layoutParams as ConstraintLayout.LayoutParams
             logoLayout.matchConstraintMaxWidth = 200
             logoLayout.matchConstraintMaxHeight = 150
         }
-
-        beneficiaryDetailsClFrame.setBackgroundColor(
-            Color.parseColor(
-                params?.baseColor ?: "#40F78C49"
-            )
-        )
-        beneficiaryDetailsBtnDetails.setTextColor(
-            bColor
-        )
-        autoPayment.setTextColor(
-            bColor
-        )
-        autoPayment.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        authorizedLimit.setTextColor(bColor)
-        authorizedLimit.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        beneficiaryDetailsBtnDetails.background?.colorFilter =
-            Utils.parseColorFilter(params?.baseColor ?: "#F78C49")
-        beneficiaryDetailsAccessCard.setTextColor(
-            bColor
-        )
-
-        companyName.text = params?.data?.companyName
-        cnpj.text = params?.data?.cnpj
-        cardNumber.text = params?.data?.cardNumber
-        if (params?.data?.autoPayment!!) {
-            autoPayment.text = "Ativado"
-        } else {
-            autoPayment.text = "Desativado"
+        if (params.data?.isFromIuPay == false) {
+            beneficiaryDetailsIvIuPay.visibility = View.GONE
         }
-        if (params?.data?.authorizedLimit!!) {
-            authorizedLimit.text = "Ativado"
+        if (params.data?.isUserAdded!!) {
+            beneficiaryDetailsIvUser.setImageResource(R.drawable.ic_user)
         } else {
-            authorizedLimit.text = "Desativado"
+            beneficiaryDetailsIvUser.setImageResource(R.drawable.ic_user_false)
+            beneficiaryDetailsIvUser.colorFilter = Utils.parseColorFilter("#c1272d")
         }
-        cardHolderName.text = params?.data?.cardHolderName
-
-        btnDetails.setOnClickListener {
+        beneficiaryDetailsClFrame.setBackgroundColor(baseColor)
+        beneficiaryDetailsTvLimiteAutorizacao.setTextColor(baseColor)
+        beneficiaryDetailsTvLimiteAutorizacao.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        beneficiaryDetailsTvPagamentoAutomatico.setTextColor(baseColor)
+        beneficiaryDetailsTvPagamentoAutomatico.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        beneficiaryDetailsTvCompanyName.text = params.data?.companyName
+        beneficiaryDetailsTvCompanyName.setTextColor(baseColor)
+        beneficiaryDetailsTvCnpj.text = params.data?.cnpj
+        beneficiaryDetailsTvCartao.text = params.data?.cardNumber
+        if (params.data?.autoPayment!!) {
+            beneficiaryDetailsTvPagamentoAutomatico.text = "Ativado"
+        } else {
+            beneficiaryDetailsTvPagamentoAutomatico.text = "Desativado"
+        }
+        if (params.data?.authorizedLimit!!) {
+            beneficiaryDetailsTvLimiteAutorizacao.text = "Ativado"
+        } else {
+            beneficiaryDetailsTvLimiteAutorizacao.text = "Desativado"
+        }
+        beneficiaryDetailsNome.text = params.data?.cardHolderName
+        beneficiaryDetailsBtnDetails.setTextColor(baseColor)
+        beneficiaryDetailsBtnDetails.background?.colorFilter = baseColorFilter
+        beneficiaryDetailsBtnDetails.setOnClickListener {
             val popupParams = PopupParams()
             popupParams.title = "Detalhes do Beneficiário"
             popupParams.onClickClose = object : PopupParams.OnClickClose {
@@ -115,16 +100,18 @@ class BeneficiaryDetailsFragment : Fragment() {
                     Logger.getLogger("BeneficiaryPopupFragment").info("Closed Click")
                 }
             }
-            val popupFragment = BeneficiaryPopupFragment.newInstance(popupParams, params!!)
+            val popupFragment =
+                BeneficiaryPopupFragment.newInstance(popupParams, params)
             popupFragment.show(requireFragmentManager(), "missiles")
+            params.onClickViewBeneficiaryDetails?.onClick(it)
         }
-        paymentHistory.layoutManager = LinearLayoutManager(requireContext())
-        paymentHistory.adapter = PaymentHistoryAdapter(
-            requireContext(), params?.data?.paymentHistory ?: ArrayList(),
+        beneficiaryDetailsRvHistory.layoutManager = LinearLayoutManager(requireContext())
+        beneficiaryDetailsRvHistory.adapter = PaymentHistoryAdapter(
+            requireContext(), params.data?.paymentHistory ?: ArrayList(),
             5,
             5
         )
-        paymentHistory.adapter?.notifyDataSetChanged()
+        beneficiaryDetailsRvHistory.adapter?.notifyDataSetChanged()
     }
 
     companion object {

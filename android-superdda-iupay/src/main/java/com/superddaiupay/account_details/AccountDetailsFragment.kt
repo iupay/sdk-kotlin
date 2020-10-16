@@ -65,7 +65,7 @@ class AccountDetailsFragment : Fragment() {
         params.data?.companyLogo.let {
             accountIvLogo.setImageBitmap(it)
             accountIvLogo.visibility = View.VISIBLE
-            var logoLayout = accountIvLogo.layoutParams as ConstraintLayout.LayoutParams
+            val logoLayout = accountIvLogo.layoutParams as ConstraintLayout.LayoutParams
             logoLayout.matchConstraintMaxWidth = 200
             logoLayout.matchConstraintMaxHeight = 150
         }
@@ -79,7 +79,6 @@ class AccountDetailsFragment : Fragment() {
         accountTvVencimento.text =
             Utils.formatDate(params.data?.billDetails?.dueDate, "dd MMM yyyy")
         accountTvCodigoDeBarras.text = params.data?.billDetails?.barCode
-
         if (params.data?.isAutomaticDebit!!) {
             accountSwDebitoAutomatico.visibility = View.INVISIBLE
             accountTvDebitoAutomatico.text =
@@ -88,7 +87,6 @@ class AccountDetailsFragment : Fragment() {
             accountSwDebitoAutomatico.visibility = View.VISIBLE
             accountTvDebitoAutomatico.text = "Pagamento automático no dia do vencimento"
         }
-
         accountClChartBottom.background?.colorFilter =
             Utils.parseColorFilter(Utils.getColorWithAlpha(baseColor, 0.3f))
         accountChartDataText.setTextColor(baseColor)
@@ -103,17 +101,14 @@ class AccountDetailsFragment : Fragment() {
         accountBtnVerDetalhes.background?.colorFilter = baseColorFilter
         accountBtnRecusar.setTextColor(ColorStateList.valueOf(Color.parseColor(params.baseColor)))
         accountBtnRecusar.background?.colorFilter = baseColorFilter
-
         if (!params.pdfAvailable) {
             accountBtnPdf.isEnabled = false
             accountBtnPdf.text = "PDF da conta não disponível"
             accountBtnPdf.background?.colorFilter = Utils.parseColorFilter("#e8e8e8")
             accountBtnPdf.setTextColor(Color.WHITE)
         }
-
         // ACTIVE SWITCH COLORS
         Utils.setSwitchColor(accountSwDebitoAutomatico, baseColor)
-
         accountBtnBack.setOnClickListener(params.onClickBack)
         accountBtnOptions.setOnClickListener(params.onClickOptions)
         accountIvCodigoCopy.setOnClickListener(params.onClickCopyBarcode)
@@ -136,6 +131,7 @@ class AccountDetailsFragment : Fragment() {
             accountIvUser.setImageResource(R.drawable.ic_user)
         } else {
             accountIvUser.setImageResource(R.drawable.ic_user_false)
+            accountIvUser.colorFilter = Utils.parseColorFilter("#c1272d")
         }
         accountBtnVerDetalhes.setOnClickListener {
             val popupParams = PopupParams()
