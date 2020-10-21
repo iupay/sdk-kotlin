@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka'
 
 android {
     compileSdkVersion 30
@@ -25,6 +26,19 @@ android {
 
     repositories {
         maven { url 'https://jitpack.io' }
+    }
+}
+
+dokka {
+    outputFormat = 'html' // use 'javadoc' to get standard java docs
+    outputDirectory = "$project.rootProject.rootDir/javadoc"
+
+    configuration {
+        includeNonPublic = false
+        skipEmptyPackages = true
+        skipDeprecated = true
+        reportUndocumented = true
+        jdkVersion = 8
     }
 }
 
